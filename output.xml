@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.10.12 on linux)" generated="20231207 13:58:47.153" rpa="false" schemaversion="4">
+<suite id="s1" name="TC OneMesh" source="/home/ubuntu/PycharmProjects/MeshAP/TC_OneMesh.robot">
+<test id="s1-t1" name="1. Config Lan" line="30">
+<kw name="Login to ONE Mesh">
+<arg>${User_N}</arg>
+<arg>${PW}</arg>
+<kw name="Open Browser" library="SL">
+<arg>http://mesh-staging.vnpt-technology.vn:9000/login?error=2</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231207 13:58:47.238" level="INFO">Opening browser 'chrome' to base url 'http://mesh-staging.vnpt-technology.vn:9000/login?error=2'.</msg>
+<status status="PASS" starttime="20231207 13:58:47.238" endtime="20231207 13:58:57.858"/>
+</kw>
+<kw name="Reload Page" library="SL">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" starttime="20231207 13:58:57.858" endtime="20231207 13:58:57.933"/>
+</kw>
+<kw name="Input User Name OM">
+<arg>${User_N}</arg>
+<msg timestamp="20231207 13:58:57.937" level="FAIL">No keyword with name 'Input User Name OM' found.</msg>
+<status status="FAIL" starttime="20231207 13:58:57.937" endtime="20231207 13:58:57.937"/>
+</kw>
+<kw name="Input Password OM">
+<arg>${PW}</arg>
+<status status="NOT RUN" starttime="20231207 13:58:57.940" endtime="20231207 13:58:57.940"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>4</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231207 13:58:57.941" endtime="20231207 13:58:57.941"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SL">
+<arg>//button[@id='login-submit']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20231207 13:58:57.941" endtime="20231207 13:58:57.941"/>
+</kw>
+<kw name="Click Element" library="SL">
+<arg>//button[@id='login-submit']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231207 13:58:57.941" endtime="20231207 13:58:57.941"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>4</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231207 13:58:57.941" endtime="20231207 13:58:57.941"/>
+</kw>
+<kw name="Page Should Contain" library="SL">
+<arg>Welcome to the ONE MESH system</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" starttime="20231207 13:58:57.941" endtime="20231207 13:58:57.941"/>
+</kw>
+<status status="FAIL" starttime="20231207 13:58:47.238" endtime="20231207 13:58:57.941"/>
+</kw>
+<kw name="Access Device detail Ap Mesh OM">
+<arg>${Serial}</arg>
+<status status="NOT RUN" starttime="20231207 13:58:57.945" endtime="20231207 13:58:57.945"/>
+</kw>
+<status status="FAIL" starttime="20231207 13:58:47.237" endtime="20231207 13:58:57.945">No keyword with name 'Input User Name OM' found.</status>
+</test>
+<status status="FAIL" starttime="20231207 13:58:47.153" endtime="20231207 13:58:57.946"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="TC OneMesh">TC OneMesh</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20231207 13:58:47.237" level="ERROR">Error in file '/home/ubuntu/PycharmProjects/MeshAP/TC_OneMesh.robot' on line 6: Error in file '/home/ubuntu/PycharmProjects/MeshAP/venv/lib/Selenium_lib/OMesh.robot' on line 327: Resource file with 'Test Case' section is invalid.</msg>
+<msg timestamp="20231207 13:58:47.237" level="ERROR">Error in file '/home/ubuntu/PycharmProjects/MeshAP/TC_OneMesh.robot' on line 7: Resource file 'OMesh.robot' does not exist.</msg>
+</errors>
+</robot>
