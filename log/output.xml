@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.10.12 on linux)" generated="20231123 11:29:31.010" rpa="false" schemaversion="4">
+<suite id="s1" name="TC Mesh CreateRouterMode" source="/home/ubuntu/PycharmProjects/MeshAP/TC_Mesh_CreateRouterMode.robot">
+<test id="s1-t1" name="3.2 Check info MRE in Topology After Add Node" line="86">
+<kw name="Sleep" library="BuiltIn">
+<arg>120s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231123 11:31:31.192" level="INFO">Slept 2 minutes</msg>
+<status status="PASS" starttime="20231123 11:29:31.192" endtime="20231123 11:31:31.193"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\Check List Node should have MRE added</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231123 11:31:31.193" endtime="20231123 11:31:31.194"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SL">
+<arg>//img[@title = 'Detail Information']</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20231123 11:31:31.196" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg timestamp="20231123 11:31:31.197" level="FAIL">No browser is open.</msg>
+<status status="FAIL" starttime="20231123 11:31:31.194" endtime="20231123 11:31:31.199"/>
+</kw>
+<kw name="Click Element" library="SL">
+<arg>//img[@title = 'Detail Information']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231123 11:31:31.200" endtime="20231123 11:31:31.200"/>
+</kw>
+<kw name="Page Should Contain" library="SL">
+<arg>Mesh Devices Information</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" starttime="20231123 11:31:31.200" endtime="20231123 11:31:31.201"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\Check the list of Mesh devices that have the information of the MRE just added</arg>
+<arg>${MRE_Mac_Adress}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231123 11:31:31.201" endtime="20231123 11:31:31.201"/>
+</kw>
+<kw name="Page Should Contain" library="SL">
+<arg>CC:71:90:86:AF:28</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" starttime="20231123 11:31:31.201" endtime="20231123 11:31:31.202"/>
+</kw>
+<kw name="Page Should Contain" library="SL">
+<arg>${MRE_Mac_Adress}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" starttime="20231123 11:31:31.202" endtime="20231123 11:31:31.202"/>
+</kw>
+<kw name="Click Element" library="SL">
+<arg>//td[contains(text(),'${MRE_Name_defautl}')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231123 11:31:31.202" endtime="20231123 11:31:31.202"/>
+</kw>
+<kw name="Get Text" library="SL">
+<var>${Eth_MAC_Addr}</var>
+<arg>//label[@id='LB_ETHERNET_MAC']</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231123 11:31:31.202" endtime="20231123 11:31:31.203"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\Ethernet MAC Address: ${Eth_MAC_Addr}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231123 11:31:31.203" endtime="20231123 11:31:31.203"/>
+</kw>
+<kw name="Should Match" library="BuiltIn">
+<arg>${Eth_MAC_Addr}</arg>
+<arg>${MRE_Mac_Adress}</arg>
+<doc>Fails if the given ``string`` does not match the given ``pattern``.</doc>
+<status status="NOT RUN" starttime="20231123 11:31:31.203" endtime="20231123 11:31:31.204"/>
+</kw>
+<status status="FAIL" starttime="20231123 11:29:31.191" endtime="20231123 11:31:31.204">No browser is open.</status>
+</test>
+<status status="FAIL" starttime="20231123 11:29:31.012" endtime="20231123 11:31:31.204"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="TC Mesh CreateRouterMode">TC Mesh CreateRouterMode</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20231123 11:29:31.119" level="ERROR">Error in file '/home/ubuntu/PycharmProjects/MeshAP/TC_Mesh_CreateRouterMode.robot' on line 5: Importing library 'SshLibrary' failed: ModuleNotFoundError: No module named 'SshLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /home/ubuntu/.local/share/JetBrains/PyCharmCE2023.2/robotframework-intellij/lib/robotframework_debug_adapter
+  /home/ubuntu/PycharmProjects/MeshAP
+  /home/ubuntu/.local/share/JetBrains/PyCharmCE2023.2/robotframework-intellij/lib
+  /home/ubuntu/.local/share/JetBrains/PyCharmCE2023.2/robotframework-intellij/lib/robotframework_ls/vendored
+  /usr/lib/python310.zip
+  /usr/lib/python3.10
+  /usr/lib/python3.10/lib-dynload
+  /home/ubuntu/.local/lib/python3.10/site-packages
+  /usr/local/lib/python3.10/dist-packages
+  /usr/lib/python3/dist-packages</msg>
+<msg timestamp="20231123 11:29:31.176" level="ERROR">Error in file '/home/ubuntu/PycharmProjects/MeshAP/venv/lib/SSH_Lib/SSH_Connect_wifi.robot' on line 4: Resource file '../venv/lib/SSH_Lib/SSH_ping.robot' does not exist.</msg>
+<msg timestamp="20231123 11:29:31.176" level="ERROR">Error in file '/home/ubuntu/PycharmProjects/MeshAP/venv/lib/SSH_Lib/SSH_Connect_wifi.robot' on line 5: Resource file '../venv/lib/SSH_Lib/SSH_ping.robot' does not exist.</msg>
+</errors>
+</robot>
