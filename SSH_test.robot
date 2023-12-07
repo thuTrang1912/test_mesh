@@ -12,6 +12,7 @@ test
     SSHL.Open Connection   ${ssh_server_IP}
     ${login_output}     SSHL.Login             ubuntu    1
     Should Contain          ${login_output}     ${ssh_server_username}
+
 #    Log To Console    SU
 #    SSHL.Execute Command    su
 #    Log To Console    1
