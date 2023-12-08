@@ -1,64 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.10.12 on linux)" generated="20231207 13:58:47.153" rpa="false" schemaversion="4">
-<suite id="s1" name="TC OneMesh" source="/home/ubuntu/PycharmProjects/MeshAP/TC_OneMesh.robot">
-<test id="s1-t1" name="1. Config Lan" line="30">
-<kw name="Login to ONE Mesh">
-<arg>${User_N}</arg>
-<arg>${PW}</arg>
-<kw name="Open Browser" library="SL">
-<arg>http://mesh-staging.vnpt-technology.vn:9000/login?error=2</arg>
-<arg>chrome</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20231207 13:58:47.238" level="INFO">Opening browser 'chrome' to base url 'http://mesh-staging.vnpt-technology.vn:9000/login?error=2'.</msg>
-<status status="PASS" starttime="20231207 13:58:47.238" endtime="20231207 13:58:57.858"/>
+<robot generator="Robot 6.1.1 (Python 3.10.12 on linux)" generated="20231208 15:17:18.333" rpa="false" schemaversion="4">
+<suite id="s1" name="TC OM Connect to Staging" source="/home/ubuntu/PycharmProjects/MeshAP/TC_OM_Connect to Staging.robot">
+<test id="s1-t1" name="Test config" line="73">
+<kw name="Connect Mesh AP to Staging">
+<kw name="Open SSH Session Login To Local Machine" library="Variable">
+<kw name="Open Connection" library="SSHL">
+<arg>${ssh_server_IP}</arg>
+<doc>Opens a new SSH connection to the given ``host`` and ``port``.</doc>
+<status status="PASS" starttime="20231208 15:17:18.506" endtime="20231208 15:17:18.507"/>
 </kw>
-<kw name="Reload Page" library="SL">
-<doc>Simulates user reloading page.</doc>
-<status status="PASS" starttime="20231207 13:58:57.858" endtime="20231207 13:58:57.933"/>
+<kw name="Login" library="SSHL">
+<var>${login_output}</var>
+<arg>${ssh_server_username}</arg>
+<arg>${ssh_server_PW}</arg>
+<doc>Logs into the SSH server with the given ``username`` and ``password``.</doc>
+<msg timestamp="20231208 15:17:18.507" level="INFO">Logging into '192.168.88.200:22' as 'ubuntu'.</msg>
+<msg timestamp="20231208 15:17:21.510" level="FAIL">TimeoutError: timed out</msg>
+<status status="FAIL" starttime="20231208 15:17:18.507" endtime="20231208 15:17:21.513"/>
 </kw>
-<kw name="Input User Name OM">
-<arg>${User_N}</arg>
-<msg timestamp="20231207 13:58:57.937" level="FAIL">No keyword with name 'Input User Name OM' found.</msg>
-<status status="FAIL" starttime="20231207 13:58:57.937" endtime="20231207 13:58:57.937"/>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${login_output}</arg>
+<arg>${ssh_server_username}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="NOT RUN" starttime="20231208 15:17:21.513" endtime="20231208 15:17:21.513"/>
 </kw>
-<kw name="Input Password OM">
-<arg>${PW}</arg>
-<status status="NOT RUN" starttime="20231207 13:58:57.940" endtime="20231207 13:58:57.940"/>
+<kw name="Execute Command" library="SSHL">
+<arg>sudo su</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="NOT RUN" starttime="20231208 15:17:21.513" endtime="20231208 15:17:21.513"/>
+</kw>
+<kw name="Write" library="SSHL">
+<arg>1</arg>
+<doc>Writes the given ``text`` on the remote machine and appends a newline.</doc>
+<status status="NOT RUN" starttime="20231208 15:17:21.513" endtime="20231208 15:17:21.513"/>
+</kw>
+<status status="FAIL" starttime="20231208 15:17:18.506" endtime="20231208 15:17:21.514"/>
+</kw>
+<kw name="SSH to Mesh Ap">
+<arg>${SSH_ip}</arg>
+<arg>${SSH_PW}</arg>
+<status status="NOT RUN" starttime="20231208 15:17:21.514" endtime="20231208 15:17:21.514"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
-<arg>4</arg>
+<arg>5</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" starttime="20231207 13:58:57.941" endtime="20231207 13:58:57.941"/>
+<status status="NOT RUN" starttime="20231208 15:17:21.514" endtime="20231208 15:17:21.514"/>
 </kw>
-<kw name="Wait Until Element Is Visible" library="SL">
-<arg>//button[@id='login-submit']</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" starttime="20231207 13:58:57.941" endtime="20231207 13:58:57.941"/>
-</kw>
-<kw name="Click Element" library="SL">
-<arg>//button[@id='login-submit']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" starttime="20231207 13:58:57.941" endtime="20231207 13:58:57.941"/>
+<kw name="Write" library="SSHL">
+<arg>cat /etc/config/easycwmp</arg>
+<doc>Writes the given ``text`` on the remote machine and appends a newline.</doc>
+<status status="NOT RUN" starttime="20231208 15:17:21.514" endtime="20231208 15:17:21.514"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
-<arg>4</arg>
+<arg>10</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" starttime="20231207 13:58:57.941" endtime="20231207 13:58:57.941"/>
+<status status="NOT RUN" starttime="20231208 15:17:21.514" endtime="20231208 15:17:21.514"/>
 </kw>
-<kw name="Page Should Contain" library="SL">
-<arg>Welcome to the ONE MESH system</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="NOT RUN" starttime="20231207 13:58:57.941" endtime="20231207 13:58:57.941"/>
+<kw name="Read" library="SSHL">
+<var>${Log}</var>
+<doc>Consumes and returns everything available on the server output.</doc>
+<status status="NOT RUN" starttime="20231208 15:17:21.514" endtime="20231208 15:17:21.514"/>
 </kw>
-<status status="FAIL" starttime="20231207 13:58:47.238" endtime="20231207 13:58:57.941"/>
+<kw name="Log" library="BuiltIn">
+<arg>${Log}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20231208 15:17:21.514" endtime="20231208 15:17:21.514"/>
 </kw>
-<kw name="Access Device detail Ap Mesh OM">
-<arg>${Serial}</arg>
-<status status="NOT RUN" starttime="20231207 13:58:57.945" endtime="20231207 13:58:57.945"/>
+<kw name="Replace String" library="STR">
+<var>${New_Log}</var>
+<arg>${Log}</arg>
+<arg>mesh</arg>
+<arg>mesh-staging</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="NOT RUN" starttime="20231208 15:17:21.514" endtime="20231208 15:17:21.514"/>
 </kw>
-<status status="FAIL" starttime="20231207 13:58:47.237" endtime="20231207 13:58:57.945">No keyword with name 'Input User Name OM' found.</status>
+<kw name="Log" library="BuiltIn">
+<arg>${New_Log}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20231208 15:17:21.514" endtime="20231208 15:17:21.514"/>
+</kw>
+<kw name="Write" library="SSHL">
+<var>${result}</var>
+<arg>echo "${New_Log}" &gt;&gt; ${Config_path}</arg>
+<doc>Writes the given ``text`` on the remote machine and appends a newline.</doc>
+<status status="NOT RUN" starttime="20231208 15:17:21.514" endtime="20231208 15:17:21.514"/>
+</kw>
+<kw name="Write" library="SSHL">
+<var>${final_Result}</var>
+<arg>cat /etc/config/easycwmp</arg>
+<doc>Writes the given ``text`` on the remote machine and appends a newline.</doc>
+<status status="NOT RUN" starttime="20231208 15:17:21.514" endtime="20231208 15:17:21.514"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${final_Result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20231208 15:17:21.514" endtime="20231208 15:17:21.514"/>
+</kw>
+<status status="FAIL" starttime="20231208 15:17:18.506" endtime="20231208 15:17:21.514"/>
+</kw>
+<status status="FAIL" starttime="20231208 15:17:18.506" endtime="20231208 15:17:21.515">TimeoutError: timed out</status>
 </test>
-<status status="FAIL" starttime="20231207 13:58:47.153" endtime="20231207 13:58:57.946"/>
+<status status="FAIL" starttime="20231208 15:17:18.334" endtime="20231208 15:17:21.515"/>
 </suite>
 <statistics>
 <total>
@@ -67,11 +109,9 @@
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="TC OneMesh">TC OneMesh</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="TC OM Connect to Staging">TC OM Connect to Staging</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20231207 13:58:47.237" level="ERROR">Error in file '/home/ubuntu/PycharmProjects/MeshAP/TC_OneMesh.robot' on line 6: Error in file '/home/ubuntu/PycharmProjects/MeshAP/venv/lib/Selenium_lib/OMesh.robot' on line 327: Resource file with 'Test Case' section is invalid.</msg>
-<msg timestamp="20231207 13:58:47.237" level="ERROR">Error in file '/home/ubuntu/PycharmProjects/MeshAP/TC_OneMesh.robot' on line 7: Resource file 'OMesh.robot' does not exist.</msg>
 </errors>
 </robot>

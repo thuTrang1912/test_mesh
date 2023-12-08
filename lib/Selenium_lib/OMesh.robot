@@ -245,10 +245,3 @@ Backup config
 	Click Element                       //button[@class="btn btn-primary btnBackupDevice"]
 
 
-*** Test case ***
-test
-	Set Selenium Speed                  0.5
-	Login to ONE Mesh                   one            one@2019
-	Access Device detail                ${Serial}
-	Go to Config WAN
-	Edit WAN PPPoE for Wan Index        nsi2        ansv
