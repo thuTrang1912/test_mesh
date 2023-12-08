@@ -40,7 +40,7 @@ Access Device detail
 	Input Text                          //input[@name= 'serialNumber']    ${Serial}
 	Click Element                       //button[contains(@type,'submit')]//i[contains(@class,'icon-search4')]
 	Sleep                               5
-	Click Element                       //a[contains(text(),'EW_0b44ac')]
+	Click Element                       //span[contains(text(),'Online')]
 	Sleep                               3
 	Page Should Contain                 Device Information
 	Page Should Contain                 ${Serial}
@@ -100,29 +100,29 @@ Enable Guest SSID 24G
 	Click Element                       //button[contains(@class,'btn-primary')]//span[contains(@class,'glyphicon glyphicon-plus-sign')]
 
 	Log To Console                      \n Input SSID 2.4G: {New_ssid}
-	Input Text                          //body[contains(@class,'pace-done')]/div[contains(@class,'page-container')]/div[contains(@class,'page-content')]/div[contains(@class,'content-wrapper')]/div[contains(@class,'panel-flat')]/div[contains(@class,'panel panel-flat panel-margin-footer')]/div[contains(@class,'panel-body')]/div[contains(@class,'tabbable')]/div[contains(@class,'tab-content')]/div[@id='device-wifi-tab']/div[contains(@class,'row ng-scope')]/form[contains(@class,'deviceProfileForm ng-valid-max ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid-min ng-dirty ng-valid-parse ng-invalid ng-invalid-required')]/div[7]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/input[1]     ${New_ssid}
+	Input Text                          //*[@id="device-wifi-tab"]/div/form/div[7]/div/div[2]/table/tbody/tr[1]/td[2]/input     ${New_ssid}
 
 	Log To Console                      \n Select security mode: ${new_authen}
-	Select From List By Value            //select[contains(@class,'form-control ng-valid ng-not-empty ng-touched ng-dirty ng-valid-parse')]         ${new_authen}
+	Select From List By Value            //*[@id="device-wifi-tab"]/div/form/div[7]/div/div[2]/table/tbody/tr[2]/td[2]/select         ${new_authen}
 
 	Log To Console                      \nInput PW: ${New_PW}
-	Input Text                          //body[contains(@class,'pace-done')]/div[contains(@class,'page-container')]/div[contains(@class,'page-content')]/div[contains(@class,'content-wrapper')]/div[contains(@class,'panel-flat')]/div[contains(@class,'panel panel-flat panel-margin-footer')]/div[contains(@class,'panel-body')]/div[contains(@class,'tabbable')]/div[contains(@class,'tab-content')]/div[@id='device-wifi-tab']/div[contains(@class,'row ng-scope')]/form[contains(@class,'deviceProfileForm ng-valid-max ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid-min ng-dirty ng-valid-parse ng-invalid ng-invalid-required')]/div[7]/div[1]/div[2]/table[1]/tbody[1]/tr[3]/td[2]/input[1]    ${New_PW}
+	Input Text                          //*[@id="device-wifi-tab"]/div/form/div[7]/div/div[2]/table/tbody/tr[3]/td[2]/input    ${New_PW}
 	Click Button                        //button[@class="btn btn-icon btn-primary btnSaveWifi"]
 
 Enable Guest SSID 5G
 	[Arguments]                         ${New_ssid}     ${new_authen}       ${New_PW}
 
-	Log To Console                      \nAdd Guest SSID 24G
+	Log To Console                      \nAdd Guest SSID 5G
 	Click Element                       //button[contains(@class,'btn-success')]//span[contains(@class,'glyphicon glyphicon-plus-sign')]
 
-	Log To Console                      \n Input SSID 2.4G: {New_ssid}
-	Input Text                          //body[contains(@class,'pace-done')]/div[contains(@class,'page-container')]/div[contains(@class,'page-content')]/div[contains(@class,'content-wrapper')]/div[contains(@class,'panel-flat')]/div[contains(@class,'panel panel-flat panel-margin-footer')]/div[contains(@class,'panel-body')]/div[contains(@class,'tabbable')]/div[contains(@class,'tab-content')]/div[@id='device-wifi-tab']/div[contains(@class,'row ng-scope')]/form[contains(@class,'deviceProfileForm ng-valid-max ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid-min ng-dirty ng-valid-parse ng-invalid ng-invalid-required')]/div[8]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/input[1]     ${New_ssid}
+	Log To Console                      \n Input SSID 5G: {New_ssid}
+	Input Text                          //*[@id="device-wifi-tab"]/div/form/div[8]/div/div[2]/table/tbody/tr[1]/td[2]/input     ${New_ssid}
 
 	Log To Console                      \n Select security mode: ${new_authen}
-	Select From List By Value            //div[contains(@class,'panel panel-flat panelNgRepeat')]//div[contains(@class,'table-responsive')]//table[contains(@class,'table table-striped table-hover table-sm')]//tbody//tr//td[contains(@class,'ng-scope')]//select[contains(@class,'form-control ng-pristine ng-untouched ng-valid ng-not-empty')]         ${new_authen}
+	Select From List By Value            //*[@id="device-wifi-tab"]/div/form/div[8]/div/div[2]/table/tbody/tr[2]/td[2]/select         ${new_authen}
 
 	Log To Console                      \nInput PW: ${New_PW}
-	Input Text                          //body[contains(@class,'pace-done')]/div[contains(@class,'page-container')]/div[contains(@class,'page-content')]/div[contains(@class,'content-wrapper')]/div[contains(@class,'panel-flat')]/div[contains(@class,'panel panel-flat panel-margin-footer')]/div[contains(@class,'panel-body')]/div[contains(@class,'tabbable')]/div[contains(@class,'tab-content')]/div[@id='device-wifi-tab']/div[contains(@class,'row ng-scope')]/form[contains(@class,'deviceProfileForm ng-valid-max ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid-min ng-dirty ng-valid-parse ng-invalid ng-invalid-required')]/div[7]/div[1]/div[2]/table[1]/tbody[1]/tr[3]/td[2]/input[1]    ${New_PW}
+	Input Text                          //*[@id="device-wifi-tab"]/div/form/div[8]/div/div[2]/table/tbody/tr[3]/td[2]/input    ${New_PW}
 	Click Button                        //button[@class="btn btn-icon btn-primary btnSaveWifi"]
 
 Disable Guest 2.4
@@ -130,7 +130,7 @@ Disable Guest 2.4
 	Click Button                        //button[@class="btn btn-icon btn-primary btnSaveWifi"]
 
 Disable Guest 5g
-	Click Button                        //body[contains(@class,'pace-done')]/div[contains(@class,'page-container')]/div[contains(@class,'page-content')]/div[contains(@class,'content-wrapper')]/div[contains(@class,'panel-flat')]/div[contains(@class,'panel panel-flat panel-margin-footer')]/div[contains(@class,'panel-body')]/div[contains(@class,'tabbable')]/div[contains(@class,'tab-content')]/div[@id='device-wifi-tab']/div[contains(@class,'row ng-scope')]/form[contains(@class,'deviceProfileForm ng-valid-max ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid-min ng-dirty ng-valid-parse ng-invalid ng-invalid-required')]/div[7]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/input[1]
+	Click Button                        //*[@id="device-wifi-tab"]/div/form/div[8]/div/div[1]/div/ul/li[1]/a/i
 	Click Button                        //button[@class="btn btn-icon btn-primary btnSaveWifi"]
 
 ##################### VLAN ###########################
@@ -141,9 +141,9 @@ Add Vlan
 	FOR    ${i}    IN RANGE    1    3    1
 		Click Element       //button[@ng-click="addNewVlan()"]
 	END
-	Input Text    //body[contains(@class,'pace-done')]/div[contains(@class,'page-container')]/div[contains(@class,'page-content')]/div[contains(@class,'content-wrapper')]/div[contains(@class,'panel-flat')]/div[contains(@class,'panel panel-flat panel-margin-footer')]/div[contains(@class,'panel-body')]/div[contains(@class,'tabbable')]/div[contains(@class,'tab-content')]/div[@id='device-vlan-tab']/div[contains(@class,'ng-scope')]/form[contains(@class,'deviceProfileForm ng-pristine ng-valid ng-valid-min ng-valid-max ng-valid-required ng-valid-pattern')]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[2]/td[2]/input[1]     11
-	Input Text    //body[contains(@class,'pace-done')]/div[contains(@class,'page-container')]/div[contains(@class,'page-content')]/div[contains(@class,'content-wrapper')]/div[contains(@class,'panel-flat')]/div[contains(@class,'panel panel-flat panel-margin-footer')]/div[contains(@class,'panel-body')]/div[contains(@class,'tabbable')]/div[contains(@class,'tab-content')]/div[@id='device-vlan-tab']/div[contains(@class,'ng-scope')]/form[contains(@class,'deviceProfileForm ng-pristine ng-valid ng-valid-min ng-valid-max ng-valid-required ng-valid-pattern')]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[2]/td[2]/input[1]    12
-	Input Text    //body[contains(@class,'pace-done')]/div[contains(@class,'page-container')]/div[contains(@class,'page-content')]/div[contains(@class,'content-wrapper')]/div[contains(@class,'panel-flat')]/div[contains(@class,'panel panel-flat panel-margin-footer')]/div[contains(@class,'panel-body')]/div[contains(@class,'tabbable')]/div[contains(@class,'tab-content')]/div[@id='device-vlan-tab']/div[contains(@class,'ng-scope')]/form[contains(@class,'deviceProfileForm ng-pristine ng-valid ng-valid-min ng-valid-max ng-valid-required ng-valid-pattern')]/div[3]/div[1]/div[2]/table[1]/tbody[1]/tr[2]/td[2]/input[1]    60
+	Ipnut text              //*[@id="device-vlan-tab"]/div/form/div[1]/div/div[2]/table/tbody/tr[2]/td[2]/input     11
+	input text              //*[@id="device-vlan-tab"]/div/form/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/input     12
+	Input Text              //*[@id="device-vlan-tab"]/div/form/div[3]/div/div[2]/table/tbody/tr[2]/td[2]/input    60
 	Click element   //button[@class="btn btn-icon btn-primary btnSaveVlan"]
 
 Delete Vlan
@@ -163,8 +163,8 @@ Edit WWan DHCP for wan index
 	...                                 WAN Preferred DNS
 	...                                 WAN Second DNS
 	...                                 IPv6 Type
-	[Arguments]                         ${Type}         ${service}      ${DNS1}     ${DNS2}     ${TypeV6}
-	Select From List By Value           //select[@name="connection_type"][1]       ${Type}
+	[Arguments]                         ${service}      ${DNS1}     ${DNS2}     ${TypeV6}
+	Select From List By Value           //select[@name="connection_type"][1]       dhcp
 	Select From List By Value           //td[@class='my_space_td']//select[@class='form-control ng-valid ng-not-empty ng-valid-required ng-dirty ng-valid-parse ng-touched']        ${service}
 	Input Text                          //input[@ng-model="wan.preferredDns"][1]    ${DNS1}
 	Input Text                          //input[@ng-model="wan.alternateDns"][1]    ${DNS2}
@@ -176,9 +176,9 @@ Edit WWan DHCP for wan index
 
 Edit WAN PPPoE for Wan Index
 	[Arguments]                         ${User}         ${PW}
-	Select From List By Value           //select[@name="connection_type"][2]     pppoe
-	Input Text                          //input[@name="pppoeUsername"][2]    ${User}
-	Input Text                          //input[@name="pppoePassword"][2]    ${PW}
+	Select From List By Value           //select[@name="connection_type"][1]     pppoe
+	Input Text                          //input[@name="pppoeUsername"][1]    ${User}
+	Input Text                          //input[@name="pppoePassword"][1]    ${PW}
 	Click Element                       //button[@ng-click="updateWan()"]
 
 Edit WAN Static for Wan index
@@ -191,6 +191,52 @@ Edit WAN Static for Wan index
 	Input Text                          //input[@ng-model="wan.alternateDns"][1]    ${DNS2}
 	Click Element                       //button[@ng-click="updateWan()"]
 
+
+################## add wan ######################
+Click button Add Wan
+	Wait Until Element Is Visible          //i[@class="glyphicon glyphicon-plus-sign"]
+	Click Element                           //i[@class="glyphicon glyphicon-plus-sign"]
+
+Add Wan 1 DHCP OM
+	[Documentation]                     Edit WWAN0
+	...                                 Connection Type: dhcp, pppoe, static
+	...                                 Wan service: Ipv4, Ipv6, Dual
+	...                                 WAN Preferred DNS
+	...                                 WAN Second DNS
+	...                                 IPv6 Type
+	[Arguments]                         ${VLanID}       ${service}      ${DNS1}     ${DNS2}     ${TypeV6}
+	# Select Vlan ID
+	#${VL_vlue}                          Get Value
+	Select From List By Value           //*[@id="device-wan-tab"]/div/form/div/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/select     eth1.${VLanID}
+	Select From List By Value           //*[@id="device-wan-tab"]/div/form/div/div[2]/div/div[2]/table/tbody/tr[3]/td[2]/select       dhcp
+	Select From List By Value           //*[@id="device-wan-tab"]/div/form/div/div[2]/div/div[2]/table/tbody/tr[4]/td[2]/select        ${service}
+	Input Text                          //*[@id="device-wan-tab"]/div/form/div/div[2]/div/div[2]/table/tbody/tr[8]/td[2]/input    ${DNS1}
+	Input Text                          //*[@id="device-wan-tab"]/div/form/div/div[2]/div/div[2]/table/tbody/tr[9]/td[2]/input    ${DNS2}
+	${stt}                              Run Keyword And Return Status    Wait Until Element Is Visible    //*[@id="device-wan-tab"]/div/form/div/div[2]/div/div[2]/table/tbody/tr[12]/td[2]/select         5
+	IF    ${stt}
+	     Select From List By Label      //*[@id="device-wan-tab"]/div/form/div/div[2]/div/div[2]/table/tbody/tr[12]/td[2]/select       ${TypeV6}
+	END
+	Click Element                       //button[@ng-click="updateWan()"]
+
+Add Wan 2 PPPoE OM
+	[Arguments]                         ${VLanID}  ${User}         ${PW}
+	Select From List By Value           //*[@id="device-wan-tab"]/div/form/div/div[4]/div/div[2]/table/tbody/tr[2]/td[2]/select     eth1.${VLanID}
+	Select From List By Value           //*[@id="device-wan-tab"]/div/form/div/div[4]/div/div[2]/table/tbody/tr[3]/td[2]/select     pppoe
+	Input Text                          //*[@id="device-wan-tab"]/div/form/div/div[4]/div/div[2]/table/tbody/tr[13]/td[2]/input    ${User}
+	Input Text                          //*[@id="device-wan-tab"]/div/form/div/div[4]/div/div[2]/table/tbody/tr[14]/td[2]/input    ${PW}
+	Click Element                       //button[@ng-click="updateWan()"]
+
+Add Wan 3 Static OM
+	[Arguments]                         ${VlanID}       ${Service}      ${Addr}     ${Subnet}   ${IPGate}   ${DNS1}     ${DNS2}
+	Select From List By Value           //*[@id="device-wan-tab"]/div/form/div/div[5]/div/div[2]/table/tbody/tr[2]/td[2]/select     eth1.${VlanID}
+	Select From List By Value           //*[@id="device-wan-tab"]/div/form/div/div[5]/div/div[2]/table/tbody/tr[3]/td[2]/select     static
+	Select From List By Value           //*[@id="device-wan-tab"]/div/form/div/div[5]/div/div[2]/table/tbody/tr[4]/td[2]/select    ${Service}
+	Input Text                          //*[@id="device-wan-tab"]/div/form/div/div[5]/div/div[2]/table/tbody/tr[5]/td[2]/input    ${Addr}
+	Select From List By Value           //*[@id="device-wan-tab"]/div/form/div/div[5]/div/div[2]/table/tbody/tr[6]/td[2]/select         ${Subnet}
+	Input Text                          //*[@id="device-wan-tab"]/div/form/div/div[5]/div/div[2]/table/tbody/tr[7]/td[2]/input         ${IPGate}
+	Input Text                          //*[@id="device-wan-tab"]/div/form/div/div[5]/div/div[2]/table/tbody/tr[8]/td[2]/input        ${DNS1}
+	Input Text                          //*[@id="device-wan-tab"]/div/form/div/div[5]/div/div[2]/table/tbody/tr[9]/td[2]/input    ${DNS2}
+	Click Element                       //button[@ng-click="updateWan()"]
 ######################## Backup Config ####################
 Backup config
 	[Arguments]                         ${Backup_Name}
