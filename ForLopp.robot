@@ -12,6 +12,6 @@ Execute a for loop only three times
         Log To Console    ${robot}
     END
 #${a}        Set variable        WPA-PSK/ WPA2-PSK Mixed Mode
-	${a1}        Replace String    ${a}    ${a[9]}   ${EMPTY}
+	${a1}        Remove String    ${a}    ${a[8]}
 
 	Log To Console    ${a1}

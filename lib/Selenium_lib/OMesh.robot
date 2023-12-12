@@ -148,6 +148,9 @@ Enable Guest SSID 24G OM
 
 	Log To Console                      \nInput PW: ${New_PW}
 	Input Text                          //*[@id="device-wifi-tab"]/div/form/div[7]/div/div[2]/table/tbody/tr[3]/td[2]/input    ${New_PW}
+	#Click Button                        //button[@class="btn btn-icon btn-primary btnSaveWifi"]
+
+Click button Save Wifi
 	Click Button                        //button[@class="btn btn-icon btn-primary btnSaveWifi"]
 
 Verify Enable Guest SSID 24G OM
@@ -155,7 +158,7 @@ Verify Enable Guest SSID 24G OM
 	Log To Console                      \nVerify Edit Guest SSID 2.4g OM
 	${value_ssid}                       Get value       //*[@id="device-wifi-tab"]/div/form/div[7]/div/div[2]/table/tbody/tr[1]/td[2]/input
 	${value_mode}                       Get Selected List Label        //*[@id="device-wifi-tab"]/div/form/div[7]/div/div[2]/table/tbody/tr[2]/td[2]/select
-	${value_PW}                         Get Value       //input[@ng-model="mainSSID.password"]
+	${value_PW}                         Get Value       //*[@id="device-wifi-tab"]/div/form/div[7]/div/div[2]/table/tbody/tr[3]/td[2]/input
 	Should Match                        ${value_ssid}       ${New_ssid}
 	Should Match                        ${new_authen}       ${value_mode}
 	Should Match                        ${New_PW}           ${value_PW}
@@ -175,7 +178,7 @@ Enable Guest SSID 5G OM
 
 	Log To Console                      \nInput PW: ${New_PW}
 	Input Text                          //*[@id="device-wifi-tab"]/div/form/div[8]/div/div[2]/table/tbody/tr[3]/td[2]/input    ${New_PW}
-	Click Button                        //button[@class="btn btn-icon btn-primary btnSaveWifi"]
+	#Click Button                        //button[@class="btn btn-icon btn-primary btnSaveWifi"]
 
 Verify Edit Guest SSID 5G OM
 	[Arguments]                         ${New_ssid}     ${new_authen}       ${New_PW}
