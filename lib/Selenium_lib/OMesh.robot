@@ -73,10 +73,24 @@ Config Wifi Radio 2.4Ghz OM
 	...                                 bw: 20/40/ 20/40 MHz
 	...                                 CHANEL:
 	[Arguments]                         ${Standard}             ${Bandwidth}        ${Channel}
+	Log To Console                      \n Config Wifi Radio 2.4Ghz OM
 	Select From List By Value           //Select[@ng-change="radio24GhzUpdateBandwidth(1)"]     ${Standard}
 	Select From List By Value           //select[@ng-model="wifiRadio24Ghz.bandwidth"]          ${Bandwidth}
 	Select From List By Value           //select[@ng-model="wifiRadio24Ghz.channel"]            ${Channel}
+	Click Element                       //button[@class="btn btn-icon btn-primary btnSaveWifi"]
 
+Verify config Radio 2.4Ghz OM
+	[Arguments]                         ${Standard}             ${Bandwidth}        ${Channel}
+	Log To Console                      \n Verify config Radio 2.4Ghz OM
+	${Standard_value}                   Get Selected List Value     //Select[@ng-change="radio24GhzUpdateBandwidth(1)"]
+	${BW_value}                         Get Selected List Label      //select[@ng-model="wifiRadio24Ghz.bandwidth"]
+	${Channel_value}                    Get Selected List Value      //select[@ng-model="wifiRadio24Ghz.channel"]
+	Should Match                        ${Standard}         ${Standard_value}
+	Should Match                        ${Bandwidth}        ${BW_value}
+	Should Match                        ${Channel}          ${Channel_value}
+	Log To Console                      \n Config radio 2.4g Successfully
+
+	
 Config Wifi Radio 5Ghz OM
 	[Documentation]                     Config  Standard: a/na/ac/ax
 	...                                 bw: 20/40/80/160 MHz
@@ -85,7 +99,20 @@ Config Wifi Radio 5Ghz OM
 	Select From List By Value           //select[@ng-model="wifiRadio5Ghz.wlanStandard"]     ${Standard}
 	Select From List By Value           //select[@ng-model="wifiRadio5Ghz.bandwidth"]        ${Bandwidth}
 	Select From List By Value           //select[@ng-model="wifiRadio5Ghz.channel"]          ${Channel}
+	Click Element                       //button[@class="btn btn-icon btn-primary btnSaveWifi"]
 
+Verify config Radio 5Ghz OM
+	[Arguments]                         ${Standard}             ${Bandwidth}        ${Channel}
+	Log To Console                      \n Verify config Radio 5Ghz OM
+	${Standard_value}                   Get Selected List Value     //select[@ng-model="wifiRadio5Ghz.wlanStandard"]
+	${BW_value}                         Get Selected List Label      //select[@ng-model="wifiRadio5Ghz.bandwidth"]
+	${Channel_value}                    Get Selected List Value      //select[@ng-model="wifiRadio5Ghz.channel"]
+	Should Match                        ${Standard}         ${Standard_value}
+	Should Match                        ${Bandwidth}        ${BW_value}
+	Should Match                        ${Channel}          ${Channel_value}
+	Log To Console                      \n Config radio 5g Successfully
+
+################ SSID##############
 Edit Main SSID OM
 	[Documentation]                     Edit SSID: PW: AuthenMode:
 	[Arguments]                         ${New_ssid}     ${new_authen}       ${New_PW}
@@ -93,6 +120,19 @@ Edit Main SSID OM
 	Select From List By Value           //select[@ng-model="mainSSID.securityMode"]     ${new_authen}
 	Input Text                          //input[@ng-model="mainSSID.password"]    ${New_PW}
 	Click Button                        //button[@class="btn btn-icon btn-primary btnSaveWifi"]
+
+Verify Edit Main SSID OM
+	[Arguments]                         ${New_ssid}     ${new_authen}       ${New_PW}
+	Log To Console                      \nVerify Edit Main SSID OM
+	${value_ssid}                       Get value       //input[@ng-model="mainSSID.ssid"]
+	${value_mode}                       Get Value       //select[@ng-model="mainSSID.securityMode"]
+	${value_PW}                         Get Value       //input[@ng-model="mainSSID.password"]
+	Should Match                        ${value_ssid}       ${New_ssid}
+	Should Match                        ${new_authen}       ${value_mode}
+	Should Match                        ${New_PW}           ${value_PW}
+	Log to console                      \nConfig Main SSID successfully
+
+####### Guest ##############
 Enable Guest SSID 24G OM
 	[Arguments]                         ${New_ssid}     ${new_authen}       ${New_PW}
 
@@ -103,11 +143,22 @@ Enable Guest SSID 24G OM
 	Input Text                          //*[@id="device-wifi-tab"]/div/form/div[7]/div/div[2]/table/tbody/tr[1]/td[2]/input     ${New_ssid}
 
 	Log To Console                      \n Select security mode: ${new_authen}
-	Select From List By Value            //*[@id="device-wifi-tab"]/div/form/div[7]/div/div[2]/table/tbody/tr[2]/td[2]/select         ${new_authen}
+	Select From List By Label            //*[@id="device-wifi-tab"]/div/form/div[7]/div/div[2]/table/tbody/tr[2]/td[2]/select         ${new_authen}
 
 	Log To Console                      \nInput PW: ${New_PW}
 	Input Text                          //*[@id="device-wifi-tab"]/div/form/div[7]/div/div[2]/table/tbody/tr[3]/td[2]/input    ${New_PW}
 	Click Button                        //button[@class="btn btn-icon btn-primary btnSaveWifi"]
+
+Verify Enable Guest SSID 24G OM
+	[Arguments]                         ${New_ssid}     ${new_authen}       ${New_PW}
+	Log To Console                      \nVerify Edit Guest SSID 2.4g OM
+	${value_ssid}                       Get value       //*[@id="device-wifi-tab"]/div/form/div[7]/div/div[2]/table/tbody/tr[1]/td[2]/input
+	${value_mode}                       Get Selected List Label        //*[@id="device-wifi-tab"]/div/form/div[7]/div/div[2]/table/tbody/tr[2]/td[2]/select
+	${value_PW}                         Get Value       //input[@ng-model="mainSSID.password"]
+	Should Match                        ${value_ssid}       ${New_ssid}
+	Should Match                        ${new_authen}       ${value_mode}
+	Should Match                        ${New_PW}           ${value_PW}
+	Log to console                      \nConfig Guest 2.4g SSID successfully
 
 Enable Guest SSID 5G OM
 	[Arguments]                         ${New_ssid}     ${new_authen}       ${New_PW}
@@ -115,15 +166,26 @@ Enable Guest SSID 5G OM
 	Log To Console                      \nAdd Guest SSID 5G
 	Click Element                       //button[contains(@class,'btn-success')]//span[contains(@class,'glyphicon glyphicon-plus-sign')]
 
-	Log To Console                      \n Input SSID 5G: {New_ssid}
+	Log To Console                      \n Input SSID 5G: ${New_ssid}
 	Input Text                          //*[@id="device-wifi-tab"]/div/form/div[8]/div/div[2]/table/tbody/tr[1]/td[2]/input     ${New_ssid}
 
 	Log To Console                      \n Select security mode: ${new_authen}
-	Select From List By Value            //*[@id="device-wifi-tab"]/div/form/div[8]/div/div[2]/table/tbody/tr[2]/td[2]/select         ${new_authen}
+	Select From List By Label            //*[@id="device-wifi-tab"]/div/form/div[8]/div/div[2]/table/tbody/tr[2]/td[2]/select         ${new_authen}
 
 	Log To Console                      \nInput PW: ${New_PW}
 	Input Text                          //*[@id="device-wifi-tab"]/div/form/div[8]/div/div[2]/table/tbody/tr[3]/td[2]/input    ${New_PW}
 	Click Button                        //button[@class="btn btn-icon btn-primary btnSaveWifi"]
+
+Verify Edit Guest SSID 5G OM
+	[Arguments]                         ${New_ssid}     ${new_authen}       ${New_PW}
+	Log To Console                      \nVerify Edit Guest SSID 5g OM
+	${value_ssid}                       Get value       //*[@id="device-wifi-tab"]/div/form/div[8]/div/div[2]/table/tbody/tr[1]/td[2]/input
+	${value_mode}                       Get Selected List Label       //*[@id="device-wifi-tab"]/div/form/div[8]/div/div[2]/table/tbody/tr[2]/td[2]/select
+	${value_PW}                         Get Value       //*[@id="device-wifi-tab"]/div/form/div[8]/div/div[2]/table/tbody/tr[3]/td[2]/input
+	Should Match                        ${value_ssid}       ${New_ssid}
+	Should Match                        ${new_authen}       ${value_mode}
+	Should Match                        ${New_PW}           ${value_PW}
+	Log to console                      \nConfig Guest SSID 5g successfully
 
 Disable Guest 2.4 OM
 	Click Button                        //button[contains(@class,'btn btn-link padding-zero')]//i[contains(@class,'icon-trash')]

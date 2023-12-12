@@ -114,13 +114,13 @@ Handle Alert If Present
     Sleep    5
     SSH_Connect_wifi.Enable Wifi
     SSH_Connect_wifi.Delete All Wireless
-#    Wait Until Keyword Succeeds    180    5    SSH_Connect_wifi.Wifi Rescan Contain   ${Mesh_SSID}
-#    # Connect control PC to wifi
-#    ${wlan_interface}=                             	SSHL.Execute Command    nmcli --fields Device,Type device status | grep 'wifi' | awk '{print $1}'
-#    SSH_Connect_wifi.Connect To Wifi                                	${wlan_interface}    ${Mesh_SSID}    ${Mesh_PW}
-#    #check internet by Ping comment
-##    Ping From PC To         ${wlan_interface}               8.8.8.8
-#    SSH_ping.Ping Should Succeed    8.8.8.8   ${wlan_interface}
+    Wait Until Keyword Succeeds    180    5    SSH_Connect_wifi.Wifi Rescan Contain   ${Mesh_SSID}
+    # Connect control PC to wifi
+    ${wlan_interface}=                             	SSHL.Execute Command    nmcli --fields Device,Type device status | grep 'wifi' | awk '{print $1}'
+    SSH_Connect_wifi.Connect To Wifi                                	${wlan_interface}    ${Mesh_SSID}    ${Mesh_PW}
+    #check internet by Ping comment
+    Ping From PC To         ${wlan_interface}               8.8.8.8
+    SSH_ping.Ping Should Succeed    8.8.8.8   ${wlan_interface}
 
 
 
