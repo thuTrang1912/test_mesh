@@ -11,11 +11,11 @@ ${Serial}               44ac
 
 *** Keywords ***
 ######### Login ##############################
-Input User Name
+Input User Name OM
 	[Arguments]                                 ${User_N}
 	Wait Until Element Is Visible               //div[@class='form-group-login']//input[@type='text']
 	Input Text                                  //div[@class='form-group-login']//input[@type='text']    ${User_N}
-Input Password
+Input Password OM
 	[Arguments]                                 ${PW}
 	Wait Until Element Is Visible               //input[@type='password']
 	Input Text                                  //input[@type='password']       ${PW}
@@ -24,8 +24,8 @@ Login to ONE Mesh
 	[Arguments]                                 ${User_N}            ${PW}
 	Open Browser                        http://mesh-staging.vnpt-technology.vn:9000/login?error=2       chrome
     Reload Page
-    Input User Name                     ${User_N}
-    Input Password                      ${PW}
+    Input User Name OM                    ${User_N}
+    Input Password OM                     ${PW}
     #Click element                       //span[@class='glyphicon glyphicon-eye-open']
     Sleep    4
     Wait Until Element Is Visible       //button[@id='login-submit']
@@ -33,7 +33,7 @@ Login to ONE Mesh
     Sleep                               4
     Page Should Contain                 Welcome to the ONE MESH system
 
-Access Device detail
+Access Device detail OM
 	[Arguments]                         ${Serial}
 	Click Element                       //span[contains(text(),'Configuration')]
 	Wait Until Element Is Visible       //body[contains(@class,'pace-done')]/div[@class='page-container']/div[@class='page-content']/div[@class='content-wrapper']/div[@class='panel panel-flat']/div[@class='panel-body padding-panel-search']/form[@class='form-horizontal form-search row ng-pristine ng-valid ng-valid-maxlength']/div[@class='col-md-10']/div[2]/div[1]/div[1]/input[1]
@@ -46,12 +46,12 @@ Access Device detail
 	Page Should Contain                 ${Serial}
 
 ###### LAN ###########
-Go to lan config
+Go to lan config OM
 	Wait Until Element Is Visible       //a[@href='#device-lan-tab']
 	Click Element                       //a[@href='#device-lan-tab']
 	Sleep   5
 	Page Should Contain                 LAN Configuration
-Config Lan
+Config Lan OM
 	[Arguments]                         ${IP_ad}    ${SubNet}       ${StartIP}      ${NumIP}    ${Leasetime}
 	Input Text                          //input[@name="ipAddress"]          ${IP_ad}
 	Select From List by Value           //select[@name="subnetMask"]        ${SubNet}
@@ -62,13 +62,13 @@ Config Lan
 
 
 ######################## Config Wifi###########################
-Go to Config Wifi
+Go to Config Wifi OM
 	Wait Until Element Is Visible       //a[@href='#device-wifi-tab']
 	Click Element                       //a[@href='#device-wifi-tab']
 	Sleep    5
 	Page Should Contain                 Wifi Configuration
 
-Config Wifi Radio 2.4Ghz
+Config Wifi Radio 2.4Ghz OM
 	[Documentation]                     Config  Standard: g/ng/ax
 	...                                 bw: 20/40/ 20/40 MHz
 	...                                 CHANEL:
@@ -77,7 +77,7 @@ Config Wifi Radio 2.4Ghz
 	Select From List By Value           //select[@ng-model="wifiRadio24Ghz.bandwidth"]          ${Bandwidth}
 	Select From List By Value           //select[@ng-model="wifiRadio24Ghz.channel"]            ${Channel}
 
-Config Wifi Radio 5Ghz
+Config Wifi Radio 5Ghz OM
 	[Documentation]                     Config  Standard: a/na/ac/ax
 	...                                 bw: 20/40/80/160 MHz
 	...                                 CHANEL:
@@ -86,14 +86,14 @@ Config Wifi Radio 5Ghz
 	Select From List By Value           //select[@ng-model="wifiRadio5Ghz.bandwidth"]        ${Bandwidth}
 	Select From List By Value           //select[@ng-model="wifiRadio5Ghz.channel"]          ${Channel}
 
-Edit Main SSID
+Edit Main SSID OM
 	[Documentation]                     Edit SSID: PW: AuthenMode:
 	[Arguments]                         ${New_ssid}     ${new_authen}       ${New_PW}
 	Input Text                          //input[@ng-model="mainSSID.ssid"]    ${New_ssid}
 	Select From List By Value           //select[@ng-model="mainSSID.securityMode"]     ${new_authen}
 	Input Text                          //input[@ng-model="mainSSID.password"]    ${New_PW}
 	Click Button                        //button[@class="btn btn-icon btn-primary btnSaveWifi"]
-Enable Guest SSID 24G
+Enable Guest SSID 24G OM
 	[Arguments]                         ${New_ssid}     ${new_authen}       ${New_PW}
 
 	Log To Console                      \nAdd Guest SSID 24G
@@ -109,7 +109,7 @@ Enable Guest SSID 24G
 	Input Text                          //*[@id="device-wifi-tab"]/div/form/div[7]/div/div[2]/table/tbody/tr[3]/td[2]/input    ${New_PW}
 	Click Button                        //button[@class="btn btn-icon btn-primary btnSaveWifi"]
 
-Enable Guest SSID 5G
+Enable Guest SSID 5G OM
 	[Arguments]                         ${New_ssid}     ${new_authen}       ${New_PW}
 
 	Log To Console                      \nAdd Guest SSID 5G
@@ -125,38 +125,38 @@ Enable Guest SSID 5G
 	Input Text                          //*[@id="device-wifi-tab"]/div/form/div[8]/div/div[2]/table/tbody/tr[3]/td[2]/input    ${New_PW}
 	Click Button                        //button[@class="btn btn-icon btn-primary btnSaveWifi"]
 
-Disable Guest 2.4
+Disable Guest 2.4 OM
 	Click Button                        //button[contains(@class,'btn btn-link padding-zero')]//i[contains(@class,'icon-trash')]
 	Click Button                        //button[@class="btn btn-icon btn-primary btnSaveWifi"]
 
-Disable Guest 5g
+Disable Guest 5g OM
 	Click Button                        //*[@id="device-wifi-tab"]/div/form/div[8]/div/div[1]/div/ul/li[1]/a/i
 	Click Button                        //button[@class="btn btn-icon btn-primary btnSaveWifi"]
 
 ##################### VLAN ###########################
-Go to Config Vlan
+Go to Config Vlan OM
 	Click Element                       //a[contains(text(),'VLAN')]
 
-Add Vlan
+Add Vlan OM
 	FOR    ${i}    IN RANGE    1    3    1
 		Click Element       //button[@ng-click="addNewVlan()"]
 	END
-	Ipnut text              //*[@id="device-vlan-tab"]/div/form/div[1]/div/div[2]/table/tbody/tr[2]/td[2]/input     11
+	Input Text              //*[@id="device-vlan-tab"]/div/form/div[1]/div/div[2]/table/tbody/tr[2]/td[2]/input     11
 	input text              //*[@id="device-vlan-tab"]/div/form/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/input     12
-	Input Text              //*[@id="device-vlan-tab"]/div/form/div[3]/div/div[2]/table/tbody/tr[2]/td[2]/input    60
-	Click element   //button[@class="btn btn-icon btn-primary btnSaveVlan"]
+	Input Text              //*[@id="device-vlan-tab"]/div/form/div[3]/div/div[2]/table/tbody/tr[2]/td[2]/input     60
+	Click element           //button[@class="btn btn-icon btn-primary btnSaveVlan"]
 
-Delete Vlan
+Delete Vlan OM
 	Click Element           //i[@class="icon-trash"][1]
 	Click Element           //div[@class='modal fade modalDeleteVlan in']//div[@class='modal-dialog modal-sm']//div[@class='modal-content text-center']//div[@class='modal-footer text-center']//button[@class='btn btn-icon btn-warning btnSubmit']
 ########################## Config Wan ############################
-Go to Config WAN
+Go to Config WAN OM
 	Wait Until Element Is Visible       //a[contains(text(),'WAN')]
 	Click Element                       //a[contains(text(),'WAN')]
 	Sleep    5
 	Page Should Contain                 WAN configuration
 
-Edit WWan DHCP for wan index
+Edit WWan DHCP for wan index OM
 	[Documentation]                     Edit WWAN0
 	...                                 Connection Type: dhcp, pppoe, static
 	...                                 Wan service: Ipv4, Ipv6, Dual
@@ -174,14 +174,14 @@ Edit WWan DHCP for wan index
 	END
 	Click Element                       //button[@ng-click="updateWan()"]
 
-Edit WAN PPPoE for Wan Index
+Edit WAN PPPoE for Wan Index OM
 	[Arguments]                         ${User}         ${PW}
 	Select From List By Value           //select[@name="connection_type"][1]     pppoe
 	Input Text                          //input[@name="pppoeUsername"][1]    ${User}
 	Input Text                          //input[@name="pppoePassword"][1]    ${PW}
 	Click Element                       //button[@ng-click="updateWan()"]
 
-Edit WAN Static for Wan index
+Edit WAN Static for Wan index OM
 	[Arguments]                         ${Service}      ${Addr}     ${Subnet}   ${IPGate}   ${DNS1}     ${DNS2}
 	Select From List By Value           //select[@name="connection_type"][1]    ${Service}
 	Input Text                          //input[@name="ipAddress"][1]    ${Addr}
@@ -193,7 +193,7 @@ Edit WAN Static for Wan index
 
 
 ################## add wan ######################
-Click button Add Wan
+Click button Add Wan OM
 	Wait Until Element Is Visible          //i[@class="glyphicon glyphicon-plus-sign"]
 	Click Element                           //i[@class="glyphicon glyphicon-plus-sign"]
 
@@ -238,7 +238,7 @@ Add Wan 3 Static OM
 	Input Text                          //*[@id="device-wan-tab"]/div/form/div/div[5]/div/div[2]/table/tbody/tr[9]/td[2]/input    ${DNS2}
 	Click Element                       //button[@ng-click="updateWan()"]
 ######################## Backup Config ####################
-Backup config
+Backup config OM
 	[Arguments]                         ${Backup_Name}
 	Click element                       //span[contains(text(),'BACKUP')]
 	Input Text                          //input[@name="desciptionBackup"]       ${Backup_Name}

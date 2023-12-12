@@ -7,7 +7,7 @@ Resource                venv/lib/Variable.robot
 Resource                lib/Selenium_lib/OMesh.robot
 
 #run_on_failure=SL.Capture Page Screenshot
-Library    OperatingSystem
+Library                 OperatingSystem
 
 *** Variables ***
 ${User_N}       one
@@ -26,6 +26,7 @@ ${Mesh_defaul}              EW_0b52dc
 *** Keywords ***
 SSH to Mesh Ap
 	[Arguments]                     ${SSH_ip}           ${SSH_PW}
+	Log To Console                  \nSSH to Mesh AP
     ${Output}                       SSHL.write          sudo ssh ${SSH_ip}
     Sleep   5
     ${Out0}             Read
@@ -34,8 +35,9 @@ SSH to Mesh Ap
     SSHL.Write          ${SSH_PW}
     Sleep    5
     ${out}              SSHL.read
-    Sleep   3
+    Sleep    7
     Should Contain       ${out}       root@VNPT:
+    Log To Console                  \n SSH to Mesh AP succesfully
 
 
 
@@ -43,17 +45,20 @@ Connect Mesh AP to Staging
 	Open SSH Session Login To Local Machine
 	SSH to Mesh Ap              ${SSH_ip}           ${SSH_PW}
     Sleep    5
-    SSHL.Write          cat /etc/config/easycwmp
+    Log To Console              \n change config ACS
+    SSHL.Write                  cat /etc/config/easycwmp
     Sleep       10
-    ${Log}              SSHL.Read
-    Log                 ${Log}
-    ${New_Log}          STR.Replace String        ${Log}        mesh    mesh-staging
-    log                 ${New_Log}
-    #### ghi de lai file da sua va file cau hinh
-    ${result}=          SSHL.write         echo "${New_Log}" >> ${Config_path}
-    ${final_Result}     SSHL.write          cat /etc/config/easycwmp
-    Log                 ${final_Result}
-
+    ${Log}                      SSHL.Read
+    Log                         ${Log}
+    ${New_Log}                  STR.Replace String        ${Log}        mesh    mesh-staging
+    log                         ${New_Log}
+    #### Oevr rwite to file config: >
+    #SSHL.Execute Command        Remove ${Config_path}
+    Remove file                 ${Config_path}
+    Append To File              ${New_Log}  ${Config_path}
+    ${2}                        SSHL.Read
+	#SSHL.Write           reboot
+	${1}                 Read
 Check connect to staging successfully
 	[Arguments]                 ${Mesh_name_default}
 #	${Serial}            Split String        ${Mesh_defaul[-5:]}        _
@@ -72,10 +77,10 @@ Check connect to staging successfully
 *** Test Cases ***
 Test config
 	Connect Mesh AP to Staging
-#	Sleep       160
-#	Login to ONE Mesh               ${OM_User}            ${OM_PW}
-#	Check connect to staging successfully        EW_86af28
-#	@{s}            Split String        ${Mesh_defaul[-5:]}        _
-#	Log             @{s}
+	Sleep       160
+	Login to ONE Mesh               ${OM_User}            ${OM_PW}
+	Check connect to staging successfully        EW_86af28
+	@{s}            Split String        ${Mesh_defaul[-5:]}        _
+	Log             @{s}
 
 

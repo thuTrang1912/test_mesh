@@ -4,7 +4,7 @@ Library                      SeleniumLibrary            WITH NAME    SL
 Library                  OperatingSystem
 Library                  XML
 Resource                 venv/lib/Selenium_lib/OMesh.robot
-Resource                 MeshAP/venv/lib/Selenium_lib/OMesh.robot
+#Resource                 MeshAP/venv/lib/Selenium_lib/OMesh.robot
 
 *** Variables ***
 ${User_N}       one
@@ -17,6 +17,7 @@ Login to ONE Mesh
 	[Arguments]                                 ${User_N}            ${PW}
 	Open Browser                        http://mesh-staging.vnpt-technology.vn:9000/login?error=2       chrome
     Reload Page
+    Input User Name                      ${User_N}
     Input User Name OM                   ${User_N}
     Input Password OM                    ${PW}
     #Click element                       //span[@class='glyphicon glyphicon-eye-open']

@@ -1,70 +1,399 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.10.12 on linux)" generated="20231208 15:17:18.333" rpa="false" schemaversion="4">
+<robot generator="Robot 6.1.1 (Python 3.10.12 on linux)" generated="20231211 16:53:07.907" rpa="false" schemaversion="4">
 <suite id="s1" name="TC OM Connect to Staging" source="/home/ubuntu/PycharmProjects/MeshAP/TC_OM_Connect to Staging.robot">
-<test id="s1-t1" name="Test config" line="73">
+<test id="s1-t1" name="Test config" line="78">
 <kw name="Connect Mesh AP to Staging">
 <kw name="Open SSH Session Login To Local Machine" library="Variable">
 <kw name="Open Connection" library="SSHL">
 <arg>${ssh_server_IP}</arg>
 <doc>Opens a new SSH connection to the given ``host`` and ``port``.</doc>
-<status status="PASS" starttime="20231208 15:17:18.506" endtime="20231208 15:17:18.507"/>
+<status status="PASS" starttime="20231211 16:53:08.082" endtime="20231211 16:53:08.082"/>
 </kw>
 <kw name="Login" library="SSHL">
 <var>${login_output}</var>
 <arg>${ssh_server_username}</arg>
 <arg>${ssh_server_PW}</arg>
 <doc>Logs into the SSH server with the given ``username`` and ``password``.</doc>
-<msg timestamp="20231208 15:17:18.507" level="INFO">Logging into '192.168.88.200:22' as 'ubuntu'.</msg>
-<msg timestamp="20231208 15:17:21.510" level="FAIL">TimeoutError: timed out</msg>
-<status status="FAIL" starttime="20231208 15:17:18.507" endtime="20231208 15:17:21.513"/>
+<msg timestamp="20231211 16:53:08.083" level="INFO">Logging into '192.168.88.200:22' as 'ubuntu'.</msg>
+<msg timestamp="20231211 16:53:09.329" level="INFO">Read output: Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 6.2.0-37-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+Expanded Security Maintenance for Applications is not enabled.
+
+37 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
+
+Last login: Mon Dec 11 16:45:19 2023 from 192.168.88.200
+[?2004hubuntu@ubuntu-Vostro-3420:~$</msg>
+<msg timestamp="20231211 16:53:09.330" level="INFO">${login_output} = Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 6.2.0-37-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.c...</msg>
+<status status="PASS" starttime="20231211 16:53:08.082" endtime="20231211 16:53:09.330"/>
 </kw>
 <kw name="Should Contain" library="BuiltIn">
 <arg>${login_output}</arg>
 <arg>${ssh_server_username}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="NOT RUN" starttime="20231208 15:17:21.513" endtime="20231208 15:17:21.513"/>
+<status status="PASS" starttime="20231211 16:53:09.331" endtime="20231211 16:53:09.332"/>
 </kw>
 <kw name="Execute Command" library="SSHL">
 <arg>sudo su</arg>
 <doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
-<status status="NOT RUN" starttime="20231208 15:17:21.513" endtime="20231208 15:17:21.513"/>
+<msg timestamp="20231211 16:53:09.332" level="INFO">Executing command 'sudo su'.</msg>
+<msg timestamp="20231211 16:53:09.357" level="INFO">Command exited with return code 1.</msg>
+<status status="PASS" starttime="20231211 16:53:09.332" endtime="20231211 16:53:09.357"/>
 </kw>
 <kw name="Write" library="SSHL">
 <arg>1</arg>
 <doc>Writes the given ``text`` on the remote machine and appends a newline.</doc>
-<status status="NOT RUN" starttime="20231208 15:17:21.513" endtime="20231208 15:17:21.513"/>
+<msg timestamp="20231211 16:53:09.398" level="INFO">1</msg>
+<status status="PASS" starttime="20231211 16:53:09.357" endtime="20231211 16:53:09.398"/>
 </kw>
-<status status="FAIL" starttime="20231208 15:17:18.506" endtime="20231208 15:17:21.514"/>
+<status status="PASS" starttime="20231211 16:53:08.082" endtime="20231211 16:53:09.399"/>
 </kw>
 <kw name="SSH to Mesh Ap">
 <arg>${SSH_ip}</arg>
 <arg>${SSH_PW}</arg>
-<status status="NOT RUN" starttime="20231208 15:17:21.514" endtime="20231208 15:17:21.514"/>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSH to Mesh AP</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231211 16:53:09.400" endtime="20231211 16:53:09.400"/>
+</kw>
+<kw name="Write" library="SSHL">
+<var>${Output}</var>
+<arg>sudo ssh ${SSH_ip}</arg>
+<doc>Writes the given ``text`` on the remote machine and appends a newline.</doc>
+<msg timestamp="20231211 16:53:09.402" level="INFO">[?2004lsudo ssh 192.168.88.1</msg>
+<msg timestamp="20231211 16:53:09.403" level="INFO">${Output} = [?2004lsudo ssh 192.168.88.1
+</msg>
+<status status="PASS" starttime="20231211 16:53:09.400" endtime="20231211 16:53:09.403"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>5</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" starttime="20231208 15:17:21.514" endtime="20231208 15:17:21.514"/>
+<msg timestamp="20231211 16:53:14.404" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20231211 16:53:09.403" endtime="20231211 16:53:14.404"/>
+</kw>
+<kw name="Read" library="SSHL">
+<var>${Out0}</var>
+<doc>Consumes and returns everything available on the server output.</doc>
+<msg timestamp="20231211 16:53:14.405" level="INFO">1: command not found
+[?2004hubuntu@ubuntu-Vostro-3420:~$ sudo ssh 192.168.88.1
+[?2004l[sudo] password for ubuntu:</msg>
+<msg timestamp="20231211 16:53:14.406" level="INFO">${Out0} = 1: command not found
+[?2004hubuntu@ubuntu-Vostro-3420:~$ sudo ssh 192.168.88.1
+[?2004l[sudo] password for ubuntu: </msg>
+<status status="PASS" starttime="20231211 16:53:14.405" endtime="20231211 16:53:14.406"/>
+</kw>
+<kw name="Write" library="SSHL">
+<arg>1</arg>
+<doc>Writes the given ``text`` on the remote machine and appends a newline.</doc>
+<status status="PASS" starttime="20231211 16:53:14.406" endtime="20231211 16:53:14.408"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231211 16:53:17.410" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20231211 16:53:14.409" endtime="20231211 16:53:17.410"/>
+</kw>
+<kw name="Write" library="SSHL">
+<arg>${SSH_PW}</arg>
+<doc>Writes the given ``text`` on the remote machine and appends a newline.</doc>
+<msg timestamp="20231211 16:53:17.414" level="INFO">root@192.168.88.1's password:</msg>
+<status status="PASS" starttime="20231211 16:53:17.411" endtime="20231211 16:53:17.414"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231211 16:53:22.415" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20231211 16:53:17.414" endtime="20231211 16:53:22.415"/>
+</kw>
+<kw name="Read" library="SSHL">
+<var>${out}</var>
+<doc>Consumes and returns everything available on the server output.</doc>
+<msg timestamp="20231211 16:53:22.417" level="INFO">BusyBox v1.19.4 (2023-06-02 18:08:14 +07) built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+o         o o         o ooooooooo  ooooooooo ooooooooo               o
+o        o  oo        o o        o     o         o                   o
+o       o   o o       o o        o     o         o                   o
+o      o    o  o      o o        o     o         o                   o
+o     o     o   o     o ooooooooo      o         o       oo     oo   o
+o    o      o    o    o o              o         o      o  o   o  o  oooooo
+o   o       o     o   o o              o         o     o    o o      o     o
+o  o        o      o  o o              o         o     oooooo o      o     o
+o o         o       o o o              o         o     o      o      o     o
+oo          o        oo o              o         o      o  o   o  o  o     o
+o           o         o o              o         o       oo     oo   o     o
+
+root@VNPT:~#</msg>
+<msg timestamp="20231211 16:53:22.417" level="INFO">${out} = 
+
+BusyBox v1.19.4 (2023-06-02 18:08:14 +07) built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+o         o o         o ooooooooo  ooooooooo ooooooooo               o
+o        o ...</msg>
+<status status="PASS" starttime="20231211 16:53:22.416" endtime="20231211 16:53:22.417"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>7</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231211 16:53:29.418" level="INFO">Slept 7 seconds</msg>
+<status status="PASS" starttime="20231211 16:53:22.417" endtime="20231211 16:53:29.418"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${out}</arg>
+<arg>root@VNPT:</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20231211 16:53:29.419" endtime="20231211 16:53:29.420"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\n SSH to Mesh AP succesfully</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231211 16:53:29.420" endtime="20231211 16:53:29.421"/>
+</kw>
+<status status="PASS" starttime="20231211 16:53:09.399" endtime="20231211 16:53:29.421"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231211 16:53:34.422" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20231211 16:53:29.421" endtime="20231211 16:53:34.423"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\n change config ACS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231211 16:53:34.423" endtime="20231211 16:53:34.424"/>
 </kw>
 <kw name="Write" library="SSHL">
 <arg>cat /etc/config/easycwmp</arg>
 <doc>Writes the given ``text`` on the remote machine and appends a newline.</doc>
-<status status="NOT RUN" starttime="20231208 15:17:21.514" endtime="20231208 15:17:21.514"/>
+<msg timestamp="20231211 16:53:34.428" level="INFO">cat /etc/config/easycwmp</msg>
+<status status="PASS" starttime="20231211 16:53:34.424" endtime="20231211 16:53:34.428"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>10</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" starttime="20231208 15:17:21.514" endtime="20231208 15:17:21.514"/>
+<msg timestamp="20231211 16:53:44.429" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20231211 16:53:34.429" endtime="20231211 16:53:44.430"/>
 </kw>
 <kw name="Read" library="SSHL">
 <var>${Log}</var>
 <doc>Consumes and returns everything available on the server output.</doc>
-<status status="NOT RUN" starttime="20231208 15:17:21.514" endtime="20231208 15:17:21.514"/>
+<msg timestamp="20231211 16:53:44.431" level="INFO">config local
+	option interface 'auto'
+	option port '7547'
+	option ubus_socket '/var/run/ubus.sock'
+	option date_format '%FT%T%z'
+	option logging_level '3'
+
+config acs
+	option url 'http://mesh-staging.vnpt-technology.vn:8092'
+	option domain 'http://mesh-staging.vnpt-technology.vn'
+	option port '8092'
+	option username 'admin'
+	option password 'admin'
+	option periodic_enable '1'
+	option periodic_interval '21600'
+	option periodic_time '0001-01-01T00:00:00Z'
+
+config device
+	option oui 'FFFFFF'
+	option product_class 'EW12'
+	option hardware_version 'EW12ST000H0101'
+	option manufacturer 'VNPTT-VNPT'
+	option software_version 'QCA9558.LN'
+	option serial_number '10129372686AF28'
+
+config notifications
+	list active 'InternetGatewayDevice.DeviceInfo.'
+	list active 'InternetGatewayDevice.FaultMgmt.SupportedEvent.'
+	list active 'InternetGatewayDevice.WANDevice.WANDeviceEntriesNumber'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Name'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_ConnectionType'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Service'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Ipv6Type'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Ipv6Address'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Ipv6Gateway'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Username'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_IfName'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Password'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Ipaddress'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_IPGateWay'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_SubnetMask'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Metric'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Name'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_ConnectionType'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Service'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Ipv6Type'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Ipv6Address'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Ipv6Gateway'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Username'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_IfName'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Password'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Ipaddress'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_IPGateWay'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_SubnetMask'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Metric'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Name'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_ConnectionType'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Service'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Ipv6Type'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Ipv6Address'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Ipv6Gateway'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Username'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_IfName'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Password'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Ipaddress'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_IPGateWay'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_SubnetMask'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Metric'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Name'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_ConnectionType'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Service'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Ipv6Type'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Ipv6Address'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Ipv6Gateway'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Username'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_IfName'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Password'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Ipaddress'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_IPGateWay'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_SubnetMask'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Metric'
+	list active 'InternetGatewayDevice.ManagementServer.'
+	list active 'InternetGatewayDevice.VLANDevice.'
+	list active 'InternetGatewayDevice.WLANDevice.'
+	list active 'InternetGatewayDevice.TimeServer.'
+	list active 'InternetGatewayDevice.X_VNPT_COM_UrlFilterCfg.'
+	list active 'InternetGatewayDevice.LedTiming.'
+	list active 'InternetGatewayDevice.LANDevice.'
+	list active 'InternetGatewayDevice.X_VNPT_COM_PortForwardingConfiguration.'
+	list active 'InternetGatewayDevice.X_VNPT_COM_DDnsConfiguration.'
+	list active 'InternetGatewayDevice.X_VNPT_COM_ZoneCfg.'
+	list active 'InternetGatewayDevice.X_VNPT_COM_TimeRestrictionConfiguration.'
+	list active 'InternetGatewayDevice.X_VNPT_COM_Route.'root@VNPT:~#</msg>
+<msg timestamp="20231211 16:53:44.431" level="INFO">${Log} = config local
+	option interface 'auto'
+	option port '7547'
+	option ubus_socket '/var/run/ubus.sock'
+	option date_format '%FT%T%z'
+	option logging_level '3'
+
+config acs
+	option url 'http://mesh-...</msg>
+<status status="PASS" starttime="20231211 16:53:44.430" endtime="20231211 16:53:44.431"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>${Log}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" starttime="20231208 15:17:21.514" endtime="20231208 15:17:21.514"/>
+<msg timestamp="20231211 16:53:44.432" level="INFO">config local
+	option interface 'auto'
+	option port '7547'
+	option ubus_socket '/var/run/ubus.sock'
+	option date_format '%FT%T%z'
+	option logging_level '3'
+
+config acs
+	option url 'http://mesh-staging.vnpt-technology.vn:8092'
+	option domain 'http://mesh-staging.vnpt-technology.vn'
+	option port '8092'
+	option username 'admin'
+	option password 'admin'
+	option periodic_enable '1'
+	option periodic_interval '21600'
+	option periodic_time '0001-01-01T00:00:00Z'
+
+config device
+	option oui 'FFFFFF'
+	option product_class 'EW12'
+	option hardware_version 'EW12ST000H0101'
+	option manufacturer 'VNPTT-VNPT'
+	option software_version 'QCA9558.LN'
+	option serial_number '10129372686AF28'
+
+config notifications
+	list active 'InternetGatewayDevice.DeviceInfo.'
+	list active 'InternetGatewayDevice.FaultMgmt.SupportedEvent.'
+	list active 'InternetGatewayDevice.WANDevice.WANDeviceEntriesNumber'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Name'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_ConnectionType'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Service'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Ipv6Type'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Ipv6Address'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Ipv6Gateway'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Username'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_IfName'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Password'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Ipaddress'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_IPGateWay'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_SubnetMask'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Metric'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Name'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_ConnectionType'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Service'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Ipv6Type'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Ipv6Address'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Ipv6Gateway'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Username'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_IfName'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Password'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Ipaddress'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_IPGateWay'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_SubnetMask'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Metric'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Name'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_ConnectionType'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Service'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Ipv6Type'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Ipv6Address'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Ipv6Gateway'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Username'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_IfName'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Password'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Ipaddress'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_IPGateWay'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_SubnetMask'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Metric'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Name'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_ConnectionType'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Service'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Ipv6Type'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Ipv6Address'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Ipv6Gateway'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Username'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_IfName'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Password'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Ipaddress'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_IPGateWay'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_SubnetMask'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Metric'
+	list active 'InternetGatewayDevice.ManagementServer.'
+	list active 'InternetGatewayDevice.VLANDevice.'
+	list active 'InternetGatewayDevice.WLANDevice.'
+	list active 'InternetGatewayDevice.TimeServer.'
+	list active 'InternetGatewayDevice.X_VNPT_COM_UrlFilterCfg.'
+	list active 'InternetGatewayDevice.LedTiming.'
+	list active 'InternetGatewayDevice.LANDevice.'
+	list active 'InternetGatewayDevice.X_VNPT_COM_PortForwardingConfiguration.'
+	list active 'InternetGatewayDevice.X_VNPT_COM_DDnsConfiguration.'
+	list active 'InternetGatewayDevice.X_VNPT_COM_ZoneCfg.'
+	list active 'InternetGatewayDevice.X_VNPT_COM_TimeRestrictionConfiguration.'
+	list active 'InternetGatewayDevice.X_VNPT_COM_Route.'root@VNPT:~# </msg>
+<status status="PASS" starttime="20231211 16:53:44.432" endtime="20231211 16:53:44.433"/>
 </kw>
 <kw name="Replace String" library="STR">
 <var>${New_Log}</var>
@@ -72,35 +401,172 @@
 <arg>mesh</arg>
 <arg>mesh-staging</arg>
 <doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<status status="NOT RUN" starttime="20231208 15:17:21.514" endtime="20231208 15:17:21.514"/>
+<msg timestamp="20231211 16:53:44.434" level="INFO">${New_Log} = config local
+	option interface 'auto'
+	option port '7547'
+	option ubus_socket '/var/run/ubus.sock'
+	option date_format '%FT%T%z'
+	option logging_level '3'
+
+config acs
+	option url 'http://mesh-...</msg>
+<status status="PASS" starttime="20231211 16:53:44.433" endtime="20231211 16:53:44.434"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>${New_Log}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" starttime="20231208 15:17:21.514" endtime="20231208 15:17:21.514"/>
+<msg timestamp="20231211 16:53:44.435" level="INFO">config local
+	option interface 'auto'
+	option port '7547'
+	option ubus_socket '/var/run/ubus.sock'
+	option date_format '%FT%T%z'
+	option logging_level '3'
+
+config acs
+	option url 'http://mesh-staging-staging.vnpt-technology.vn:8092'
+	option domain 'http://mesh-staging-staging.vnpt-technology.vn'
+	option port '8092'
+	option username 'admin'
+	option password 'admin'
+	option periodic_enable '1'
+	option periodic_interval '21600'
+	option periodic_time '0001-01-01T00:00:00Z'
+
+config device
+	option oui 'FFFFFF'
+	option product_class 'EW12'
+	option hardware_version 'EW12ST000H0101'
+	option manufacturer 'VNPTT-VNPT'
+	option software_version 'QCA9558.LN'
+	option serial_number '10129372686AF28'
+
+config notifications
+	list active 'InternetGatewayDevice.DeviceInfo.'
+	list active 'InternetGatewayDevice.FaultMgmt.SupportedEvent.'
+	list active 'InternetGatewayDevice.WANDevice.WANDeviceEntriesNumber'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Name'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_ConnectionType'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Service'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Ipv6Type'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Ipv6Address'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Ipv6Gateway'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Username'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_IfName'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Password'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Ipaddress'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_IPGateWay'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_SubnetMask'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Metric'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Name'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_ConnectionType'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Service'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Ipv6Type'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Ipv6Address'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Ipv6Gateway'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Username'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_IfName'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Password'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Ipaddress'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_IPGateWay'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_SubnetMask'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Metric'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Name'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_ConnectionType'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Service'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Ipv6Type'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Ipv6Address'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Ipv6Gateway'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Username'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_IfName'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Password'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Ipaddress'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_IPGateWay'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_SubnetMask'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Metric'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Name'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_ConnectionType'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Service'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Ipv6Type'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Ipv6Address'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Ipv6Gateway'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Username'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_IfName'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Password'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Ipaddress'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_IPGateWay'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_SubnetMask'
+	list active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Metric'
+	list active 'InternetGatewayDevice.ManagementServer.'
+	list active 'InternetGatewayDevice.VLANDevice.'
+	list active 'InternetGatewayDevice.WLANDevice.'
+	list active 'InternetGatewayDevice.TimeServer.'
+	list active 'InternetGatewayDevice.X_VNPT_COM_UrlFilterCfg.'
+	list active 'InternetGatewayDevice.LedTiming.'
+	list active 'InternetGatewayDevice.LANDevice.'
+	list active 'InternetGatewayDevice.X_VNPT_COM_PortForwardingConfiguration.'
+	list active 'InternetGatewayDevice.X_VNPT_COM_DDnsConfiguration.'
+	list active 'InternetGatewayDevice.X_VNPT_COM_ZoneCfg.'
+	list active 'InternetGatewayDevice.X_VNPT_COM_TimeRestrictionConfiguration.'
+	list active 'InternetGatewayDevice.X_VNPT_COM_Route.'root@VNPT:~# </msg>
+<status status="PASS" starttime="20231211 16:53:44.434" endtime="20231211 16:53:44.435"/>
 </kw>
-<kw name="Write" library="SSHL">
-<var>${result}</var>
-<arg>echo "${New_Log}" &gt;&gt; ${Config_path}</arg>
-<doc>Writes the given ``text`` on the remote machine and appends a newline.</doc>
-<status status="NOT RUN" starttime="20231208 15:17:21.514" endtime="20231208 15:17:21.514"/>
+<kw name="Remove File" library="OperatingSystem">
+<arg>${Config_path}</arg>
+<doc>Removes a file with the given path.</doc>
+<msg timestamp="20231211 16:53:44.435" level="INFO" html="true">File '&lt;a href="file:///etc/config/easycwmp"&gt;/etc/config/easycwmp&lt;/a&gt;' does not exist.</msg>
+<status status="PASS" starttime="20231211 16:53:44.435" endtime="20231211 16:53:44.435"/>
 </kw>
-<kw name="Write" library="SSHL">
-<var>${final_Result}</var>
-<arg>cat /etc/config/easycwmp</arg>
-<doc>Writes the given ``text`` on the remote machine and appends a newline.</doc>
-<status status="NOT RUN" starttime="20231208 15:17:21.514" endtime="20231208 15:17:21.514"/>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${New_Log}</arg>
+<arg>${Config_path}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20231211 16:53:44.436" level="FAIL">OSError: [Errno 36] File name too long: "/home/ubuntu/PycharmProjects/MeshAP/config local\r\n\toption interface 'auto'\r\n\toption port '7547'\r\n\toption ubus_socket '/var/run/ubus.sock'\r\n\toption date_format '%FT%T%z'\r\n\toption logging_level '3'\r\n\r\nconfig acs\r\n\toption url 'http:/mesh-staging-staging.vnpt-technology.vn:8092'\r\n\toption domain 'http:/mesh-staging-staging.vnpt-technology.vn'\r\n\toption port '8092'\r\n\toption username 'admin'\r\n\toption password 'admin'\r\n\toption periodic_enable '1'\r\n\toption periodic_interval '21600'\r\n\toption periodic_time '0001-01-01T00:00:00Z'\r\n\r\nconfig device\r\n\toption oui 'FFFFFF'\r\n\toption product_class 'EW12'\r\n\toption hardware_version 'EW12ST000H0101'\r\n\toption manufacturer 'VNPTT-VNPT'\r\n\toption software_version 'QCA9558.LN'\r\n\toption serial_number '10129372686AF28'\r\n\r\nconfig notifications\r\n\tlist active 'InternetGatewayDevice.DeviceInfo.'\r\n\tlist active 'InternetGatewayDevice.FaultMgmt.SupportedEvent.'\r\n\tlist active 'InternetGatewayDevice.WANDevice.WANDeviceEntriesNumber'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Name'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_ConnectionType'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Service'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Ipv6Type'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Ipv6Address'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Ipv6Gateway'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Username'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_IfName'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Password'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Ipaddress'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_IPGateWay'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_SubnetMask'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Metric'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Name'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_ConnectionType'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Service'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Ipv6Type'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Ipv6Address'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Ipv6Gateway'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Username'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_IfName'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Password'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Ipaddress'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_IPGateWay'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_SubnetMask'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.2.X_VNPT_COM_Metric'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Name'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_ConnectionType'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Service'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Ipv6Type'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Ipv6Address'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Ipv6Gateway'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Username'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_IfName'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Password'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Ipaddress'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_IPGateWay'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_SubnetMask'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.3.X_VNPT_COM_Metric'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Name'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_ConnectionType'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Service'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Ipv6Type'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Ipv6Address'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Ipv6Gateway'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Username'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_IfName'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Password'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Ipaddress'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_IPGateWay'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_SubnetMask'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Metric'\r\n\tlist active 'InternetGatewayDevice.ManagementServer.'\r\n\tlist active 'InternetGatewayDevice.VLANDevice.'\r\n\tlist active 'InternetGatewayDevice.WLANDevice.'\r\n\tlist active 'InternetGatewayDevice.TimeServer.'\r\n\tlist active 'InternetGatewayDevice.X_VNPT_COM_UrlFilterCfg.'\r\n\tlist active 'InternetGatewayDevice.LedTiming.'\r\n\tlist active 'InternetGatewayDevice.LANDevice.'\r\n\tlist active 'InternetGatewayDevice.X_VNPT_COM_PortForwardingConfiguration.'\r\n\tlist active 'InternetGatewayDevice.X_VNPT_COM_DDnsConfiguration.'\r\n\tlist active 'InternetGatewayDevice.X_VNPT_COM_ZoneCfg.'\r\n\tlist active 'InternetGatewayDevice.X_VNPT_COM_TimeRestrictionConfiguration.'\r\n\tlist active 'InternetGatewayDevice.X_VNPT_COM_Route.'root@VNPT:~# "</msg>
+<status status="FAIL" starttime="20231211 16:53:44.435" endtime="20231211 16:53:44.437"/>
+</kw>
+<kw name="Read" library="SSHL">
+<var>${2}</var>
+<doc>Consumes and returns everything available on the server output.</doc>
+<status status="NOT RUN" starttime="20231211 16:53:44.437" endtime="20231211 16:53:44.437"/>
+</kw>
+<kw name="Read" library="SSHL">
+<var>${1}</var>
+<doc>Consumes and returns everything available on the server output.</doc>
+<status status="NOT RUN" starttime="20231211 16:53:44.437" endtime="20231211 16:53:44.437"/>
+</kw>
+<status status="FAIL" starttime="20231211 16:53:08.081" endtime="20231211 16:53:44.437"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>160</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231211 16:53:44.437" endtime="20231211 16:53:44.438"/>
+</kw>
+<kw name="Login to ONE Mesh" library="OMesh">
+<arg>${OM_User}</arg>
+<arg>${OM_PW}</arg>
+<status status="NOT RUN" starttime="20231211 16:53:44.438" endtime="20231211 16:53:44.438"/>
+</kw>
+<kw name="Check connect to staging successfully">
+<arg>EW_86af28</arg>
+<status status="NOT RUN" starttime="20231211 16:53:44.438" endtime="20231211 16:53:44.438"/>
+</kw>
+<kw name="Split String" library="STR">
+<var>@{s}</var>
+<arg>${Mesh_defaul[-5:]}</arg>
+<arg>_</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="NOT RUN" starttime="20231211 16:53:44.438" endtime="20231211 16:53:44.438"/>
 </kw>
 <kw name="Log" library="BuiltIn">
-<arg>${final_Result}</arg>
+<arg>@{s}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" starttime="20231208 15:17:21.514" endtime="20231208 15:17:21.514"/>
+<status status="NOT RUN" starttime="20231211 16:53:44.438" endtime="20231211 16:53:44.438"/>
 </kw>
-<status status="FAIL" starttime="20231208 15:17:18.506" endtime="20231208 15:17:21.514"/>
-</kw>
-<status status="FAIL" starttime="20231208 15:17:18.506" endtime="20231208 15:17:21.515">TimeoutError: timed out</status>
+<status status="FAIL" starttime="20231211 16:53:08.081" endtime="20231211 16:53:44.438">OSError: [Errno 36] File name too long: "/home/ubuntu/PycharmProjects/MeshAP/config local\r\n\toption interface 'auto'\r\n\toption port '7547'\r\n\toption ubus_socket '/var/run/ubus.sock'\r\n\toption date_format '%FT%T%z'\r\n\toption logging_level '3'\r\n\r\nconfig acs\r\n\toption url 'http:/mesh-staging-staging.vnpt-technology.vn:8092'\r\n\toption domain 'http:/mesh-staging-staging.vnpt-technology.vn'\r\n\toption port '8092'\r\n\toption username 'admin'\r\n\toption password 'admin'\r\n\toption periodic_enable '1'\r\n\toption periodic_interval '21600'\r\n\toption periodic_time '0001-01-01T00:00:00Z'\r\n\r\nconfig device\r\n\toption oui 'FFFFFF'\r\n\toption product_class 'EW12'\r\n\toption hardware_version 'EW12ST000H0101'\r\n\toption manufacturer 'VNPTT-VNPT'\r\n\toption software_version 'QCA9558.LN'\r\n\toption serial_number '10129372686AF28'\r\n\r\nconfig notifications\r\n\tlist active 'InternetGatewayDevice.DeviceInfo.'\r\n\tlist active 'InternetGatewayDevice.FaultMgmt.SupportedEvent.'\r\n\tlist active 'InternetGatewayDevice.WANDevice.WANDeviceEntriesNumber'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Name'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_ConnectionType'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Service'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_VNPT_COM_Ipv6Type'\r\n\tlist active 'Intern...
+    [ Message content over the limit has been removed. ]
+...ectionDevice.4.X_VNPT_COM_Ipv6Address'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Ipv6Gateway'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Username'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_IfName'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Password'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Ipaddress'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_IPGateWay'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_SubnetMask'\r\n\tlist active 'InternetGatewayDevice.WANDevice.1.WANConnectionDevice.4.X_VNPT_COM_Metric'\r\n\tlist active 'InternetGatewayDevice.ManagementServer.'\r\n\tlist active 'InternetGatewayDevice.VLANDevice.'\r\n\tlist active 'InternetGatewayDevice.WLANDevice.'\r\n\tlist active 'InternetGatewayDevice.TimeServer.'\r\n\tlist active 'InternetGatewayDevice.X_VNPT_COM_UrlFilterCfg.'\r\n\tlist active 'InternetGatewayDevice.LedTiming.'\r\n\tlist active 'InternetGatewayDevice.LANDevice.'\r\n\tlist active 'InternetGatewayDevice.X_VNPT_COM_PortForwardingConfiguration.'\r\n\tlist active 'InternetGatewayDevice.X_VNPT_COM_DDnsConfiguration.'\r\n\tlist active 'InternetGatewayDevice.X_VNPT_COM_ZoneCfg.'\r\n\tlist active 'InternetGatewayDevice.X_VNPT_COM_TimeRestrictionConfiguration.'\r\n\tlist active 'InternetGatewayDevice.X_VNPT_COM_Route.'root@VNPT:~# "</status>
 </test>
-<status status="FAIL" starttime="20231208 15:17:18.334" endtime="20231208 15:17:21.515"/>
+<status status="FAIL" starttime="20231211 16:53:07.907" endtime="20231211 16:53:44.439"/>
 </suite>
 <statistics>
 <total>

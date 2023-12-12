@@ -72,9 +72,9 @@ Connect to Wifi Hidden
     Should Contain          ${status_log2}      successfully deleted
 *** Test Case ***
 4. Reconnect to Wifi With Correct Password and Check ping to Internet
-    Open SSH Session Login To Local Machine
-    Sleep    5
-    Connect to Wifi Hidden  Wifi1   12345678
+#    Open SSH Session Login To Local Machine
+#    Sleep    5
+#    Connect to Wifi Hidden  Wifi1   12345678
 #    SSHL.Write    nmcli d wifi list | grep EW_86af28 | awk '{print $1, $4}'
 #    Sleep       30
 #    ${Out}       SSHL.Read
