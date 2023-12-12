@@ -118,7 +118,7 @@ Edit Main SSID OM
 	[Documentation]                     Edit SSID: PW: AuthenMode:
 	[Arguments]                         ${New_ssid}     ${new_authen}       ${New_PW}
 	Input Text                          //input[@ng-model="mainSSID.ssid"]    ${New_ssid}
-	Select From List By Value           //select[@ng-model="mainSSID.securityMode"]     ${new_authen}
+	Select From List By Label           //select[@ng-model="mainSSID.securityMode"]     ${new_authen}
 	Input Text                          //input[@ng-model="mainSSID.password"]    ${New_PW}
 	Click Button                        //button[@class="btn btn-icon btn-primary btnSaveWifi"]
 
@@ -126,7 +126,7 @@ Verify Edit Main SSID OM
 	[Arguments]                         ${New_ssid}     ${new_authen}       ${New_PW}
 	Log To Console                      \nVerify Edit Main SSID OM
 	${value_ssid}                       Get value       //input[@ng-model="mainSSID.ssid"]
-	${value_mode}                       Get Value       //select[@ng-model="mainSSID.securityMode"]
+	${value_mode}                       Get Selected List Label       //select[@ng-model="mainSSID.securityMode"]
 	${value_PW}                         Get Value       //input[@ng-model="mainSSID.password"]
 	Should Match                        ${value_ssid}       ${New_ssid}
 	Should Match                        ${new_authen}       ${value_mode}

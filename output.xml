@@ -1,628 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.10.12 on linux)" generated="20231212 15:41:12.761" rpa="false" schemaversion="4">
-<suite id="s1" name="TC OM Radio5G" source="/home/ubuntu/PycharmProjects/MeshAP/TC_OM_Radio5G.robot">
-<test id="s1-t1" name="1. Config wifi Radio 5G" line="40">
-<kw name="Set Selenium Speed" library="SL">
-<arg>0.5</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" starttime="20231212 15:41:12.965" endtime="20231212 15:41:12.966"/>
-</kw>
-<kw name="Login to ONE Mesh" library="OMesh">
-<arg>${User_N}</arg>
-<arg>${PW}</arg>
-<kw name="Open Browser" library="SL">
-<arg>http://mesh-staging.vnpt-technology.vn:9000/login?error=2</arg>
-<arg>chrome</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20231212 15:41:12.966" level="INFO">Opening browser 'chrome' to base url 'http://mesh-staging.vnpt-technology.vn:9000/login?error=2'.</msg>
-<status status="PASS" starttime="20231212 15:41:12.966" endtime="20231212 15:41:18.480"/>
-</kw>
-<kw name="Reload Page" library="SL">
-<doc>Simulates user reloading page.</doc>
-<status status="PASS" starttime="20231212 15:41:18.480" endtime="20231212 15:41:19.099"/>
-</kw>
-<kw name="Input User Name OM" library="OMesh">
-<arg>${User_N}</arg>
-<kw name="Wait Until Element Is Visible" library="SL">
-<arg>//div[@class='form-group-login']//input[@type='text']</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231212 15:41:19.103" endtime="20231212 15:41:20.171"/>
-</kw>
-<kw name="Input Text" library="SL">
-<arg>//div[@class='form-group-login']//input[@type='text']</arg>
-<arg>${User_N}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231212 15:41:20.173" level="INFO">Typing text 'one' into text field '//div[@class='form-group-login']//input[@type='text']'.</msg>
-<status status="PASS" starttime="20231212 15:41:20.172" endtime="20231212 15:41:21.821"/>
-</kw>
-<status status="PASS" starttime="20231212 15:41:19.100" endtime="20231212 15:41:21.821"/>
-</kw>
-<kw name="Input Password OM" library="OMesh">
-<arg>${PW}</arg>
-<kw name="Wait Until Element Is Visible" library="SL">
-<arg>//input[@type='password']</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231212 15:41:21.822" endtime="20231212 15:41:22.865"/>
-</kw>
-<kw name="Input Text" library="SL">
-<arg>//input[@type='password']</arg>
-<arg>${PW}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231212 15:41:22.867" level="INFO">Typing text 'one@2019' into text field '//input[@type='password']'.</msg>
-<status status="PASS" starttime="20231212 15:41:22.865" endtime="20231212 15:41:24.503"/>
-</kw>
-<status status="PASS" starttime="20231212 15:41:21.821" endtime="20231212 15:41:24.503"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>4</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231212 15:41:28.505" level="INFO">Slept 4 seconds</msg>
-<status status="PASS" starttime="20231212 15:41:24.504" endtime="20231212 15:41:28.505"/>
-</kw>
-<kw name="Wait Until Element Is Visible" library="SL">
-<arg>//button[@id='login-submit']</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231212 15:41:28.506" endtime="20231212 15:41:29.548"/>
-</kw>
-<kw name="Click Element" library="SL">
-<arg>//button[@id='login-submit']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231212 15:41:29.550" level="INFO">Clicking element '//button[@id='login-submit']'.</msg>
-<status status="PASS" starttime="20231212 15:41:29.549" endtime="20231212 15:41:34.078"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>4</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231212 15:41:38.080" level="INFO">Slept 4 seconds</msg>
-<status status="PASS" starttime="20231212 15:41:34.079" endtime="20231212 15:41:38.080"/>
-</kw>
-<kw name="Page Should Contain" library="SL">
-<arg>Welcome to the ONE MESH system</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20231212 15:41:39.128" level="INFO">Current page contains text 'Welcome to the ONE MESH system'.</msg>
-<status status="PASS" starttime="20231212 15:41:38.081" endtime="20231212 15:41:39.128"/>
-</kw>
-<status status="PASS" starttime="20231212 15:41:12.966" endtime="20231212 15:41:39.128"/>
-</kw>
-<kw name="Access Device detail OM" library="OMesh">
-<arg>${Serial}</arg>
-<kw name="Click Element" library="SL">
-<arg>//span[contains(text(),'Configuration')]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231212 15:41:39.133" level="INFO">Clicking element '//span[contains(text(),'Configuration')]'.</msg>
-<status status="PASS" starttime="20231212 15:41:39.132" endtime="20231212 15:41:41.345"/>
-</kw>
-<kw name="Wait Until Element Is Visible" library="SL">
-<arg>//input[@name= 'serialNumber']</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231212 15:41:41.346" endtime="20231212 15:41:42.379"/>
-</kw>
-<kw name="Input Text" library="SL">
-<arg>//input[@name= 'serialNumber']</arg>
-<arg>${Serial}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231212 15:41:42.380" level="INFO">Typing text '52dc' into text field '//input[@name= 'serialNumber']'.</msg>
-<status status="PASS" starttime="20231212 15:41:42.379" endtime="20231212 15:41:43.977"/>
-</kw>
-<kw name="Click Element" library="SL">
-<arg>//button[contains(@type,'submit')]//i[contains(@class,'icon-search4')]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231212 15:41:43.979" level="INFO">Clicking element '//button[contains(@type,'submit')]//i[contains(@class,'icon-search4')]'.</msg>
-<status status="PASS" starttime="20231212 15:41:43.978" endtime="20231212 15:41:45.163"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>5</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231212 15:41:50.165" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20231212 15:41:45.164" endtime="20231212 15:41:50.165"/>
-</kw>
-<kw name="Click Element" library="SL">
-<arg>//span[contains(text(),'Online')]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231212 15:41:50.166" level="INFO">Clicking element '//span[contains(text(),'Online')]'.</msg>
-<status status="PASS" starttime="20231212 15:41:50.165" endtime="20231212 15:41:52.971"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>3</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231212 15:41:55.972" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20231212 15:41:52.971" endtime="20231212 15:41:55.973"/>
-</kw>
-<kw name="Page Should Contain" library="SL">
-<arg>Device Information</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20231212 15:41:56.997" level="INFO">Current page contains text 'Device Information'.</msg>
-<status status="PASS" starttime="20231212 15:41:55.973" endtime="20231212 15:41:56.997"/>
-</kw>
-<kw name="Page Should Contain" library="SL">
-<arg>${Serial}</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20231212 15:41:58.026" level="INFO">Current page contains text '52dc'.</msg>
-<status status="PASS" starttime="20231212 15:41:56.997" endtime="20231212 15:41:58.026"/>
-</kw>
-<status status="PASS" starttime="20231212 15:41:39.131" endtime="20231212 15:41:58.026"/>
-</kw>
-<kw name="Go to Config Wifi OM" library="OMesh">
-<kw name="Wait Until Element Is Visible" library="SL">
-<arg>//a[@href='#device-wifi-tab']</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231212 15:41:58.027" endtime="20231212 15:41:59.062"/>
-</kw>
-<kw name="Click Element" library="SL">
-<arg>//a[@href='#device-wifi-tab']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231212 15:41:59.063" level="INFO">Clicking element '//a[@href='#device-wifi-tab']'.</msg>
-<status status="PASS" starttime="20231212 15:41:59.062" endtime="20231212 15:42:00.150"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>5</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231212 15:42:05.152" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20231212 15:42:00.151" endtime="20231212 15:42:05.152"/>
-</kw>
-<kw name="Page Should Contain" library="SL">
-<arg>Wifi Configuration</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20231212 15:42:06.189" level="INFO">Current page contains text 'Wifi Configuration'.</msg>
-<status status="PASS" starttime="20231212 15:42:05.152" endtime="20231212 15:42:06.189"/>
-</kw>
-<status status="PASS" starttime="20231212 15:41:58.027" endtime="20231212 15:42:06.189"/>
-</kw>
-<kw name="Config Wifi Radio 5Ghz OM" library="OMesh">
-<arg>${Standard}</arg>
-<arg>${BW}</arg>
-<arg>${Channel}</arg>
-<doc>Config  Standard: a/na/ac/ax
-bw: 20/40/80/160 MHz
-CHANEL:</doc>
-<kw name="Select From List By Value" library="SL">
-<arg>//select[@ng-model="wifiRadio5Ghz.wlanStandard"]</arg>
-<arg>${Standard}</arg>
-<doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<msg timestamp="20231212 15:42:06.190" level="INFO">Selecting options from selection list '//select[@ng-model="wifiRadio5Ghz.wlanStandard"]' by value ax.</msg>
-<status status="PASS" starttime="20231212 15:42:06.190" endtime="20231212 15:42:09.300"/>
-</kw>
-<kw name="Select From List By Label" library="SL">
-<arg>//select[@ng-model="wifiRadio5Ghz.bandwidth"]</arg>
-<arg>${Bandwidth}</arg>
-<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<msg timestamp="20231212 15:42:09.301" level="INFO">Selecting options from selection list '//select[@ng-model="wifiRadio5Ghz.bandwidth"]' by label 80Mhz.</msg>
-<status status="PASS" starttime="20231212 15:42:09.300" endtime="20231212 15:42:13.475"/>
-</kw>
-<kw name="Select From List By Value" library="SL">
-<arg>//select[@ng-model="wifiRadio5Ghz.channel"]</arg>
-<arg>${Channel}</arg>
-<doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<msg timestamp="20231212 15:42:13.476" level="INFO">Selecting options from selection list '//select[@ng-model="wifiRadio5Ghz.channel"]' by value 64.</msg>
-<status status="PASS" starttime="20231212 15:42:13.475" endtime="20231212 15:42:17.616"/>
-</kw>
-<kw name="Click Element" library="SL">
-<arg>//button[@class="btn btn-icon btn-primary btnSaveWifi"]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231212 15:42:17.618" level="INFO">Clicking element '//button[@class="btn btn-icon btn-primary btnSaveWifi"]'.</msg>
-<status status="PASS" starttime="20231212 15:42:17.616" endtime="20231212 15:42:18.697"/>
-</kw>
-<status status="PASS" starttime="20231212 15:42:06.189" endtime="20231212 15:42:18.698"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>30</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231212 15:42:48.699" level="INFO">Slept 30 seconds</msg>
-<status status="PASS" starttime="20231212 15:42:18.698" endtime="20231212 15:42:48.699"/>
-</kw>
-<kw name="Verify config Radio 5Ghz OM" library="OMesh">
-<arg>${Standard}</arg>
-<arg>${BW}</arg>
-<arg>${Channel}</arg>
+<robot generator="Robot 6.1.1 (Python 3.10.12 on linux)" generated="20231212 16:58:02.817" rpa="true" schemaversion="4">
+<suite id="s1" name="ForLopp" source="/home/ubuntu/PycharmProjects/MeshAP/ForLopp.robot">
+<test id="s1-t1" name="Execute a for loop only three times" line="9">
+<for flavor="IN">
+<var>${robot}</var>
+<value>@{test}</value>
+<iter>
+<var name="${robot}">11</var>
 <kw name="Log To Console" library="BuiltIn">
-<arg>\n Verify config Radio 5Ghz OM</arg>
+<arg>${robot}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20231212 15:42:48.701" endtime="20231212 15:42:48.702"/>
+<status status="PASS" starttime="20231212 16:58:02.830" endtime="20231212 16:58:02.830"/>
 </kw>
-<kw name="Get Selected List Value" library="SL">
-<var>${Standard_value}</var>
-<arg>//select[@ng-model="wifiRadio5Ghz.wlanStandard"]</arg>
-<doc>Returns the value of selected option from selection list ``locator``.</doc>
-<msg timestamp="20231212 15:42:53.874" level="INFO">${Standard_value} = ax</msg>
-<status status="PASS" starttime="20231212 15:42:48.702" endtime="20231212 15:42:53.874"/>
-</kw>
-<kw name="Get Selected List Label" library="SL">
-<var>${BW_value}</var>
-<arg>//select[@ng-model="wifiRadio5Ghz.bandwidth"]</arg>
-<doc>Returns the label of selected option from selection list ``locator``.</doc>
-<msg timestamp="20231212 15:42:58.520" level="INFO">${BW_value} = 80Mhz</msg>
-<status status="PASS" starttime="20231212 15:42:53.875" endtime="20231212 15:42:58.520"/>
-</kw>
-<kw name="Get Selected List Value" library="SL">
-<var>${Channel_value}</var>
-<arg>//select[@ng-model="wifiRadio5Ghz.channel"]</arg>
-<doc>Returns the value of selected option from selection list ``locator``.</doc>
-<msg timestamp="20231212 15:43:06.244" level="INFO">${Channel_value} = 64</msg>
-<status status="PASS" starttime="20231212 15:42:58.520" endtime="20231212 15:43:06.244"/>
-</kw>
-<kw name="Should Match" library="BuiltIn">
-<arg>${Standard}</arg>
-<arg>${Standard_value}</arg>
-<doc>Fails if the given ``string`` does not match the given ``pattern``.</doc>
-<status status="PASS" starttime="20231212 15:43:06.244" endtime="20231212 15:43:06.246"/>
-</kw>
-<kw name="Should Match" library="BuiltIn">
-<arg>${Bandwidth}</arg>
-<arg>${BW_value}</arg>
-<doc>Fails if the given ``string`` does not match the given ``pattern``.</doc>
-<status status="PASS" starttime="20231212 15:43:06.246" endtime="20231212 15:43:06.247"/>
-</kw>
-<kw name="Should Match" library="BuiltIn">
-<arg>${Channel}</arg>
-<arg>${Channel_value}</arg>
-<doc>Fails if the given ``string`` does not match the given ``pattern``.</doc>
-<status status="PASS" starttime="20231212 15:43:06.247" endtime="20231212 15:43:06.248"/>
-</kw>
+<status status="PASS" starttime="20231212 16:58:02.830" endtime="20231212 16:58:02.830"/>
+</iter>
+<iter>
+<var name="${robot}">12</var>
 <kw name="Log To Console" library="BuiltIn">
-<arg>\n Config radio 5g Successfully</arg>
+<arg>${robot}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20231212 15:43:06.248" endtime="20231212 15:43:06.248"/>
+<status status="PASS" starttime="20231212 16:58:02.830" endtime="20231212 16:58:02.830"/>
 </kw>
-<status status="PASS" starttime="20231212 15:42:48.700" endtime="20231212 15:43:06.249"/>
-</kw>
+<status status="PASS" starttime="20231212 16:58:02.830" endtime="20231212 16:58:02.830"/>
+</iter>
+<iter>
+<var name="${robot}">60</var>
 <kw name="Log To Console" library="BuiltIn">
-<arg>\nVerify on WebGUI</arg>
+<arg>${robot}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20231212 15:43:06.249" endtime="20231212 15:43:06.249"/>
+<status status="PASS" starttime="20231212 16:58:02.830" endtime="20231212 16:58:02.830"/>
 </kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>90</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231212 15:44:36.251" level="INFO">Slept 1 minute 30 seconds</msg>
-<status status="PASS" starttime="20231212 15:43:06.249" endtime="20231212 15:44:36.252"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>\nVerify on WebGUI</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20231212 15:44:36.252" endtime="20231212 15:44:36.253"/>
-</kw>
-<kw name="Open Browser" library="SL">
-<arg>https://192.168.88.1</arg>
-<arg>chrome</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20231212 15:44:36.255" level="INFO">Opening browser 'chrome' to base url 'https://192.168.88.1'.</msg>
-<status status="PASS" starttime="20231212 15:44:36.254" endtime="20231212 15:44:40.947"/>
-</kw>
-<kw name="Chrome Pass Certificate google if present" library="Lib_Selenium_Login">
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${Status1}</var>
-<arg>SL.Wait Until Element Is Visible</arg>
-<arg>//button[@id="details-button"]</arg>
-<arg>5</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Wait Until Element Is Visible" library="SL">
-<arg>//button[@id="details-button"]</arg>
-<arg>5</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231212 15:44:40.950" endtime="20231212 15:44:42.024"/>
-</kw>
-<msg timestamp="20231212 15:44:42.024" level="INFO">${Status1} = True</msg>
-<status status="PASS" starttime="20231212 15:44:40.950" endtime="20231212 15:44:42.024"/>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<arg>${Status1}</arg>
-<arg>SL.Click Element</arg>
-<arg>//button[@id="details-button"]</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<kw name="Click Element" library="SL">
-<arg>//button[@id="details-button"]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231212 15:44:42.026" level="INFO">Clicking element '//button[@id="details-button"]'.</msg>
-<status status="PASS" starttime="20231212 15:44:42.025" endtime="20231212 15:44:43.096"/>
-</kw>
-<status status="PASS" starttime="20231212 15:44:42.025" endtime="20231212 15:44:43.096"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231212 15:44:45.098" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20231212 15:44:43.097" endtime="20231212 15:44:45.098"/>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${Status2}</var>
-<arg>SL.Wait Until Element Is Visible</arg>
-<arg>//a[@id="proceed-link"]</arg>
-<arg>5</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Wait Until Element Is Visible" library="SL">
-<arg>//a[@id="proceed-link"]</arg>
-<arg>5</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231212 15:44:45.099" endtime="20231212 15:44:46.138"/>
-</kw>
-<msg timestamp="20231212 15:44:46.139" level="INFO">${Status2} = True</msg>
-<status status="PASS" starttime="20231212 15:44:45.098" endtime="20231212 15:44:46.139"/>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<arg>${Status2}</arg>
-<arg>SL.Click Element</arg>
-<arg>//a[@id="proceed-link"]</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<kw name="Click Element" library="SL">
-<arg>//a[@id="proceed-link"]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231212 15:44:46.140" level="INFO">Clicking element '//a[@id="proceed-link"]'.</msg>
-<status status="PASS" starttime="20231212 15:44:46.139" endtime="20231212 15:44:47.235"/>
-</kw>
-<status status="PASS" starttime="20231212 15:44:46.139" endtime="20231212 15:44:47.236"/>
-</kw>
-<status status="PASS" starttime="20231212 15:44:40.948" endtime="20231212 15:44:47.236"/>
-</kw>
-<kw name="Login To WebGUI on local machine" library="Lib_Selenium_Login">
-<arg>root</arg>
-<arg>${PassWord}</arg>
-<kw name="Input User Name" library="Lib_Selenium_Login">
-<arg>username=${username}</arg>
-<kw name="Wait Until Element Is Visible" library="SL">
-<arg>xpath=//input[@id='LOGIN_USER']</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231212 15:44:47.237" endtime="20231212 15:44:48.280"/>
-</kw>
-<kw name="Input Text" library="SL">
-<arg>xpath=//input[@id='LOGIN_USER']</arg>
-<arg>${username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231212 15:44:48.281" level="INFO">Typing text 'root' into text field 'xpath=//input[@id='LOGIN_USER']'.</msg>
-<status status="PASS" starttime="20231212 15:44:48.281" endtime="20231212 15:44:49.907"/>
-</kw>
-<status status="PASS" starttime="20231212 15:44:47.237" endtime="20231212 15:44:49.907"/>
-</kw>
-<kw name="Input password" library="Lib_Selenium_Login">
-<arg>password=${password}</arg>
-<kw name="Wait Until Element Is Visible" library="SL">
-<arg>xpath=//input[@id='LOGIN_PWD']</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231212 15:44:49.908" endtime="20231212 15:44:50.942"/>
-</kw>
-<kw name="Input Password" library="SL">
-<arg>xpath=//input[@id='LOGIN_PWD']</arg>
-<arg>${password}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<msg timestamp="20231212 15:44:50.943" level="INFO">Typing password into text field 'xpath=//input[@id='LOGIN_PWD']'.</msg>
-<msg timestamp="20231212 15:44:51.985" level="INFO">Temporally setting log level to: NONE</msg>
-<msg timestamp="20231212 15:44:52.545" level="INFO">Log level changed from NONE to INFO.</msg>
-<status status="PASS" starttime="20231212 15:44:50.942" endtime="20231212 15:44:52.545"/>
-</kw>
-<status status="PASS" starttime="20231212 15:44:49.907" endtime="20231212 15:44:52.546"/>
-</kw>
-<kw name="SubMit Credentials" library="Lib_Selenium_Login">
-<kw name="Wait Until Element Is Visible" library="SL">
-<arg>xpath=//input[@id='BTN_Login']</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231212 15:44:52.547" endtime="20231212 15:44:53.588"/>
-</kw>
-<kw name="Click Button" library="SL">
-<arg>xpath=//input[@id='BTN_Login']</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20231212 15:44:53.589" level="INFO">Clicking button 'xpath=//input[@id='BTN_Login']'.</msg>
-<status status="PASS" starttime="20231212 15:44:53.588" endtime="20231212 15:44:55.171"/>
-</kw>
-<status status="PASS" starttime="20231212 15:44:52.546" endtime="20231212 15:44:55.171"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>3s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231212 15:44:58.172" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20231212 15:44:55.171" endtime="20231212 15:44:58.172"/>
-</kw>
-<status status="PASS" starttime="20231212 15:44:47.236" endtime="20231212 15:44:58.172"/>
-</kw>
-<kw name="Access Setting Page" library="Lib_Selenium_WireLess">
-<kw name="Click Element" library="SL">
-<arg>xpath= //a[@id='titleSettingCap']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231212 15:44:58.175" level="INFO">Clicking element 'xpath= //a[@id='titleSettingCap']'.</msg>
-<status status="PASS" starttime="20231212 15:44:58.174" endtime="20231212 15:44:59.247"/>
-</kw>
-<status status="PASS" starttime="20231212 15:44:58.173" endtime="20231212 15:44:59.247"/>
-</kw>
-<kw name="Go to Wireless" library="Lib_Selenium_WireLess">
-<kw name="Wait Until Element Is Visible" library="SL">
-<arg>xpath= //a[@id='titlewlancap']</arg>
-<arg>20</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231212 15:44:59.249" endtime="20231212 15:45:00.285"/>
-</kw>
-<kw name="Click Element" library="SL">
-<arg>xpath= //a[@id='titlewlancap']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231212 15:45:00.287" level="INFO">Clicking element 'xpath= //a[@id='titlewlancap']'.</msg>
-<status status="PASS" starttime="20231212 15:45:00.286" endtime="20231212 15:45:01.367"/>
-</kw>
-<kw name="Page Should Contain" library="SL">
-<arg>SSID</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20231212 15:45:02.399" level="INFO">Current page contains text 'SSID'.</msg>
-<status status="PASS" starttime="20231212 15:45:01.367" endtime="20231212 15:45:02.399"/>
-</kw>
-<status status="PASS" starttime="20231212 15:44:59.248" endtime="20231212 15:45:02.400"/>
-</kw>
-<kw name="Access Wireless Radio 5G" library="Lib_Selenium_WireLess">
-<kw name="Go to Wireless" library="Lib_Selenium_WireLess">
-<kw name="Wait Until Element Is Visible" library="SL">
-<arg>xpath= //a[@id='titlewlancap']</arg>
-<arg>20</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231212 15:45:02.402" endtime="20231212 15:45:03.432"/>
-</kw>
-<kw name="Click Element" library="SL">
-<arg>xpath= //a[@id='titlewlancap']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231212 15:45:03.433" level="INFO">Clicking element 'xpath= //a[@id='titlewlancap']'.</msg>
-<status status="PASS" starttime="20231212 15:45:03.432" endtime="20231212 15:45:04.487"/>
-</kw>
-<kw name="Page Should Contain" library="SL">
-<arg>SSID</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20231212 15:45:05.514" level="INFO">Current page contains text 'SSID'.</msg>
-<status status="PASS" starttime="20231212 15:45:04.488" endtime="20231212 15:45:05.515"/>
-</kw>
-<status status="PASS" starttime="20231212 15:45:02.401" endtime="20231212 15:45:05.515"/>
-</kw>
-<kw name="Click Element" library="SL">
-<arg>//a[contains(text(),'Radio 5 GHz')]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231212 15:45:05.516" level="INFO">Clicking element '//a[contains(text(),'Radio 5 GHz')]'.</msg>
-<status status="PASS" starttime="20231212 15:45:05.515" endtime="20231212 15:45:06.613"/>
-</kw>
-<status status="PASS" starttime="20231212 15:45:02.400" endtime="20231212 15:45:06.613"/>
-</kw>
-<kw name="Verify config Radio 5g WebGUI">
-<arg>${Standard}</arg>
-<arg>${BW}</arg>
-<arg>${Channel}</arg>
-<kw name="Click Button Edit Radio 5G" library="Lib_Selenium_WireLess">
-<kw name="Wait Until Element Is Visible" library="SL">
-<arg>//input[@id='EditRadio5']</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231212 15:45:06.616" endtime="20231212 15:45:07.651"/>
-</kw>
-<kw name="Click Element" library="SL">
-<arg>//input[@id='EditRadio5']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231212 15:45:07.652" level="INFO">Clicking element '//input[@id='EditRadio5']'.</msg>
-<status status="PASS" starttime="20231212 15:45:07.652" endtime="20231212 15:45:08.743"/>
-</kw>
-<status status="PASS" starttime="20231212 15:45:06.616" endtime="20231212 15:45:08.743"/>
-</kw>
-<kw name="Get BW Radio 5G" library="Lib_Selenium_WireLess">
-<var>${band}</var>
-<kw name="Get Selected List Label" library="SL">
-<var>${BW5_text}</var>
-<arg>//select[@id='5G_Select_Bandwidth']</arg>
-<doc>Returns the label of selected option from selection list ``locator``.</doc>
-<msg timestamp="20231212 15:45:13.391" level="INFO">${BW5_text} = 80 MHz</msg>
-<status status="PASS" starttime="20231212 15:45:08.743" endtime="20231212 15:45:13.391"/>
-</kw>
-<kw name="Return From Keyword" library="BuiltIn">
-<arg>${BW5_text}</arg>
-<doc>Returns from the enclosing user keyword.</doc>
-<msg timestamp="20231212 15:45:13.391" level="INFO">Returning from the enclosing user keyword.</msg>
-<status status="PASS" starttime="20231212 15:45:13.391" endtime="20231212 15:45:13.393"/>
-</kw>
-<msg timestamp="20231212 15:45:13.393" level="INFO">${band} = 80 MHz</msg>
-<status status="PASS" starttime="20231212 15:45:08.743" endtime="20231212 15:45:13.393"/>
-</kw>
+<status status="PASS" starttime="20231212 16:58:02.830" endtime="20231212 16:58:02.830"/>
+</iter>
+<status status="PASS" starttime="20231212 16:58:02.829" endtime="20231212 16:58:02.830"/>
+</for>
 <kw name="Replace String" library="STR">
-<var>${band_m}</var>
-<arg>${band}</arg>
-<arg>H</arg>
-<arg>h</arg>
+<var>${a1}</var>
+<arg>${a}</arg>
+<arg>${a[9]}</arg>
+<arg>${EMPTY}</arg>
 <doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<msg timestamp="20231212 15:45:13.394" level="INFO">${band_m} = 80 Mhz</msg>
-<status status="PASS" starttime="20231212 15:45:13.393" endtime="20231212 15:45:13.394"/>
-</kw>
-<kw name="Get Chanel 5G" library="Lib_Selenium_WireLess">
-<var>${c}</var>
-<kw name="Get Value" library="SL">
-<var>${chanel_value}</var>
-<arg>//select[@id='5G_Select_Channel']</arg>
-<doc>Returns the value attribute of the element identified by ``locator``.</doc>
-<msg timestamp="20231212 15:45:14.440" level="INFO">${chanel_value} = 64</msg>
-<status status="PASS" starttime="20231212 15:45:13.394" endtime="20231212 15:45:14.440"/>
-</kw>
-<kw name="Get Text" library="SL">
-<var>${chanel_text}</var>
-<arg>//option[@value="${chanel_value}"]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20231212 15:45:15.472" level="INFO">${chanel_text} = 64</msg>
-<status status="PASS" starttime="20231212 15:45:14.440" endtime="20231212 15:45:15.472"/>
-</kw>
-<kw name="Return From Keyword" library="BuiltIn">
-<arg>${chanel_text}</arg>
-<doc>Returns from the enclosing user keyword.</doc>
-<msg timestamp="20231212 15:45:15.473" level="INFO">Returning from the enclosing user keyword.</msg>
-<status status="PASS" starttime="20231212 15:45:15.472" endtime="20231212 15:45:15.473"/>
-</kw>
-<msg timestamp="20231212 15:45:15.473" level="INFO">${c} = 64</msg>
-<status status="PASS" starttime="20231212 15:45:13.394" endtime="20231212 15:45:15.473"/>
-</kw>
-<kw name="Get wifi standard 5G" library="Lib_Selenium_WireLess">
-<var>${MoDE}</var>
-<kw name="Get Value" library="SL">
-<var>${WL5_Mode}</var>
-<arg>//select[@id='5G_Select_WLAN_Mode']</arg>
-<doc>Returns the value attribute of the element identified by ``locator``.</doc>
-<msg timestamp="20231212 15:45:16.503" level="INFO">${WL5_Mode} = axa</msg>
-<status status="PASS" starttime="20231212 15:45:15.473" endtime="20231212 15:45:16.503"/>
-</kw>
-<kw name="Get Text" library="SL">
-<var>${WL5_text}</var>
-<arg>//option[@value="${WL5_Mode}"]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20231212 15:45:17.543" level="INFO">${WL5_text} = 11ax</msg>
-<status status="PASS" starttime="20231212 15:45:16.504" endtime="20231212 15:45:17.543"/>
-</kw>
-<kw name="Return From Keyword" library="BuiltIn">
-<arg>${WL5_text}</arg>
-<doc>Returns from the enclosing user keyword.</doc>
-<msg timestamp="20231212 15:45:17.543" level="INFO">Returning from the enclosing user keyword.</msg>
-<status status="PASS" starttime="20231212 15:45:17.543" endtime="20231212 15:45:17.543"/>
-</kw>
-<msg timestamp="20231212 15:45:17.543" level="INFO">${MoDE} = 11ax</msg>
-<status status="PASS" starttime="20231212 15:45:15.473" endtime="20231212 15:45:17.543"/>
+<msg timestamp="20231212 16:58:02.831" level="INFO">${a1} = PA-PSK/ PA2-PSK Mixed Mode</msg>
+<status status="PASS" starttime="20231212 16:58:02.830" endtime="20231212 16:58:02.831"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
-<arg>\n Wireless Standart: ${MoDE}</arg>
+<arg>${a1}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20231212 15:45:17.543" endtime="20231212 15:45:17.543"/>
+<status status="PASS" starttime="20231212 16:58:02.831" endtime="20231212 16:58:02.831"/>
 </kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>\n Chanel: ${c}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20231212 15:45:17.544" endtime="20231212 15:45:17.544"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>\n Bandwith: ${bw}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20231212 15:45:17.544" endtime="20231212 15:45:17.544"/>
-</kw>
-<kw name="Should Match Regexp" library="BuiltIn">
-<arg>${MoDE}</arg>
-<arg>11(${Standard})</arg>
-<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
-<status status="PASS" starttime="20231212 15:45:17.544" endtime="20231212 15:45:17.544"/>
-</kw>
-<kw name="Should Match" library="BuiltIn">
-<arg>${c}</arg>
-<arg>${Channel}</arg>
-<doc>Fails if the given ``string`` does not match the given ``pattern``.</doc>
-<status status="PASS" starttime="20231212 15:45:17.545" endtime="20231212 15:45:17.545"/>
-</kw>
-<kw name="Should Match" library="BuiltIn">
-<arg>${band_m}</arg>
-<arg>${BW}</arg>
-<doc>Fails if the given ``string`` does not match the given ``pattern``.</doc>
-<msg timestamp="20231212 15:45:17.545" level="FAIL">'80 Mhz' does not match '80Mhz'</msg>
-<status status="FAIL" starttime="20231212 15:45:17.545" endtime="20231212 15:45:17.545"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>\Config Radio 5G Successfully</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" starttime="20231212 15:45:17.545" endtime="20231212 15:45:17.545"/>
-</kw>
-<status status="FAIL" starttime="20231212 15:45:06.615" endtime="20231212 15:45:17.545"/>
-</kw>
-<status status="FAIL" starttime="20231212 15:41:12.965" endtime="20231212 15:45:17.545">'80 Mhz' does not match '80Mhz'</status>
+<status status="PASS" starttime="20231212 16:58:02.829" endtime="20231212 16:58:02.831"/>
 </test>
-<status status="FAIL" starttime="20231212 15:41:12.762" endtime="20231212 15:45:17.546"/>
+<status status="PASS" starttime="20231212 16:58:02.818" endtime="20231212 16:58:02.831"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tasks</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="TC OM Radio5G">TC OM Radio5G</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="ForLopp">ForLopp</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20231212 15:41:12.884" level="ERROR">Error in file '/home/ubuntu/PycharmProjects/MeshAP/lib/Selenium_lib/Lib_Selenium_WireLess.robot' on line 4: Resource file 'venv/lib/Selenium_lib/Lib_Selenium_Login.robot' does not exist.</msg>
 </errors>
 </robot>

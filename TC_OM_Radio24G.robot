@@ -28,7 +28,7 @@ Verify config Radio 2.4g WebGUI
 	${c}                    Get Chanel 2.4
 	${band}                  Get BW Radio 2.4
 	${band_mo1}               Replace String                  ${band}       H     h
-	${band_mo2}               Replace String                  ${band}       ${SPACE}    ${EMPTY}
+	${band_mo2}               Replace String                  ${band_mo1}       ${SPACE}    ${EMPTY}
 	Log To Console          \n Wireless Standart: ${MoDE}
 	Log To Console          \n Chanel: ${c}
 	Log To Console          \n Bandwith: ${bw}

@@ -16,9 +16,9 @@ ${PW}           one@2019
 
 ${Serial}               52dc
 
-${Standard}             ax
-${Channel}              64
-${BW}                   80Mhz
+${Standard}             ac
+${Channel}              60
+${BW}                   40Mhz
 
 *** Keywords ***
 Verify config Radio 5g WebGUI
@@ -26,7 +26,7 @@ Verify config Radio 5g WebGUI
 	Click Button Edit Radio 5G
 	${band}                         Get BW Radio 5G
 	${band_mo1}                       Replace String                  ${band}       H     h
-	${band_mo2}                     Replace String                  ${band}       ${SPACE}    ${EMPTY}
+	${band_mo2}                     Replace String                  ${band_mo1}       ${SPACE}    ${EMPTY}
 	${c}                            Get Chanel 5G
 	${MoDE}	                        Get wifi standard 5G
 	Log To Console                  \n Wireless Standart: ${MoDE}
