@@ -52,32 +52,32 @@ Verify config Radio 5g
 #	Sleep   120s
 #	Close Browser
 
-#3. Reconect wifi and verify config in WebGUI
-#	Set Selenium Speed    0.5
-#	Open Browser            https://192.168.88.1            chrome
-#    Chrome Pass Certificate google if present
-#    Login To WebGUI on local machine         root       ${PassWord}
-#    Access Setting Page
-#	Go to Wireless
-#	Access Wireless Radio 5G
-#	Verify config Radio 5g                  ${Standard}      ${Channel}         ${BW}
+3. Reconect wifi and verify config in WebGUI
+	Set Selenium Speed    0.5
+	Open Browser            https://192.168.88.1            chrome
+    Chrome Pass Certificate google if present
+    Login To WebGUI on local machine         root       ${PassWord}
+    Access Setting Page
+	Go to Wireless
+	Access Wireless Radio 5G
+	Verify config Radio 5g                  ${Standard}      ${Channel}         ${BW}
 #4. Check topo Have enouht Node
 #	Reload Page
 #	Verify in Topology have MRE Info        ${MRE_Name_defautl}         ${MRE_Mac_Adress}
 #	Close All Browsers
-5. Verify in client
-	Open SSH Session Login To Local Machine
-    Sleep    5
-    ${Ouput}            SSHL.Execute Command            sudo nmcli device wifi list         30
-#    Sleep   3
-#    SSHL.Write    1
-#    Sleep    30
-#    ${Output}                       SSHL.Read
-
-    Log         ${Ouput}
-    ${out2}      Get Lines Matching Pattern    ${Ouput}    CC:71:90:86:AF:2
-    Log To Console    ${out2}
-    Log                 ${out2}
+#5. Verify in client
+#	Open SSH Session Login To Local Machine
+#    Sleep    5
+#    ${Ouput}            SSHL.Execute Command            sudo nmcli device wifi list         30
+##    Sleep   3
+##    SSHL.Write    1
+##    Sleep    30
+##    ${Output}                       SSHL.Read
+#
+#    Log         ${Ouput}
+#    ${out2}      Get Lines Matching Pattern    ${Ouput}    CC:71:90:86:AF:2
+#    Log To Console    ${out2}
+#    Log                 ${out2}
 #    SSH_Connect_wifi.Enable Wifi
 #    SSH_Connect_wifi.Delete All Wireless
 #    Wait Until Keyword Succeeds    180    5    SSH_Connect_wifi.Wifi Rescan Contain   ${Mesh_SSID}

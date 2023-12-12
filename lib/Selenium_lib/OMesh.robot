@@ -36,7 +36,8 @@ Login to ONE Mesh
 Access Device detail OM
 	[Arguments]                         ${Serial}
 	Click Element                       //span[contains(text(),'Configuration')]
-	Wait Until Element Is Visible       //body[contains(@class,'pace-done')]/div[@class='page-container']/div[@class='page-content']/div[@class='content-wrapper']/div[@class='panel panel-flat']/div[@class='panel-body padding-panel-search']/form[@class='form-horizontal form-search row ng-pristine ng-valid ng-valid-maxlength']/div[@class='col-md-10']/div[2]/div[1]/div[1]/input[1]
+	#Wait Until Element Is Visible       //body[contains(@class,'pace-done')]/div[@class='page-container']/div[@class='page-content']/div[@class='content-wrapper']/div[@class='panel panel-flat']/div[@class='panel-body padding-panel-search']/form[@class='form-horizontal form-search row ng-pristine ng-valid ng-valid-maxlength']/div[@class='col-md-10']/div[2]/div[1]/div[1]/input[1]
+	Wait Until Element Is Visible       //input[@name= 'serialNumber']
 	Input Text                          //input[@name= 'serialNumber']    ${Serial}
 	Click Element                       //button[contains(@type,'submit')]//i[contains(@class,'icon-search4')]
 	Sleep                               5
@@ -75,7 +76,7 @@ Config Wifi Radio 2.4Ghz OM
 	[Arguments]                         ${Standard}             ${Bandwidth}        ${Channel}
 	Log To Console                      \n Config Wifi Radio 2.4Ghz OM
 	Select From List By Value           //Select[@ng-change="radio24GhzUpdateBandwidth(1)"]     ${Standard}
-	Select From List By Value           //select[@ng-model="wifiRadio24Ghz.bandwidth"]          ${Bandwidth}
+	Select From List By Label           //select[@ng-model="wifiRadio24Ghz.bandwidth"]          ${Bandwidth}
 	Select From List By Value           //select[@ng-model="wifiRadio24Ghz.channel"]            ${Channel}
 	Click Element                       //button[@class="btn btn-icon btn-primary btnSaveWifi"]
 
@@ -97,7 +98,7 @@ Config Wifi Radio 5Ghz OM
 	...                                 CHANEL:
 	[Arguments]                         ${Standard}             ${Bandwidth}        ${Channel}
 	Select From List By Value           //select[@ng-model="wifiRadio5Ghz.wlanStandard"]     ${Standard}
-	Select From List By Value           //select[@ng-model="wifiRadio5Ghz.bandwidth"]        ${Bandwidth}
+	Select From List By Label           //select[@ng-model="wifiRadio5Ghz.bandwidth"]        ${Bandwidth}
 	Select From List By Value           //select[@ng-model="wifiRadio5Ghz.channel"]          ${Channel}
 	Click Element                       //button[@class="btn btn-icon btn-primary btnSaveWifi"]
 

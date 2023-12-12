@@ -96,8 +96,7 @@ Config BW Radio 5G
     Select From List By Value           xpath= //select[@id='5G_Select_Bandwidth']      ${BW5_value}
 
 Get BW Radio 5G
-    ${BW5_value}=                        Get Value       //select[@id='5G_Select_Bandwidth']
-    ${BW5_text}=                         Get Text        //option[@value="${BW5_value}"]
+    ${BW5_text}                         Get Selected List Label    	//select[@id='5G_Select_Bandwidth']
     Return From Keyword                 ${BW5_text}
 
 ################# Wireless ##########################
