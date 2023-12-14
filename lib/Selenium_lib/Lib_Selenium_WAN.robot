@@ -230,6 +230,7 @@ Verify config WAN PPPoE
    Should Be Equal                                  ${User_name}       ${Act_User_name}
    Should Be Equal                                  ${PW}       ${Act_PW}
    Log To Console                                  \nConfig Wan PPPoE succesfully
+
 Verify config WAN Static Ipv4
     [Arguments]                                     ${IPv4_adr}
     ...                                             ${Ipv4_GG}

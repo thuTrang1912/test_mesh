@@ -299,8 +299,9 @@ Verify Edit WWAN0 PPPoE for Wan OM Should Successfully
 	Should Match                        ${PW_v}             ${PW}
 	Log To Console                      \Successfully
 
-Edit WAN Static for Wan index OM
+Edit WAN Static IPV4 OM
 	[Arguments]                         ${Service}      ${Addr}     ${Subnet}   ${IPGate}   ${DNS1}     ${DNS2}
+	Log To Console                      \n Config static IPv4
 	Select From List By Value           //select[@name="connection_type"][1]    static
 	Select From List By Value           //*[@id="device-wan-tab"]/div/form/div/div[1]/div/div[2]/table/tbody/tr[5]/td[2]/select     ${Service}
 	Input Text                          //input[@name="ipAddress"][1]    ${Addr}
@@ -308,11 +309,23 @@ Edit WAN Static for Wan index OM
 	Input Text                          //input[@name="gateway"][1]         ${IPGate}
 	Input Text                          //input[@ng-model="wan.preferredDns"][1]        ${DNS1}
 	Input Text                          //input[@ng-model="wan.alternateDns"][1]    ${DNS2}
+	#Click Element                       //button[@ng-click="updateWan()"]
+
+Click Button Update Wan
+	Wait Until Element Is Visible       //button[@ng-click="updateWan()"]
 	Click Element                       //button[@ng-click="updateWan()"]
 
-Verify Config WWAN0 Static for Wan index OM
+Edit WAN Static IPV6 OM
+	[Arguments]                 ${Service}          ${ipv6_addr}    ${ipv6_Gateway}
+	IF      $Service == 'Dual'
+		Log To Console          \n Config Static Ipv6
+		Input Text              //*[@id="device-wan-tab"]/div/form/div/div[1]/div/div[2]/table/tbody/tr[11]/td[2]/input    ${ipv6_addr}
+		Input Text              //*[@id="device-wan-tab"]/div/form/div/div[1]/div/div[2]/table/tbody/tr[12]/td[2]/input    ${ipv6_Gateway}
+	END
+
+Verify Config WWAN0 Static IPV4 OM
 	[Arguments]                         ${Service}      ${Addr}     ${Subnet}   ${IPGate}   ${DNS1}     ${DNS2}
-	Log To Console                      \n Verify Config WWAN0 Static for Wan index OM:
+	Log To Console                      \n Verify Config WWAN0 Static IPV4 OM:
 	${Service_v}                        Get Selected List Value    //*[@id="device-wan-tab"]/div/form/div/div[1]/div/div[2]/table/tbody/tr[5]/td[2]/select
 	${Addr_V}                           Get Value                 //input[@name="ipAddress"][1]
 	${Subnet_v}                         Get Selected List Value     //select[@ng-model="wan.subnetMask"][1]
@@ -327,12 +340,20 @@ Verify Config WWAN0 Static for Wan index OM
 	Should Match                        ${DNS2_v}        ${DNS2}
 	Log To Console                      \ Successfully
 
+Verify Config WWAN0 Static IPV6 OM
+	[Arguments]                 ${ipv6_addr}    ${ipv6_Gateway}
+	Log To Console                      \n Verify Config WWAN0 Static IPV6 OM:
+	${ipv6_addr_v}                      Get Value              //*[@id="device-wan-tab"]/div/form/div/div[1]/div/div[2]/table/tbody/tr[11]/td[2]/input
+	${ipv6_Gateway_v}                     Get Value               //*[@id="device-wan-tab"]/div/form/div/div[1]/div/div[2]/table/tbody/tr[12]/td[2]/input
+	Should Match                ${ipv6_addr_v}      ${ipv6_addr}
+	Should Match                ${ipv6_Gateway_v}       ${ipv6_Gateway}
+	Log To Console                  \Successfully
 ################## add wan ######################
 Click button Add Wan OM
-	Wait Until Element Is Visible          //i[@class="glyphicon glyphicon-plus-sign"]
-	Click Element                           //i[@class="glyphicon glyphicon-plus-sign"]
+	Wait Until Element Is Visible          //*[@id="device-wan-tab"]/div/div[4]/div/div/div/button/i
+	Click Element                          //*[@id="device-wan-tab"]/div/div[4]/div/div/div/button/i
 
-Add Wan 1 DHCP OM
+Add Wan1 DHCP OM
 	[Documentation]                     Edit WWAN0
 	...                                 Connection Type: dhcp, pppoe, static
 	...                                 Wan service: Ipv4, Ipv6, Dual
@@ -351,17 +372,60 @@ Add Wan 1 DHCP OM
 	IF    ${stt}
 	     Select From List By Label      //*[@id="device-wan-tab"]/div/form/div/div[2]/div/div[2]/table/tbody/tr[12]/td[2]/select       ${TypeV6}
 	END
-	Click Element                       //button[@ng-click="updateWan()"]
+	#Click Element                       //button[@ng-click="updateWan()"]
 
-Add Wan 2 PPPoE OM
-	[Arguments]                         ${VLanID}  ${User}         ${PW}
+Verify Add Wan1 DHCP OM
+	[Arguments]                         ${VLanID}       ${service}      ${DNS1}     ${DNS2}     ${TypeV6}
+	${Wan_type}                         Get Selected List Value    //*[@id="device-wan-tab"]/div/form/div/div[2]/div/div[2]/table/tbody/tr[3]/td[2]/select
+	${IP_type}                          Get Selected List Value    //*[@id="device-wan-tab"]/div/form/div/div[2]/div/div[2]/table/tbody/tr[4]/td[2]/select
+	${Dns1_v}                           Get Value       //*[@id="device-wan-tab"]/div/form/div/div[2]/div/div[2]/table/tbody/tr[8]/td[2]/input
+	${Dns2_v}                           Get Value       //*[@id="device-wan-tab"]/div/form/div/div[2]/div/div[2]/table/tbody/tr[9]/td[2]/input
+
+	Should Match                        ${Wan_type}     dhcp
+	Should Match                        ${IP_type}      ${service}
+	Should Match                        ${Dns1_v}   ${DNS1}
+	Should Match                        ${Dns2_v}   ${DNS2}
+
+	${IPV6_stt}                              Run Keyword And Return Status    Wait Until Element Is Visible    //*[@id="device-wan-tab"]/div/form/div/div[2]/div/div[2]/table/tbody/tr[12]/td[2]/select         5
+	IF    ${IPV6_stt}
+	     ${TypeV6_v}            Get Selected List Value      //*[@id="device-wan-tab"]/div/form/div/div[2]/div/div[2]/table/tbody/tr[12]/td[2]/select
+		Should Match             ${TypeV6_v}   ${TypeV6}
+	END
+
+Add Wan2 PPPoE OM
+	[Arguments]                         ${VLanID}       ${service}       ${User}         ${PW}      ${IPv6_Type}
 	Select From List By Value           //*[@id="device-wan-tab"]/div/form/div/div[4]/div/div[2]/table/tbody/tr[2]/td[2]/select     eth1.${VLanID}
+	Select From List By Value           //*[@id="device-wan-tab"]/div/form/div/div[4]/div/div[2]/table/tbody/tr[4]/td[2]/select     ${service}
 	Select From List By Value           //*[@id="device-wan-tab"]/div/form/div/div[4]/div/div[2]/table/tbody/tr[3]/td[2]/select     pppoe
+	Wait Until Element Is Visible       //*[@id="device-wan-tab"]/div/form/div/div[4]/div/div[2]/table/tbody/tr[13]/td[2]/input         10
 	Input Text                          //*[@id="device-wan-tab"]/div/form/div/div[4]/div/div[2]/table/tbody/tr[13]/td[2]/input    ${User}
 	Input Text                          //*[@id="device-wan-tab"]/div/form/div/div[4]/div/div[2]/table/tbody/tr[14]/td[2]/input    ${PW}
-	Click Element                       //button[@ng-click="updateWan()"]
+	#Click Element                       //button[@ng-click="updateWan()"]
+	IF      $service=='Dual'
+			Select From List By Value              //*[@id="device-wan-tab"]/div/form/div/div[4]/div/div[2]/table/tbody/tr[12]/td[2]/select     ${IPv6_Type}
+	END
 
-Add Wan 3 Static OM
+Verify Add Wan2 PPPoE OM
+	[Arguments]                         ${VLanID}       ${service}       ${User}         ${PW}      ${IPv6_Type}
+
+	${VLAN_v}                           Get Selected List Value    //*[@id="device-wan-tab"]/div/form/div/div[4]/div/div[2]/table/tbody/tr[2]/td[2]/select
+	${WAN_type}                         Get Selected List Value    //*[@id="device-wan-tab"]/div/form/div/div[4]/div/div[2]/table/tbody/tr[3]/td[2]/select
+	${IP_type}                          Get Selected List Value    //*[@id="device-wan-tab"]/div/form/div/div[4]/div/div[2]/table/tbody/tr[4]/td[2]/select
+	${User_v}                           Get Value                  //*[@id="device-wan-tab"]/div/form/div/div[4]/div/div[2]/table/tbody/tr[13]/td[2]/input
+	${PW_v}                             Get Value                   //*[@id="device-wan-tab"]/div/form/div/div[4]/div/div[2]/table/tbody/tr[14]/td[2]/input
+
+	Should Match                        ${WAN_type}         pppoe
+	Should Match                        ${VLAN_v}           eth1.${VLanID}
+	Should Match                        ${IP_type}          ${service}
+	Should Match                        ${User_v}           ${User}
+	Should Match                        ${PW_v}             ${PW}
+	IF      $service=='Dual'
+		${IPv6_Type_v}      	Get Selected List Value              //*[@id="device-wan-tab"]/div/form/div/div[4]/div/div[2]/table/tbody/tr[12]/td[2]/select     ${IPv6_Type}
+		Should Match            ${IPv6_Type_v}          ${IPv6_Type}
+	END
+
+
+Add Wan3 Static IPV4 OM
 	[Arguments]                         ${VlanID}       ${Service}      ${Addr}     ${Subnet}   ${IPGate}   ${DNS1}     ${DNS2}
 	Select From List By Value           //*[@id="device-wan-tab"]/div/form/div/div[5]/div/div[2]/table/tbody/tr[2]/td[2]/select     eth1.${VlanID}
 	Select From List By Value           //*[@id="device-wan-tab"]/div/form/div/div[5]/div/div[2]/table/tbody/tr[3]/td[2]/select     static
@@ -371,7 +435,39 @@ Add Wan 3 Static OM
 	Input Text                          //*[@id="device-wan-tab"]/div/form/div/div[5]/div/div[2]/table/tbody/tr[7]/td[2]/input         ${IPGate}
 	Input Text                          //*[@id="device-wan-tab"]/div/form/div/div[5]/div/div[2]/table/tbody/tr[8]/td[2]/input        ${DNS1}
 	Input Text                          //*[@id="device-wan-tab"]/div/form/div/div[5]/div/div[2]/table/tbody/tr[9]/td[2]/input    ${DNS2}
-	Click Element                       //button[@ng-click="updateWan()"]
+	#Click Element                       //button[@ng-click="updateWan()"]
+Add Wan3 Static IPV6 OM
+	[Arguments]         ${v6_gate}          ${v6_addr}
+	Input Text      //*[@id="device-wan-tab"]/div/form/div/div[5]/div/div[2]/table/tbody/tr[10]/td[2]/input         ${v6_gate} 
+	Input Text      //*[@id="device-wan-tab"]/div/form/div/div[5]/div/div[2]/table/tbody/tr[11]/td[2]/input         ${v6_addr}
+
+Verify Add Wan3 Static IPv4 OM
+	[Arguments]                         ${VlanID}       ${Service}      ${Addr}     ${Subnet}   ${IPGate}   ${DNS1}     ${DNS2}
+	${VLan_v}                           Get Selected List Value    //*[@id="device-wan-tab"]/div/form/div/div[5]/div/div[2]/table/tbody/tr[2]/td[2]/select
+	${IPtype}                           Get Selected List Value    //*[@id="device-wan-tab"]/div/form/div/div[5]/div/div[2]/table/tbody/tr[4]/td[2]/select
+	${IPadd}                            Get Value            //*[@id="device-wan-tab"]/div/form/div/div[5]/div/div[2]/table/tbody/tr[5]/td[2]/input
+	${Subnet_v}                         Get Selected List Value    //*[@id="device-wan-tab"]/div/form/div/div[5]/div/div[2]/table/tbody/tr[6]/td[2]/select
+	${Gate_v}                           Get Value           //*[@id="device-wan-tab"]/div/form/div/div[5]/div/div[2]/table/tbody/tr[7]/td[2]/input
+	${D1}                               Get Value           //*[@id="device-wan-tab"]/div/form/div/div[5]/div/div[2]/table/tbody/tr[8]/td[2]/input
+	${D2}                               Get Value           //*[@id="device-wan-tab"]/div/form/div/div[5]/div/div[2]/table/tbody/tr[9]/td[2]/input
+
+	Should Match                        ${VLan_v}    eth1.${VlanID}
+	Should Match                        ${IPtype}   ${Service}
+	Should Match                        ${IPadd}       ${Addr}
+	Should Match                        ${Subnet_v}     ${Subnet}
+	Should Match                        ${Gate_v}       ${IPGate}
+	Should Match                        ${D1}           ${DNS1}
+	Should Match                        ${D2}           ${DNS2}
+
+Verify Add Wan3 Static IPv6 OM
+	[Arguments]         ${v6_gate}          ${v6_addr}
+	${v6_gate_v}                  Get Value      //*[@id="device-wan-tab"]/div/form/div/div[5]/div/div[2]/table/tbody/tr[10]/td[2]/input
+	${v6_addr_v}                  Get Value      //*[@id="device-wan-tab"]/div/form/div/div[5]/div/div[2]/table/tbody/tr[11]/td[2]/input
+	Should Match                  ${v6_gate_v}         ${v6_gate}
+	Should Match                  ${v6_addr_v}         ${v6_addr}
+
+
+
 ######################## Backup Config ####################
 Backup config OM
 	[Arguments]                         ${Backup_Name}

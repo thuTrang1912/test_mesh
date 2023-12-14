@@ -22,6 +22,12 @@ ${Service2}      Dual
 ${User}          nsi2
 ${PW}            ansv
 ${IPv6_}        Auto
+
+${DNS1}                 8.8.8.8
+${DNS2}                 8.8.0.4
+${TypeV6}               Auto
+
+
 *** Keywords ***
 Verify config WAN PPPoE OM WebGUI
    [Arguments]                                      ${Serveice}
