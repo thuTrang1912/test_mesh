@@ -1,5 +1,5 @@
 *** Settings ***
-Library                      SeleniumLibrary   run_on_failure=SL.Capture Page Screenshot    WITH NAME    SL
+Library                      SeleniumLibrary      WITH NAME    SL
 Resource                     ../Selenium_lib/Login.robot
 Resource                     ../Selenium_lib/Setting.robot
 
@@ -8,7 +8,6 @@ ${User_N}
 ${PW}
 *** Keywords ***
 #Please reconnect wifi!
-Switch Popup Re
 Access WAN
     SL.Wait Until Element Is Visible                   //*[@id="sub51"]
     SL.Click Element                                   //*[@id="sub51"]
@@ -204,7 +203,7 @@ Verify config WAN DHCP IPv4
     Log To Console                                  \n Ip_version: ${Act_IP_version}
     Log To Console                                  \n DNS1:  ${Act_DNS1}
     Log To Console                                  \n DNS2:  ${Act_DNS2}
-    Should Be Equal                                  ${Act_service}       ${Service}
+    Should Match Regexp                             ${Act_service}       ${Service}
     Should Be Equal                                  ${IP_ver}       ${Act_IP_version}
     Should Be Equal                                 ${Primary DNS}   ${Act_DNS1}
     Should Be Equal                                 ${Second_DNS}    ${Act_DNS2}

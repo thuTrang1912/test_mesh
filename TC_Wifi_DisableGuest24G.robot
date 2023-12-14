@@ -82,7 +82,7 @@ Ping From PC To
     ELSE
          Log To Console      \n  disable Guest 2G fail
     END
-    Should Not Be True    ${Stt}
+    Should Be True    ${Stt}
 4. Verify on client dose not detect wifi Guest 24G
     Open SSH Session Login To Local Machine
     Sleep    5

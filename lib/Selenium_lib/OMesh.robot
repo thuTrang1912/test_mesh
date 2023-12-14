@@ -23,7 +23,8 @@ Input Password OM
 Login to ONE Mesh
 	[Arguments]                                 ${User_N}            ${PW}
 	Open Browser                        http://mesh-staging.vnpt-technology.vn:9000/login?error=2       chrome
-    Reload Page
+	Maximize Browser Window
+    #Reload Page
     Input User Name OM                    ${User_N}
     Input Password OM                     ${PW}
     #Click element                       //span[@class='glyphicon glyphicon-eye-open']
@@ -192,12 +193,28 @@ Verify Edit Guest SSID 5G OM
 	Log to console                      \nConfig Guest SSID 5g successfully
 
 Disable Guest 2.4 OM
-	Click Button                        //button[contains(@class,'btn btn-link padding-zero')]//i[contains(@class,'icon-trash')]
-	Click Button                        //button[@class="btn btn-icon btn-primary btnSaveWifi"]
+	Click Element                        //*[@id="device-wifi-tab"]/div/form/div[7]/div/div[1]/div/ul/li[1]/button/i
+	#Click Button                        //button[@class="btn btn-icon btn-primary btnSaveWifi"]
 
 Disable Guest 5g OM
-	Click Button                        //*[@id="device-wifi-tab"]/div/form/div[8]/div/div[1]/div/ul/li[1]/a/i
+	Click Element                        //a[@class='btn btn-link padding-zero']//i[@class='icon-trash']
+	#Click Button                        //button[@class="btn btn-icon btn-primary btnSaveWifi"]
+	#//*[@id="device-wifi-tab"]/div/form/div[7]/div/div[1]/div/ul/li[1]/button/i
+
+Click button Delete Guest SSID
 	Click Button                        //button[@class="btn btn-icon btn-primary btnSaveWifi"]
+	Sleep    2
+	Page Should Contain                 You have just deleted guest SSID. Are you sure to save this configuration?
+	Click Element                      //*[@id="device-wifi-tab"]/div/div[1]/div/div/div[2]/button[1]
+	#Should Match                        ${Alert}        You have just deleted guest SSID. Are you sure to save this configuration?
+
+Verify Disable Guest 2.4 OM should successfully
+	Log To Console                          \n Verify Disable Guest 2.4 OM: Should not contain Guest SSID 2.4 Ghz
+	Element Should Not Be Visible           //h6[@class='panel-title text-semibold']//span[contains(text(),'Guest SSID 2.4 Ghz')]
+
+Verify Disable Guest 5g OM should successfully
+	Log to Console                          \n Verify Disable Guest 5 OM: Should not contain Guest SSID 5 Ghz
+	Element Should Not Be Visible           //h6[@class='panel-title text-semibold']//span[contains(text(),'Guest SSID 5 Ghz')]
 
 ##################### VLAN ###########################
 Go to Config Vlan OM
@@ -222,7 +239,7 @@ Go to Config WAN OM
 	Sleep    5
 	Page Should Contain                 WAN configuration
 
-Edit WWan DHCP for wan index OM
+Edit WWan0 DHCP OM
 	[Documentation]                     Edit WWAN0
 	...                                 Connection Type: dhcp, pppoe, static
 	...                                 Wan service: Ipv4, Ipv6, Dual
@@ -231,7 +248,7 @@ Edit WWan DHCP for wan index OM
 	...                                 IPv6 Type
 	[Arguments]                         ${service}      ${DNS1}     ${DNS2}     ${TypeV6}
 	Select From List By Value           //select[@name="connection_type"][1]       dhcp
-	Select From List By Value           //td[@class='my_space_td']//select[@class='form-control ng-valid ng-not-empty ng-valid-required ng-dirty ng-valid-parse ng-touched']        ${service}
+	Select From List By Value           //*[@id="device-wan-tab"]/div/form/div/div[1]/div/div[2]/table/tbody/tr[5]/td[2]/select        ${service}
 	Input Text                          //input[@ng-model="wan.preferredDns"][1]    ${DNS1}
 	Input Text                          //input[@ng-model="wan.alternateDns"][1]    ${DNS2}
 	${stt}                              Run Keyword And Return Status    Wait Until Element Is Visible    //select[@ng-model="wan.ipv6Type"][1]         5
@@ -240,16 +257,52 @@ Edit WWan DHCP for wan index OM
 	END
 	Click Element                       //button[@ng-click="updateWan()"]
 
-Edit WAN PPPoE for Wan Index OM
-	[Arguments]                         ${User}         ${PW}
+Verify Edit WWan0 DHCP OM Should Successfully
+	[Arguments]                         ${service}      ${DNS1}     ${DNS2}     ${TypeV6}
+	Log To Console                      \n Verify Edit WWan0 DHCP OM:
+	${service_v}                        Get Selected List Value    //*[@id="device-wan-tab"]/div/form/div/div[1]/div/div[2]/table/tbody/tr[5]/td[2]/select
+	${DNS1_v}                           Get Value                   //input[@ng-model="wan.preferredDns"][1]
+	${DNS2_v}                           Get Value                   //input[@ng-model="wan.alternateDns"][1]
+
+	${stt}                              Run Keyword And Return Status    Wait Until Element Is Visible    //select[@ng-model="wan.ipv6Type"][1]         5
+	IF    ${stt}
+	     ${TypeV6_v}                    Get Selected List Label      //select[@ng-model="wan.ipv6Type"][1]
+	     Should Match                        ${TypeV6_v}   ${TypeV6}
+	END
+	Should Match                        ${service_v}    ${service}
+	Should Match                        ${DNS1_v}    ${DNS1}
+	Should Match                        ${DNS2_v}    ${DNS2}
+
+	Log To Console                      \t Successfully
+
+Edit WAN PPPoE for Wan OM
+	[Arguments]                         ${Service}          ${User}         ${PW}
 	Select From List By Value           //select[@name="connection_type"][1]     pppoe
+	Select From List By Value           //*[@id="device-wan-tab"]/div/form/div/div[1]/div/div[2]/table/tbody/tr[5]/td[2]/select     ${Service}
 	Input Text                          //input[@name="pppoeUsername"][1]    ${User}
 	Input Text                          //input[@name="pppoePassword"][1]    ${PW}
+
+	IF  $Service=='Dual'
+		Click element                   //tbody/tr[21]/td[2]/label[1]/span[1]
+	END
 	Click Element                       //button[@ng-click="updateWan()"]
+
+Verify Edit WWAN0 PPPoE for Wan OM Should Successfully
+	[Arguments]                         ${Service}          ${User}         ${PW}
+	Log To Console                      \n Verify Edit WWAN0 PPPoE for Wan OM:
+	#${Connection_v}                     Get Selected List Value         //select[@name="connection_type"][1]
+	${Service_v}                        Get Selected List Value           //*[@id="device-wan-tab"]/div/form/div/div[1]/div/div[2]/table/tbody/tr[5]/td[2]/select
+	${User_v}                           Get Value               //input[@name="pppoeUsername"][1]
+	${PW_v}                             Get Value               //input[@name="pppoePassword"][1]
+	Should Match                        ${Service_v}        ${Service}
+	Should Match                        ${User_v}           ${User}
+	Should Match                        ${PW_v}             ${PW}
+	Log To Console                      \Successfully
 
 Edit WAN Static for Wan index OM
 	[Arguments]                         ${Service}      ${Addr}     ${Subnet}   ${IPGate}   ${DNS1}     ${DNS2}
-	Select From List By Value           //select[@name="connection_type"][1]    ${Service}
+	Select From List By Value           //select[@name="connection_type"][1]    static
+	Select From List By Value           //*[@id="device-wan-tab"]/div/form/div/div[1]/div/div[2]/table/tbody/tr[5]/td[2]/select     ${Service}
 	Input Text                          //input[@name="ipAddress"][1]    ${Addr}
 	Select From List By Value           //select[@ng-model="wan.subnetMask"][1]         ${Subnet}
 	Input Text                          //input[@name="gateway"][1]         ${IPGate}
@@ -257,6 +310,22 @@ Edit WAN Static for Wan index OM
 	Input Text                          //input[@ng-model="wan.alternateDns"][1]    ${DNS2}
 	Click Element                       //button[@ng-click="updateWan()"]
 
+Verify Config WWAN0 Static for Wan index OM
+	[Arguments]                         ${Service}      ${Addr}     ${Subnet}   ${IPGate}   ${DNS1}     ${DNS2}
+	Log To Console                      \n Verify Config WWAN0 Static for Wan index OM:
+	${Service_v}                        Get Selected List Value    //*[@id="device-wan-tab"]/div/form/div/div[1]/div/div[2]/table/tbody/tr[5]/td[2]/select
+	${Addr_V}                           Get Value                 //input[@name="ipAddress"][1]
+	${Subnet_v}                         Get Selected List Value     //select[@ng-model="wan.subnetMask"][1]
+	${IPGate_v}                         Get Value      //input[@name="gateway"][1]
+	${DNS1_v}                           Get Value      //input[@ng-model="wan.preferredDns"][1]
+	${DNS2_v}                           Get Value      //input[@ng-model="wan.alternateDns"][1]
+	Should Match                        ${Service_v}        ${Service}
+	Should Match                        ${Addr_V}        ${Addr}
+	Should Match                        ${Subnet_v}        ${Subnet}
+	Should Match                        ${IPGate_v}        ${IPGate}
+	Should Match                        ${DNS1_v}        ${DNS1}
+	Should Match                        ${DNS2_v}        ${DNS2}
+	Log To Console                      \ Successfully
 
 ################## add wan ######################
 Click button Add Wan OM

@@ -1,359 +1,648 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.10.12 on linux)" generated="20231212 17:26:38.987" rpa="false" schemaversion="4">
-<suite id="s1" name="TC OM EnableGuestSSID" source="/home/ubuntu/PycharmProjects/MeshAP/TC_OM_EnableGuestSSID.robot">
-<test id="s1-t1" name="Enable Guest SSID" line="32">
+<robot generator="Robot 6.1.1 (Python 3.10.12 on linux)" generated="20231213 17:28:58.402" rpa="false" schemaversion="4">
+<suite id="s1" name="TC OM WAN edit Static" source="/home/ubuntu/PycharmProjects/MeshAP/TC_OM_WAN_edit_Static.robot">
+<test id="s1-t1" name="1. Config WWAN0 Static Ipv4" line="34">
 <kw name="Set Selenium Speed" library="SL">
 <arg>0.5</arg>
 <doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" starttime="20231212 17:26:39.176" endtime="20231212 17:26:39.177"/>
+<status status="PASS" starttime="20231213 17:28:58.604" endtime="20231213 17:28:58.604"/>
 </kw>
 <kw name="Login to ONE Mesh" library="OMesh">
-<arg>${User_N}</arg>
-<arg>${PW}</arg>
+<arg>${OM_User}</arg>
+<arg>${OM_PW}</arg>
 <kw name="Open Browser" library="SL">
 <arg>http://mesh-staging.vnpt-technology.vn:9000/login?error=2</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20231212 17:26:39.177" level="INFO">Opening browser 'chrome' to base url 'http://mesh-staging.vnpt-technology.vn:9000/login?error=2'.</msg>
-<status status="PASS" starttime="20231212 17:26:39.177" endtime="20231212 17:26:42.467"/>
+<msg timestamp="20231213 17:28:58.605" level="INFO">Opening browser 'chrome' to base url 'http://mesh-staging.vnpt-technology.vn:9000/login?error=2'.</msg>
+<status status="PASS" starttime="20231213 17:28:58.604" endtime="20231213 17:29:04.379"/>
 </kw>
-<kw name="Reload Page" library="SL">
-<doc>Simulates user reloading page.</doc>
-<status status="PASS" starttime="20231212 17:26:42.467" endtime="20231212 17:26:43.068"/>
+<kw name="Maximize Browser Window" library="SL">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231213 17:29:04.381" endtime="20231213 17:29:05.234"/>
 </kw>
 <kw name="Input User Name OM" library="OMesh">
 <arg>${User_N}</arg>
 <kw name="Wait Until Element Is Visible" library="SL">
 <arg>//div[@class='form-group-login']//input[@type='text']</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231212 17:26:43.069" endtime="20231212 17:26:44.119"/>
+<status status="PASS" starttime="20231213 17:29:05.237" endtime="20231213 17:29:06.347"/>
 </kw>
 <kw name="Input Text" library="SL">
 <arg>//div[@class='form-group-login']//input[@type='text']</arg>
 <arg>${User_N}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231212 17:26:44.121" level="INFO">Typing text 'one' into text field '//div[@class='form-group-login']//input[@type='text']'.</msg>
-<status status="PASS" starttime="20231212 17:26:44.119" endtime="20231212 17:26:45.778"/>
+<msg timestamp="20231213 17:29:06.349" level="INFO">Typing text 'one' into text field '//div[@class='form-group-login']//input[@type='text']'.</msg>
+<status status="PASS" starttime="20231213 17:29:06.347" endtime="20231213 17:29:08.042"/>
 </kw>
-<status status="PASS" starttime="20231212 17:26:43.068" endtime="20231212 17:26:45.778"/>
+<status status="PASS" starttime="20231213 17:29:05.235" endtime="20231213 17:29:08.042"/>
 </kw>
 <kw name="Input Password OM" library="OMesh">
 <arg>${PW}</arg>
 <kw name="Wait Until Element Is Visible" library="SL">
 <arg>//input[@type='password']</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231212 17:26:45.780" endtime="20231212 17:26:46.824"/>
+<status status="PASS" starttime="20231213 17:29:08.044" endtime="20231213 17:29:09.077"/>
 </kw>
 <kw name="Input Text" library="SL">
 <arg>//input[@type='password']</arg>
 <arg>${PW}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231212 17:26:46.826" level="INFO">Typing text 'one@2019' into text field '//input[@type='password']'.</msg>
-<status status="PASS" starttime="20231212 17:26:46.825" endtime="20231212 17:26:48.437"/>
+<msg timestamp="20231213 17:29:09.078" level="INFO">Typing text 'one@2019' into text field '//input[@type='password']'.</msg>
+<status status="PASS" starttime="20231213 17:29:09.077" endtime="20231213 17:29:10.730"/>
 </kw>
-<status status="PASS" starttime="20231212 17:26:45.778" endtime="20231212 17:26:48.437"/>
+<status status="PASS" starttime="20231213 17:29:08.043" endtime="20231213 17:29:10.731"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>4</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231212 17:26:52.439" level="INFO">Slept 4 seconds</msg>
-<status status="PASS" starttime="20231212 17:26:48.438" endtime="20231212 17:26:52.439"/>
+<msg timestamp="20231213 17:29:14.733" level="INFO">Slept 4 seconds</msg>
+<status status="PASS" starttime="20231213 17:29:10.731" endtime="20231213 17:29:14.733"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SL">
 <arg>//button[@id='login-submit']</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231212 17:26:52.440" endtime="20231212 17:26:53.482"/>
+<status status="PASS" starttime="20231213 17:29:14.734" endtime="20231213 17:29:15.772"/>
 </kw>
 <kw name="Click Element" library="SL">
 <arg>//button[@id='login-submit']</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231212 17:26:53.485" level="INFO">Clicking element '//button[@id='login-submit']'.</msg>
-<status status="PASS" starttime="20231212 17:26:53.483" endtime="20231212 17:27:38.940"/>
+<msg timestamp="20231213 17:29:15.774" level="INFO">Clicking element '//button[@id='login-submit']'.</msg>
+<status status="PASS" starttime="20231213 17:29:15.773" endtime="20231213 17:29:22.190"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>4</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231212 17:27:42.940" level="INFO">Slept 4 seconds</msg>
-<status status="PASS" starttime="20231212 17:27:38.940" endtime="20231212 17:27:42.940"/>
+<msg timestamp="20231213 17:29:26.194" level="INFO">Slept 4 seconds</msg>
+<status status="PASS" starttime="20231213 17:29:22.192" endtime="20231213 17:29:26.194"/>
 </kw>
 <kw name="Page Should Contain" library="SL">
 <arg>Welcome to the ONE MESH system</arg>
 <doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20231212 17:27:46.579" level="INFO">Current page contains text 'Welcome to the ONE MESH system'.</msg>
-<status status="PASS" starttime="20231212 17:27:42.941" endtime="20231212 17:27:46.579"/>
+<msg timestamp="20231213 17:29:27.271" level="INFO">Current page contains text 'Welcome to the ONE MESH system'.</msg>
+<status status="PASS" starttime="20231213 17:29:26.194" endtime="20231213 17:29:27.271"/>
 </kw>
-<status status="PASS" starttime="20231212 17:26:39.177" endtime="20231212 17:27:46.579"/>
+<status status="PASS" starttime="20231213 17:28:58.604" endtime="20231213 17:29:27.271"/>
 </kw>
 <kw name="Access Device detail OM" library="OMesh">
 <arg>${Serial}</arg>
 <kw name="Click Element" library="SL">
 <arg>//span[contains(text(),'Configuration')]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231212 17:27:46.583" level="INFO">Clicking element '//span[contains(text(),'Configuration')]'.</msg>
-<status status="PASS" starttime="20231212 17:27:46.582" endtime="20231212 17:27:48.808"/>
+<msg timestamp="20231213 17:29:27.276" level="INFO">Clicking element '//span[contains(text(),'Configuration')]'.</msg>
+<status status="PASS" starttime="20231213 17:29:27.275" endtime="20231213 17:29:31.253"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SL">
 <arg>//input[@name= 'serialNumber']</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231212 17:27:48.808" endtime="20231212 17:27:49.855"/>
+<status status="PASS" starttime="20231213 17:29:31.254" endtime="20231213 17:29:32.300"/>
 </kw>
 <kw name="Input Text" library="SL">
 <arg>//input[@name= 'serialNumber']</arg>
 <arg>${Serial}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231212 17:27:49.856" level="INFO">Typing text '52dc' into text field '//input[@name= 'serialNumber']'.</msg>
-<status status="PASS" starttime="20231212 17:27:49.855" endtime="20231212 17:27:51.530"/>
+<msg timestamp="20231213 17:29:32.302" level="INFO">Typing text '52dc' into text field '//input[@name= 'serialNumber']'.</msg>
+<status status="PASS" starttime="20231213 17:29:32.301" endtime="20231213 17:29:33.959"/>
 </kw>
 <kw name="Click Element" library="SL">
 <arg>//button[contains(@type,'submit')]//i[contains(@class,'icon-search4')]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231212 17:27:51.532" level="INFO">Clicking element '//button[contains(@type,'submit')]//i[contains(@class,'icon-search4')]'.</msg>
-<status status="PASS" starttime="20231212 17:27:51.531" endtime="20231212 17:27:52.712"/>
+<msg timestamp="20231213 17:29:33.960" level="INFO">Clicking element '//button[contains(@type,'submit')]//i[contains(@class,'icon-search4')]'.</msg>
+<status status="PASS" starttime="20231213 17:29:33.959" endtime="20231213 17:29:35.198"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>5</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231212 17:27:57.714" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20231212 17:27:52.713" endtime="20231212 17:27:57.714"/>
+<msg timestamp="20231213 17:29:40.203" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20231213 17:29:35.199" endtime="20231213 17:29:40.205"/>
 </kw>
 <kw name="Click Element" library="SL">
 <arg>//span[contains(text(),'Online')]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231212 17:27:57.716" level="INFO">Clicking element '//span[contains(text(),'Online')]'.</msg>
-<status status="PASS" starttime="20231212 17:27:57.715" endtime="20231212 17:28:00.308"/>
+<msg timestamp="20231213 17:29:40.208" level="INFO">Clicking element '//span[contains(text(),'Online')]'.</msg>
+<status status="PASS" starttime="20231213 17:29:40.205" endtime="20231213 17:29:44.004"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>3</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231212 17:28:03.309" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20231212 17:28:00.309" endtime="20231212 17:28:03.310"/>
+<msg timestamp="20231213 17:29:47.006" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20231213 17:29:44.005" endtime="20231213 17:29:47.007"/>
 </kw>
 <kw name="Page Should Contain" library="SL">
 <arg>Device Information</arg>
 <doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20231212 17:28:04.344" level="INFO">Current page contains text 'Device Information'.</msg>
-<status status="PASS" starttime="20231212 17:28:03.310" endtime="20231212 17:28:04.344"/>
+<msg timestamp="20231213 17:29:48.143" level="INFO">Current page contains text 'Device Information'.</msg>
+<status status="PASS" starttime="20231213 17:29:47.007" endtime="20231213 17:29:48.143"/>
 </kw>
 <kw name="Page Should Contain" library="SL">
 <arg>${Serial}</arg>
 <doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20231212 17:28:05.378" level="INFO">Current page contains text '52dc'.</msg>
-<status status="PASS" starttime="20231212 17:28:04.344" endtime="20231212 17:28:05.379"/>
+<msg timestamp="20231213 17:29:49.178" level="INFO">Current page contains text '52dc'.</msg>
+<status status="PASS" starttime="20231213 17:29:48.143" endtime="20231213 17:29:49.178"/>
 </kw>
-<status status="PASS" starttime="20231212 17:27:46.582" endtime="20231212 17:28:05.379"/>
+<status status="PASS" starttime="20231213 17:29:27.274" endtime="20231213 17:29:49.179"/>
 </kw>
-<kw name="Go to Config Wifi OM" library="OMesh">
+<kw name="Go to Config WAN OM" library="OMesh">
 <kw name="Wait Until Element Is Visible" library="SL">
-<arg>//a[@href='#device-wifi-tab']</arg>
+<arg>//a[contains(text(),'WAN')]</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231212 17:28:05.380" endtime="20231212 17:28:06.424"/>
+<status status="PASS" starttime="20231213 17:29:49.181" endtime="20231213 17:29:50.236"/>
 </kw>
 <kw name="Click Element" library="SL">
-<arg>//a[@href='#device-wifi-tab']</arg>
+<arg>//a[contains(text(),'WAN')]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231212 17:28:06.427" level="INFO">Clicking element '//a[@href='#device-wifi-tab']'.</msg>
-<status status="PASS" starttime="20231212 17:28:06.425" endtime="20231212 17:28:07.533"/>
+<msg timestamp="20231213 17:29:50.237" level="INFO">Clicking element '//a[contains(text(),'WAN')]'.</msg>
+<status status="PASS" starttime="20231213 17:29:50.236" endtime="20231213 17:29:51.563"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>5</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231212 17:28:12.535" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20231212 17:28:07.534" endtime="20231212 17:28:12.535"/>
+<msg timestamp="20231213 17:29:56.565" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20231213 17:29:51.563" endtime="20231213 17:29:56.565"/>
 </kw>
 <kw name="Page Should Contain" library="SL">
-<arg>Wifi Configuration</arg>
+<arg>WAN configuration</arg>
 <doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20231212 17:28:13.571" level="INFO">Current page contains text 'Wifi Configuration'.</msg>
-<status status="PASS" starttime="20231212 17:28:12.536" endtime="20231212 17:28:13.571"/>
+<msg timestamp="20231213 17:29:57.628" level="INFO">Current page contains text 'WAN configuration'.</msg>
+<status status="PASS" starttime="20231213 17:29:56.565" endtime="20231213 17:29:57.628"/>
 </kw>
-<status status="PASS" starttime="20231212 17:28:05.379" endtime="20231212 17:28:13.572"/>
+<status status="PASS" starttime="20231213 17:29:49.180" endtime="20231213 17:29:57.628"/>
 </kw>
-<kw name="Enable Guest SSID 24G OM" library="OMesh">
-<arg>${Guest2_SSID}</arg>
-<arg>${Authen2_Mode}</arg>
-<arg>${Guest2_PW}</arg>
-<kw name="Log To Console" library="BuiltIn">
-<arg>\nAdd Guest SSID 24G</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20231212 17:28:13.574" endtime="20231212 17:28:13.574"/>
+<kw name="Edit WAN Static for Wan index OM" library="OMesh">
+<arg>${Service1}</arg>
+<arg>${Addr}</arg>
+<arg>${Subnet}</arg>
+<arg>${IPGate}</arg>
+<arg>${DNS1}</arg>
+<arg>${DNS2}</arg>
+<kw name="Select From List By Value" library="SL">
+<arg>//select[@name="connection_type"][1]</arg>
+<arg>static</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20231213 17:29:57.631" level="INFO">Selecting options from selection list '//select[@name="connection_type"][1]' by value static.</msg>
+<status status="PASS" starttime="20231213 17:29:57.630" endtime="20231213 17:30:02.372"/>
+</kw>
+<kw name="Select From List By Value" library="SL">
+<arg>//*[@id="device-wan-tab"]/div/form/div/div[1]/div/div[2]/table/tbody/tr[5]/td[2]/select</arg>
+<arg>${Service}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20231213 17:30:02.374" level="INFO">Selecting options from selection list '//*[@id="device-wan-tab"]/div/form/div/div[1]/div/div[2]/table/tbody/tr[5]/td[2]/select' by value IPv4.</msg>
+<status status="PASS" starttime="20231213 17:30:02.373" endtime="20231213 17:30:05.461"/>
+</kw>
+<kw name="Input Text" library="SL">
+<arg>//input[@name="ipAddress"][1]</arg>
+<arg>${Addr}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231213 17:30:05.463" level="INFO">Typing text '192.168.88.10' into text field '//input[@name="ipAddress"][1]'.</msg>
+<status status="PASS" starttime="20231213 17:30:05.461" endtime="20231213 17:30:07.220"/>
+</kw>
+<kw name="Select From List By Value" library="SL">
+<arg>//select[@ng-model="wan.subnetMask"][1]</arg>
+<arg>${Subnet}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20231213 17:30:07.222" level="INFO">Selecting options from selection list '//select[@ng-model="wan.subnetMask"][1]' by value 255.255.255.0.</msg>
+<status status="PASS" starttime="20231213 17:30:07.220" endtime="20231213 17:30:11.925"/>
+</kw>
+<kw name="Input Text" library="SL">
+<arg>//input[@name="gateway"][1]</arg>
+<arg>${IPGate}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231213 17:30:11.927" level="INFO">Typing text '192.168.88.1' into text field '//input[@name="gateway"][1]'.</msg>
+<status status="PASS" starttime="20231213 17:30:11.926" endtime="20231213 17:30:13.581"/>
+</kw>
+<kw name="Input Text" library="SL">
+<arg>//input[@ng-model="wan.preferredDns"][1]</arg>
+<arg>${DNS1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231213 17:30:13.581" level="INFO">Typing text '1.1.1.1' into text field '//input[@ng-model="wan.preferredDns"][1]'.</msg>
+<status status="PASS" starttime="20231213 17:30:13.581" endtime="20231213 17:30:15.217"/>
+</kw>
+<kw name="Input Text" library="SL">
+<arg>//input[@ng-model="wan.alternateDns"][1]</arg>
+<arg>${DNS2}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231213 17:30:15.219" level="INFO">Typing text '1.1.0.1' into text field '//input[@ng-model="wan.alternateDns"][1]'.</msg>
+<status status="PASS" starttime="20231213 17:30:15.218" endtime="20231213 17:30:16.896"/>
 </kw>
 <kw name="Click Element" library="SL">
-<arg>//button[contains(@class,'btn-primary')]//span[contains(@class,'glyphicon glyphicon-plus-sign')]</arg>
+<arg>//button[@ng-click="updateWan()"]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231212 17:28:13.576" level="INFO">Clicking element '//button[contains(@class,'btn-primary')]//span[contains(@class,'glyphicon glyphicon-plus-sign')]'.</msg>
-<status status="PASS" starttime="20231212 17:28:13.575" endtime="20231212 17:28:14.659"/>
+<msg timestamp="20231213 17:30:16.898" level="INFO">Clicking element '//button[@ng-click="updateWan()"]'.</msg>
+<status status="PASS" starttime="20231213 17:30:16.896" endtime="20231213 17:30:18.185"/>
 </kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>\n Input SSID 2.4G: {New_ssid}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20231212 17:28:14.660" endtime="20231212 17:28:14.660"/>
-</kw>
-<kw name="Input Text" library="SL">
-<arg>//*[@id="device-wifi-tab"]/div/form/div[7]/div/div[2]/table/tbody/tr[1]/td[2]/input</arg>
-<arg>${New_ssid}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231212 17:28:14.662" level="INFO">Typing text 'R1_Guest24' into text field '//*[@id="device-wifi-tab"]/div/form/div[7]/div/div[2]/table/tbody/tr[1]/td[2]/input'.</msg>
-<status status="PASS" starttime="20231212 17:28:14.661" endtime="20231212 17:28:16.347"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>\n Select security mode: ${new_authen}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20231212 17:28:16.348" endtime="20231212 17:28:16.349"/>
-</kw>
-<kw name="Select From List By Label" library="SL">
-<arg>//*[@id="device-wifi-tab"]/div/form/div[7]/div/div[2]/table/tbody/tr[2]/td[2]/select</arg>
-<arg>${new_authen}</arg>
-<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<msg timestamp="20231212 17:28:16.350" level="INFO">Selecting options from selection list '//*[@id="device-wifi-tab"]/div/form/div[7]/div/div[2]/table/tbody/tr[2]/td[2]/select' by label WPA2-PSK.</msg>
-<status status="PASS" starttime="20231212 17:28:16.349" endtime="20231212 17:28:19.454"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>\nInput PW: ${New_PW}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20231212 17:28:19.455" endtime="20231212 17:28:19.455"/>
-</kw>
-<kw name="Input Text" library="SL">
-<arg>//*[@id="device-wifi-tab"]/div/form/div[7]/div/div[2]/table/tbody/tr[3]/td[2]/input</arg>
-<arg>${New_PW}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231212 17:28:19.456" level="INFO">Typing text '12345678' into text field '//*[@id="device-wifi-tab"]/div/form/div[7]/div/div[2]/table/tbody/tr[3]/td[2]/input'.</msg>
-<status status="PASS" starttime="20231212 17:28:19.455" endtime="20231212 17:28:21.078"/>
-</kw>
-<status status="PASS" starttime="20231212 17:28:13.572" endtime="20231212 17:28:21.079"/>
-</kw>
-<kw name="Enable Guest SSID 5G OM" library="OMesh">
-<arg>${Guest5_SSID}</arg>
-<arg>${Authen5_Mode}</arg>
-<arg>${Guest5_PW}</arg>
-<kw name="Log To Console" library="BuiltIn">
-<arg>\nAdd Guest SSID 5G</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20231212 17:28:21.081" endtime="20231212 17:28:21.081"/>
-</kw>
-<kw name="Click Element" library="SL">
-<arg>//button[contains(@class,'btn-success')]//span[contains(@class,'glyphicon glyphicon-plus-sign')]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231212 17:28:21.082" level="INFO">Clicking element '//button[contains(@class,'btn-success')]//span[contains(@class,'glyphicon glyphicon-plus-sign')]'.</msg>
-<status status="PASS" starttime="20231212 17:28:21.081" endtime="20231212 17:28:22.198"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>\n Input SSID 5G: ${New_ssid}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20231212 17:28:22.199" endtime="20231212 17:28:22.200"/>
-</kw>
-<kw name="Input Text" library="SL">
-<arg>//*[@id="device-wifi-tab"]/div/form/div[8]/div/div[2]/table/tbody/tr[1]/td[2]/input</arg>
-<arg>${New_ssid}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231212 17:28:22.201" level="INFO">Typing text 'R1_Guest5' into text field '//*[@id="device-wifi-tab"]/div/form/div[8]/div/div[2]/table/tbody/tr[1]/td[2]/input'.</msg>
-<status status="PASS" starttime="20231212 17:28:22.200" endtime="20231212 17:28:23.844"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>\n Select security mode: ${new_authen}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20231212 17:28:23.845" endtime="20231212 17:28:23.845"/>
-</kw>
-<kw name="Select From List By Label" library="SL">
-<arg>//*[@id="device-wifi-tab"]/div/form/div[8]/div/div[2]/table/tbody/tr[2]/td[2]/select</arg>
-<arg>${new_authen}</arg>
-<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<msg timestamp="20231212 17:28:23.846" level="INFO">Selecting options from selection list '//*[@id="device-wifi-tab"]/div/form/div[8]/div/div[2]/table/tbody/tr[2]/td[2]/select' by label WPA2-PSK.</msg>
-<status status="PASS" starttime="20231212 17:28:23.845" endtime="20231212 17:28:26.939"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>\nInput PW: ${New_PW}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20231212 17:28:26.939" endtime="20231212 17:28:26.940"/>
-</kw>
-<kw name="Input Text" library="SL">
-<arg>//*[@id="device-wifi-tab"]/div/form/div[8]/div/div[2]/table/tbody/tr[3]/td[2]/input</arg>
-<arg>${New_PW}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231212 17:28:26.941" level="INFO">Typing text '12345678' into text field '//*[@id="device-wifi-tab"]/div/form/div[8]/div/div[2]/table/tbody/tr[3]/td[2]/input'.</msg>
-<status status="PASS" starttime="20231212 17:28:26.940" endtime="20231212 17:28:28.583"/>
-</kw>
-<status status="PASS" starttime="20231212 17:28:21.079" endtime="20231212 17:28:28.583"/>
-</kw>
-<kw name="Click button Save Wifi" library="OMesh">
-<kw name="Click Button" library="SL">
-<arg>//button[@class="btn btn-icon btn-primary btnSaveWifi"]</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20231212 17:28:28.586" level="INFO">Clicking button '//button[@class="btn btn-icon btn-primary btnSaveWifi"]'.</msg>
-<status status="PASS" starttime="20231212 17:28:28.585" endtime="20231212 17:28:31.232"/>
-</kw>
-<status status="PASS" starttime="20231212 17:28:28.584" endtime="20231212 17:28:31.232"/>
+<status status="PASS" starttime="20231213 17:29:57.629" endtime="20231213 17:30:18.185"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
-<arg>60</arg>
+<arg>30</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231212 17:29:31.234" level="INFO">Slept 1 minute</msg>
-<status status="PASS" starttime="20231212 17:28:31.233" endtime="20231212 17:29:31.235"/>
+<msg timestamp="20231213 17:30:48.187" level="INFO">Slept 30 seconds</msg>
+<status status="PASS" starttime="20231213 17:30:18.186" endtime="20231213 17:30:48.188"/>
 </kw>
-<kw name="Verify Enable Guest SSID 24G OM" library="OMesh">
-<arg>${Guest2_SSID}</arg>
-<arg>${Authen2_Mode}</arg>
-<arg>${Guest2_PW}</arg>
+<kw name="Verify Config WWAN0 Static for Wan index OM" library="OMesh">
+<arg>${Service1}</arg>
+<arg>${Addr}</arg>
+<arg>${Subnet}</arg>
+<arg>${IPGate}</arg>
+<arg>${DNS1}</arg>
+<arg>${DNS2}</arg>
 <kw name="Log To Console" library="BuiltIn">
-<arg>\nVerify Edit Guest SSID 2.4g OM</arg>
+<arg>\n Verify Config WWAN0 Static for Wan index OM:</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20231212 17:29:31.236" endtime="20231212 17:29:31.237"/>
+<status status="PASS" starttime="20231213 17:30:48.191" endtime="20231213 17:30:48.191"/>
+</kw>
+<kw name="Get Selected List Value" library="SL">
+<var>${Service_v}</var>
+<arg>//*[@id="device-wan-tab"]/div/form/div/div[1]/div/div[2]/table/tbody/tr[5]/td[2]/select</arg>
+<doc>Returns the value of selected option from selection list ``locator``.</doc>
+<msg timestamp="20231213 17:30:52.558" level="INFO">${Service_v} = IPv4</msg>
+<status status="PASS" starttime="20231213 17:30:48.192" endtime="20231213 17:30:52.558"/>
 </kw>
 <kw name="Get Value" library="SL">
-<var>${value_ssid}</var>
-<arg>//*[@id="device-wifi-tab"]/div/form/div[7]/div/div[2]/table/tbody/tr[1]/td[2]/input</arg>
+<var>${Addr_V}</var>
+<arg>//input[@name="ipAddress"][1]</arg>
 <doc>Returns the value attribute of the element identified by ``locator``.</doc>
-<msg timestamp="20231212 17:29:32.276" level="INFO">${value_ssid} = R1_Guest24</msg>
-<status status="PASS" starttime="20231212 17:29:31.237" endtime="20231212 17:29:32.276"/>
+<msg timestamp="20231213 17:30:53.636" level="INFO">${Addr_V} = 192.168.88.10</msg>
+<status status="PASS" starttime="20231213 17:30:52.558" endtime="20231213 17:30:53.637"/>
+</kw>
+<kw name="Get Selected List Value" library="SL">
+<var>${Subnet_v}</var>
+<arg>//select[@ng-model="wan.subnetMask"][1]</arg>
+<doc>Returns the value of selected option from selection list ``locator``.</doc>
+<msg timestamp="20231213 17:30:58.267" level="INFO">${Subnet_v} = 255.255.255.0</msg>
+<status status="PASS" starttime="20231213 17:30:53.637" endtime="20231213 17:30:58.267"/>
+</kw>
+<kw name="Get Value" library="SL">
+<var>${IPGate_v}</var>
+<arg>//input[@name="gateway"][1]</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<msg timestamp="20231213 17:30:59.308" level="INFO">${IPGate_v} = 192.168.88.1</msg>
+<status status="PASS" starttime="20231213 17:30:58.267" endtime="20231213 17:30:59.308"/>
+</kw>
+<kw name="Get Value" library="SL">
+<var>${DNS1_v}</var>
+<arg>//input[@ng-model="wan.preferredDns"][1]</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<msg timestamp="20231213 17:31:00.346" level="INFO">${DNS1_v} = 1.1.1.1</msg>
+<status status="PASS" starttime="20231213 17:30:59.308" endtime="20231213 17:31:00.346"/>
+</kw>
+<kw name="Get Value" library="SL">
+<var>${DNS2_v}</var>
+<arg>//input[@ng-model="wan.alternateDns"][1]</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<msg timestamp="20231213 17:31:01.387" level="INFO">${DNS2_v} = 1.1.0.1</msg>
+<status status="PASS" starttime="20231213 17:31:00.347" endtime="20231213 17:31:01.387"/>
+</kw>
+<kw name="Should Match" library="BuiltIn">
+<arg>${Service_v}</arg>
+<arg>${Service}</arg>
+<doc>Fails if the given ``string`` does not match the given ``pattern``.</doc>
+<status status="PASS" starttime="20231213 17:31:01.387" endtime="20231213 17:31:01.388"/>
+</kw>
+<kw name="Should Match" library="BuiltIn">
+<arg>${Addr_V}</arg>
+<arg>${Addr}</arg>
+<doc>Fails if the given ``string`` does not match the given ``pattern``.</doc>
+<status status="PASS" starttime="20231213 17:31:01.389" endtime="20231213 17:31:01.389"/>
+</kw>
+<kw name="Should Match" library="BuiltIn">
+<arg>${Subnet_v}</arg>
+<arg>${Subnet}</arg>
+<doc>Fails if the given ``string`` does not match the given ``pattern``.</doc>
+<status status="PASS" starttime="20231213 17:31:01.390" endtime="20231213 17:31:01.391"/>
+</kw>
+<kw name="Should Match" library="BuiltIn">
+<arg>${IPGate_v}</arg>
+<arg>${IPGate}</arg>
+<doc>Fails if the given ``string`` does not match the given ``pattern``.</doc>
+<status status="PASS" starttime="20231213 17:31:01.391" endtime="20231213 17:31:01.392"/>
+</kw>
+<kw name="Should Match" library="BuiltIn">
+<arg>${DNS1_v}</arg>
+<arg>${DNS1}</arg>
+<doc>Fails if the given ``string`` does not match the given ``pattern``.</doc>
+<status status="PASS" starttime="20231213 17:31:01.392" endtime="20231213 17:31:01.392"/>
+</kw>
+<kw name="Should Match" library="BuiltIn">
+<arg>${DNS2_v}</arg>
+<arg>${DNS2}</arg>
+<doc>Fails if the given ``string`` does not match the given ``pattern``.</doc>
+<status status="PASS" starttime="20231213 17:31:01.392" endtime="20231213 17:31:01.393"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\ Successfully</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231213 17:31:01.393" endtime="20231213 17:31:01.393"/>
+</kw>
+<status status="PASS" starttime="20231213 17:30:48.189" endtime="20231213 17:31:01.393"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>120</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231213 17:33:01.394" level="INFO">Slept 2 minutes</msg>
+<status status="PASS" starttime="20231213 17:31:01.393" endtime="20231213 17:33:01.395"/>
+</kw>
+<kw name="Open Browser" library="SL">
+<arg>https://192.168.88.1</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231213 17:33:01.397" level="INFO">Opening browser 'chrome' to base url 'https://192.168.88.1'.</msg>
+<status status="PASS" starttime="20231213 17:33:01.395" endtime="20231213 17:33:05.650"/>
+</kw>
+<kw name="Chrome Pass Certificate google if present" library="Lib_Selenium_Login">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Status1}</var>
+<arg>SL.Wait Until Element Is Visible</arg>
+<arg>//button[@id="details-button"]</arg>
+<arg>5</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="SL">
+<arg>//button[@id="details-button"]</arg>
+<arg>5</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231213 17:33:05.654" endtime="20231213 17:33:06.737"/>
+</kw>
+<msg timestamp="20231213 17:33:06.737" level="INFO">${Status1} = True</msg>
+<status status="PASS" starttime="20231213 17:33:05.653" endtime="20231213 17:33:06.737"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Status1}</arg>
+<arg>SL.Click Element</arg>
+<arg>//button[@id="details-button"]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Click Element" library="SL">
+<arg>//button[@id="details-button"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231213 17:33:06.740" level="INFO">Clicking element '//button[@id="details-button"]'.</msg>
+<status status="PASS" starttime="20231213 17:33:06.739" endtime="20231213 17:33:07.790"/>
+</kw>
+<status status="PASS" starttime="20231213 17:33:06.738" endtime="20231213 17:33:07.790"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231213 17:33:09.791" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231213 17:33:07.791" endtime="20231213 17:33:09.792"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Status2}</var>
+<arg>SL.Wait Until Element Is Visible</arg>
+<arg>//a[@id="proceed-link"]</arg>
+<arg>5</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="SL">
+<arg>//a[@id="proceed-link"]</arg>
+<arg>5</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231213 17:33:09.793" endtime="20231213 17:33:10.839"/>
+</kw>
+<msg timestamp="20231213 17:33:10.839" level="INFO">${Status2} = True</msg>
+<status status="PASS" starttime="20231213 17:33:09.792" endtime="20231213 17:33:10.840"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Status2}</arg>
+<arg>SL.Click Element</arg>
+<arg>//a[@id="proceed-link"]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Click Element" library="SL">
+<arg>//a[@id="proceed-link"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231213 17:33:10.842" level="INFO">Clicking element '//a[@id="proceed-link"]'.</msg>
+<status status="PASS" starttime="20231213 17:33:10.841" endtime="20231213 17:33:12.145"/>
+</kw>
+<status status="PASS" starttime="20231213 17:33:10.840" endtime="20231213 17:33:12.145"/>
+</kw>
+<status status="PASS" starttime="20231213 17:33:05.652" endtime="20231213 17:33:12.145"/>
+</kw>
+<kw name="Login To WebGUI on local machine" library="Lib_Selenium_Login">
+<arg>root</arg>
+<arg>${PassWord}</arg>
+<kw name="Input User Name" library="Lib_Selenium_Login">
+<arg>username=${username}</arg>
+<kw name="Wait Until Element Is Visible" library="SL">
+<arg>xpath=//input[@id='LOGIN_USER']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231213 17:33:12.146" endtime="20231213 17:33:13.204"/>
+</kw>
+<kw name="Input Text" library="SL">
+<arg>xpath=//input[@id='LOGIN_USER']</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231213 17:33:13.206" level="INFO">Typing text 'root' into text field 'xpath=//input[@id='LOGIN_USER']'.</msg>
+<status status="PASS" starttime="20231213 17:33:13.205" endtime="20231213 17:33:14.918"/>
+</kw>
+<status status="PASS" starttime="20231213 17:33:12.146" endtime="20231213 17:33:14.918"/>
+</kw>
+<kw name="Input password" library="Lib_Selenium_Login">
+<arg>password=${password}</arg>
+<kw name="Wait Until Element Is Visible" library="SL">
+<arg>xpath=//input[@id='LOGIN_PWD']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231213 17:33:14.920" endtime="20231213 17:33:15.960"/>
+</kw>
+<kw name="Input Password" library="SL">
+<arg>xpath=//input[@id='LOGIN_PWD']</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20231213 17:33:15.961" level="INFO">Typing password into text field 'xpath=//input[@id='LOGIN_PWD']'.</msg>
+<msg timestamp="20231213 17:33:17.013" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20231213 17:33:17.599" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20231213 17:33:15.960" endtime="20231213 17:33:17.599"/>
+</kw>
+<status status="PASS" starttime="20231213 17:33:14.919" endtime="20231213 17:33:17.600"/>
+</kw>
+<kw name="SubMit Credentials" library="Lib_Selenium_Login">
+<kw name="Wait Until Element Is Visible" library="SL">
+<arg>xpath=//input[@id='BTN_Login']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231213 17:33:17.601" endtime="20231213 17:33:18.644"/>
+</kw>
+<kw name="Click Button" library="SL">
+<arg>xpath=//input[@id='BTN_Login']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231213 17:33:18.645" level="INFO">Clicking button 'xpath=//input[@id='BTN_Login']'.</msg>
+<status status="PASS" starttime="20231213 17:33:18.644" endtime="20231213 17:33:20.280"/>
+</kw>
+<status status="PASS" starttime="20231213 17:33:17.600" endtime="20231213 17:33:20.281"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231213 17:33:23.283" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20231213 17:33:20.281" endtime="20231213 17:33:23.283"/>
+</kw>
+<status status="PASS" starttime="20231213 17:33:12.145" endtime="20231213 17:33:23.283"/>
+</kw>
+<kw name="Access Setting Page" library="Lib_Selenium_WireLess">
+<kw name="Click Element" library="SL">
+<arg>xpath= //a[@id='titleSettingCap']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231213 17:33:23.286" level="INFO">Clicking element 'xpath= //a[@id='titleSettingCap']'.</msg>
+<status status="PASS" starttime="20231213 17:33:23.285" endtime="20231213 17:33:24.573"/>
+</kw>
+<status status="PASS" starttime="20231213 17:33:23.285" endtime="20231213 17:33:24.574"/>
+</kw>
+<kw name="Access WAN" library="Lib_Selenium_WAN">
+<kw name="Wait Until Element Is Visible" library="SL">
+<arg>//*[@id="sub51"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231213 17:33:24.575" endtime="20231213 17:33:25.627"/>
+</kw>
+<kw name="Click Element" library="SL">
+<arg>//*[@id="sub51"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231213 17:33:25.629" level="INFO">Clicking element '//*[@id="sub51"]'.</msg>
+<status status="PASS" starttime="20231213 17:33:25.628" endtime="20231213 17:33:26.700"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231213 17:33:31.701" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20231213 17:33:26.701" endtime="20231213 17:33:31.702"/>
+</kw>
+<kw name="Page Should Contain" library="SL">
+<arg>WAN Overview</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231213 17:33:32.749" level="INFO">Current page contains text 'WAN Overview'.</msg>
+<status status="PASS" starttime="20231213 17:33:31.702" endtime="20231213 17:33:32.750"/>
+</kw>
+<status status="PASS" starttime="20231213 17:33:24.574" endtime="20231213 17:33:32.750"/>
+</kw>
+<kw name="Edit WWAN0" library="Lib_Selenium_WAN">
+<doc>Edit WAN Defaut</doc>
+<kw name="Wait Until Element Is Visible" library="SL">
+<arg>//img[@id='image_EditWan0']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231213 17:33:32.751" endtime="20231213 17:33:33.794"/>
+</kw>
+<kw name="Click Element" library="SL">
+<arg>//img[@id='image_EditWan0']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231213 17:33:33.796" level="INFO">Clicking element '//img[@id='image_EditWan0']'.</msg>
+<status status="PASS" starttime="20231213 17:33:33.795" endtime="20231213 17:33:34.928"/>
+</kw>
+<status status="PASS" starttime="20231213 17:33:32.750" endtime="20231213 17:33:34.928"/>
+</kw>
+<kw name="Verify config WAN Static Ipv4" library="Lib_Selenium_WAN">
+<arg>${Addr}</arg>
+<arg>${Subnet}</arg>
+<arg>${IPGate}</arg>
+<arg>${DNS1}</arg>
+<arg>${DNS2}</arg>
+<kw name="Get Element Attribute" library="SL">
+<var>${IPv4_adr_value}</var>
+<arg>//input[@id='Input_IPv4_Address']</arg>
+<arg>value</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20231213 17:33:35.980" level="INFO">${IPv4_adr_value} = 192.168.88.10</msg>
+<status status="PASS" starttime="20231213 17:33:34.929" endtime="20231213 17:33:35.981"/>
+</kw>
+<kw name="Get Element Attribute" library="SL">
+<var>${IPv4_GG_value}</var>
+<arg>//input[@id='Input_IPv4_Gateway']</arg>
+<arg>value</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20231213 17:33:37.026" level="INFO">${IPv4_GG_value} = 192.168.88.1</msg>
+<status status="PASS" starttime="20231213 17:33:35.981" endtime="20231213 17:33:37.026"/>
 </kw>
 <kw name="Get Selected List Label" library="SL">
-<var>${value_mode}</var>
-<arg>//*[@id="device-wifi-tab"]/div/form/div[7]/div/div[2]/table/tbody/tr[2]/td[2]/select</arg>
+<var>${Subnetmark_value}</var>
+<arg>//select[@id='Input_IPv4_Netmask']</arg>
 <doc>Returns the label of selected option from selection list ``locator``.</doc>
-<msg timestamp="20231212 17:29:36.926" level="INFO">${value_mode} = WPA2-PSK</msg>
-<status status="PASS" starttime="20231212 17:29:32.276" endtime="20231212 17:29:36.926"/>
+<msg timestamp="20231213 17:33:40.718" level="INFO">${Subnetmark_value} = 255.255.255.0</msg>
+<status status="PASS" starttime="20231213 17:33:37.026" endtime="20231213 17:33:40.718"/>
+</kw>
+<kw name="Get Element Attribute" library="SL">
+<var>${DNS1_value}</var>
+<arg>//input[@id='Input_DNS']</arg>
+<arg>value</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20231213 17:33:41.761" level="INFO">${DNS1_value} = 1.1.1.1</msg>
+<status status="PASS" starttime="20231213 17:33:40.718" endtime="20231213 17:33:41.761"/>
 </kw>
 <kw name="Get Value" library="SL">
-<var>${value_PW}</var>
-<arg>//input[@ng-model="mainSSID.password"]</arg>
+<var>${DNS2_value}</var>
+<arg>//input[@id='Input_DNS_SECOND']</arg>
 <doc>Returns the value attribute of the element identified by ``locator``.</doc>
-<msg timestamp="20231212 17:29:37.972" level="INFO">${value_PW} = 12345678_c</msg>
-<status status="PASS" starttime="20231212 17:29:36.926" endtime="20231212 17:29:37.972"/>
-</kw>
-<kw name="Should Match" library="BuiltIn">
-<arg>${value_ssid}</arg>
-<arg>${New_ssid}</arg>
-<doc>Fails if the given ``string`` does not match the given ``pattern``.</doc>
-<status status="PASS" starttime="20231212 17:29:37.973" endtime="20231212 17:29:37.974"/>
-</kw>
-<kw name="Should Match" library="BuiltIn">
-<arg>${new_authen}</arg>
-<arg>${value_mode}</arg>
-<doc>Fails if the given ``string`` does not match the given ``pattern``.</doc>
-<status status="PASS" starttime="20231212 17:29:37.974" endtime="20231212 17:29:37.974"/>
-</kw>
-<kw name="Should Match" library="BuiltIn">
-<arg>${New_PW}</arg>
-<arg>${value_PW}</arg>
-<doc>Fails if the given ``string`` does not match the given ``pattern``.</doc>
-<msg timestamp="20231212 17:29:37.976" level="FAIL">'12345678' does not match '12345678_c'</msg>
-<status status="FAIL" starttime="20231212 17:29:37.974" endtime="20231212 17:29:37.976"/>
+<msg timestamp="20231213 17:33:42.802" level="INFO">${DNS2_value} = 1.1.0.1</msg>
+<status status="PASS" starttime="20231213 17:33:41.762" endtime="20231213 17:33:42.802"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
-<arg>\nConfig Guest 2.4g SSID successfully</arg>
+<arg>\nIPv4 Adr: ${IPv4_adr_value}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" starttime="20231212 17:29:37.976" endtime="20231212 17:29:37.976"/>
+<status status="PASS" starttime="20231213 17:33:42.802" endtime="20231213 17:33:42.803"/>
 </kw>
-<status status="FAIL" starttime="20231212 17:29:31.235" endtime="20231212 17:29:37.976"/>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nIPv4 Gategay Adr: ${IPv4_GG_value}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231213 17:33:42.803" endtime="20231213 17:33:42.804"/>
 </kw>
-<kw name="Verify Edit Guest SSID 5G OM" library="OMesh">
-<arg>${Guest5_SSID}</arg>
-<arg>${Authen5_Mode}</arg>
-<arg>${Guest5_PW}</arg>
-<status status="NOT RUN" starttime="20231212 17:29:37.977" endtime="20231212 17:29:37.977"/>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSubnetmark: ${Subnetmark_value}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231213 17:33:42.804" endtime="20231213 17:33:42.805"/>
 </kw>
-<status status="FAIL" starttime="20231212 17:26:39.176" endtime="20231212 17:29:37.977">'12345678' does not match '12345678_c'</status>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nPrimary DNS: ${DNS1_value}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231213 17:33:42.805" endtime="20231213 17:33:42.806"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSecond DNS: ${DNS2_value}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231213 17:33:42.806" endtime="20231213 17:33:42.806"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${IPv4_adr_value}</arg>
+<arg>${IPv4_adr}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20231213 17:33:42.806" endtime="20231213 17:33:42.806"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${IPv4_GG_value}</arg>
+<arg>${Ipv4_GG}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<msg timestamp="20231213 17:33:42.808" level="FAIL">192.168.88.1 != 255.255.255.0</msg>
+<status status="FAIL" starttime="20231213 17:33:42.807" endtime="20231213 17:33:42.808"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${Subnetmark_value}</arg>
+<arg>${Subnetmark}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" starttime="20231213 17:33:42.808" endtime="20231213 17:33:42.809"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${DNS1_value}</arg>
+<arg>${DNS1}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" starttime="20231213 17:33:42.809" endtime="20231213 17:33:42.809"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${DNS2_value}</arg>
+<arg>${DNS2}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" starttime="20231213 17:33:42.809" endtime="20231213 17:33:42.809"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nConfig Wan Static Ipv4 succesfully</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231213 17:33:42.809" endtime="20231213 17:33:42.809"/>
+</kw>
+<status status="FAIL" starttime="20231213 17:33:34.928" endtime="20231213 17:33:42.810"/>
+</kw>
+<if>
+<branch type="IF" condition="${Service1}=='Dual'">
+<kw name="Verify WAN Stactic IPv6 Address and Gateway" library="Lib_Selenium_WAN">
+<arg>${v6_addr}</arg>
+<arg>${v6_Gate}</arg>
+<status status="NOT RUN" starttime="20231213 17:33:42.811" endtime="20231213 17:33:42.811"/>
+</kw>
+<status status="NOT RUN" starttime="20231213 17:33:42.810" endtime="20231213 17:33:42.811"/>
+</branch>
+<status status="NOT RUN" starttime="20231213 17:33:42.810" endtime="20231213 17:33:42.811"/>
+</if>
+<status status="FAIL" starttime="20231213 17:28:58.604" endtime="20231213 17:33:42.811">192.168.88.1 != 255.255.255.0</status>
 </test>
-<status status="FAIL" starttime="20231212 17:26:38.987" endtime="20231212 17:29:37.979"/>
+<status status="FAIL" starttime="20231213 17:28:58.403" endtime="20231213 17:33:42.816"/>
 </suite>
 <statistics>
 <total>
@@ -362,10 +651,12 @@
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="TC OM EnableGuestSSID">TC OM EnableGuestSSID</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="TC OM WAN edit Static">TC OM WAN edit Static</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20231212 17:26:39.113" level="ERROR">Error in file '/home/ubuntu/PycharmProjects/MeshAP/lib/Selenium_lib/Lib_Selenium_WireLess.robot' on line 4: Resource file 'venv/lib/Selenium_lib/Lib_Selenium_Login.robot' does not exist.</msg>
+<msg timestamp="20231213 17:28:58.536" level="ERROR">Error in file '/home/ubuntu/PycharmProjects/MeshAP/lib/Selenium_lib/Lib_Selenium_WireLess.robot' on line 4: Resource file 'venv/lib/Selenium_lib/Lib_Selenium_Login.robot' does not exist.</msg>
+<msg timestamp="20231213 17:28:58.603" level="ERROR">Error in file '/home/ubuntu/PycharmProjects/MeshAP/lib/Selenium_lib/Lib_Selenium_WAN.robot' on line 3: Resource file '../Selenium_lib/Login.robot' does not exist.</msg>
+<msg timestamp="20231213 17:28:58.603" level="ERROR">Error in file '/home/ubuntu/PycharmProjects/MeshAP/lib/Selenium_lib/Lib_Selenium_WAN.robot' on line 4: Resource file '../Selenium_lib/Setting.robot' does not exist.</msg>
 </errors>
 </robot>
