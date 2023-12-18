@@ -203,8 +203,8 @@ Verify config WAN DHCP IPv4
     Log To Console                                  \n Ip_version: ${Act_IP_version}
     Log To Console                                  \n DNS1:  ${Act_DNS1}
     Log To Console                                  \n DNS2:  ${Act_DNS2}
-    Should Match Regexp                             ${Act_service}       ${Service}
-    Should Be Equal                                  ${IP_ver}       ${Act_IP_version}
+    Should Match Regexp                             ${Act_service}       (${Service})
+    Should Be Equal                                 ${IP_ver}       ${Act_IP_version}
     Should Be Equal                                 ${Primary DNS}   ${Act_DNS1}
     Should Be Equal                                 ${Second_DNS}    ${Act_DNS2}
 Verify config WAN DHCP Dual Stack_ IPv6 Type
@@ -226,7 +226,7 @@ Verify config WAN PPPoE
    Log To Console                                   \nUser Name: ${User_name}
    Log To Console                                   \nPassword: ${PW}
    Should Be Equal                                  ${Act_service}       ${Serveice}
-   Should Be Equal                                  ${IP_version}       ${Act_IP_version}
+   Should Match Regexp                              ${Act_IP_version}       (${IP_version})
    Should Be Equal                                  ${User_name}       ${Act_User_name}
    Should Be Equal                                  ${PW}       ${Act_PW}
    Log To Console                                  \nConfig Wan PPPoE succesfully

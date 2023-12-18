@@ -85,44 +85,38 @@ Verify Add WWan3 Static in WebGUI
     IF  $Service=='Dual stack'
 		Verify WAN Stactic IPv6 Address and Gateway      ${ipv6_addr}        ${ipv6_Gateway}
     END
-    
-    
-    
-######### Test ##################    
+
 *** Test Cases ***
-1 Add wan IPv4
+2.1 Edit Wan To Dual Stack
+	Sleep    10
 	Set Selenium Speed                  0.5
 	Login to ONE Mesh                  ${OM_User}    ${OM_PW}
 	Access Device detail OM            ${Serial}
 
 	Go to Config WAN OM
-	FOR     ${i}        IN RANGE    3
-		Click button Add Wan OM
-	END
+
 	Log to console                      \n Add Wan1 DHCP OM
-	Add Wan1 DHCP OM            11      ${service1}      ${D_DNS1}     ${D_DNS2}     ${TypeV6}
+	Add Wan1 DHCP OM            11      ${service2}      ${D_DNS1}     ${D_DNS2}     ${TypeV6}
 	Log to console                      \n Add Wan1 PPPoE OM
-	Add Wan2 PPPoE OM           12            ${service1}       ${User}         ${PW}      ${TypeV6}
+	Edit Wan2 PPPoE OM           12            ${service2}       ${User}         ${PW}      ${TypeV6}
 	Log to console                      \n Add Wan1 Static OM
-	Add Wan3 Static IPV4 OM          60      ${Service1}      ${IPAddr}     ${Subnet}   ${IPGate}   ${S_DNS1}     ${S_DNS2}
+	Add Wan3 Static IPV4 OM          60      ${Service2}      ${IPAddr}     ${Subnet}   ${IPGate}   ${S_DNS1}     ${S_DNS2}
+	Add Wan3 Static IPV6 OM             ${ipv6_addr}        ${ipv6_Gateway}
 	Click Button Update Wan
-	Sleep      30
+	Sleep   30
 
-1.2 Verify Add Wan on OM
-	Verify Add Wan1 DHCP OM         11       ${service1}      ${D_DNS1}     ${D_DNS2}     ${TypeV6}
-	Verify Add Wan2 PPPoE OM        12       ${service1}       ${User}         ${PW}      ${TypeV6}
-	Verify Add Wan3 Static IPv4 OM      60       ${Service1}      ${IPAddr}     ${Subnet}   ${IPGate}   ${S_DNS1}     ${S_DNS2}
+2.2 Verify Edit Wan on OM
+	Verify Add Wan1 DHCP OM         11       ${service2}      ${D_DNS1}     ${D_DNS2}     ${TypeV6}
+	Verify Edit Wan2 PPPoE OM        12       ${service2}       ${User}         ${PW}      ${TypeV6}
+	Verify Add Wan3 Static IPv4 OM      60       ${Service2}      ${IPAddr}     ${Subnet}   ${IPGate}   ${S_DNS1}     ${S_DNS2}
 	Close Browser
-
-1.3 Verify in WebGUI
-	Sleep    120
+	Sleep    10
+2.3 Verify Edit Wan on WebGUI
 	SL.Set Selenium Speed   0.5
     Open Browser            https://192.168.88.1            chrome
     Chrome Pass Certificate google if present
     Login To WebGUI on local machine         root                           ${PassWord}
-	Verify WWan1 DHCP in WebGUI                     ${service1}      ${D_DNS1}     ${D_DNS2}     ${TypeV6}
-	Verify Add WWan2 PPPoE Vlan 12 in WebGUI        ${service1}       ${User}         ${PW}      ${TypeV6}
-	Verify Add WWan3 Static in WebGUI               ${Service1}      ${IPAddr}     ${Subnet}   ${IPGate}   ${S_DNS1}     ${S_DNS2}      ${ipv6_addr}        ${ipv6_Gateway}
-	Close All Browsers
-
+	Verify WWan1 DHCP in WebGUI     ${service2}      ${D_DNS1}     ${D_DNS2}     ${TypeV6}
+	Verify Add WWan2 PPPoE Vlan 12 in WebGUI        ${service2}       ${User}         ${PW}      ${TypeV6}
+	Verify Add WWan3 Static in WebGUI       ${Service2}      ${IPAddr}     ${Subnet}   ${IPGate}   ${S_DNS1}     ${S_DNS2}      ${ipv6_addr}        ${ipv6_Gateway}
 
