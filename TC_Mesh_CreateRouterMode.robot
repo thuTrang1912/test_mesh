@@ -110,6 +110,7 @@ Handle Alert If Present
 
 
 4. Reconnect to Wifi With Correct Password and Check ping to Internet
+	Sleep    50
     Open SSH Session Login To Local Machine
     Sleep    5
     SSH_Connect_wifi.Enable Wifi

@@ -13,12 +13,12 @@ ${Serial}               44ac
 ######### Login ##############################
 Input User Name OM
 	[Arguments]                                 ${User_N}
-	Wait Until Element Is Visible               //div[@class='form-group-login']//input[@type='text']
-	Input Text                                  //div[@class='form-group-login']//input[@type='text']    ${User_N}
+	SL.Wait Until Element Is Visible               //div[@class='form-group-login']//input[@type='text']
+	SL.Input Text                                  //div[@class='form-group-login']//input[@type='text']    ${User_N}
 Input Password OM
 	[Arguments]                                 ${PW}
-	Wait Until Element Is Visible               //input[@type='password']
-	Input Text                                  //input[@type='password']       ${PW}
+	SL.Wait Until Element Is Visible               //input[@type='password']
+	SL.Input Text                                  //input[@type='password']       ${PW}
 
 Login to ONE Mesh
 	[Arguments]                                 ${User_N}            ${PW}
@@ -29,46 +29,46 @@ Login to ONE Mesh
     Input Password OM                     ${PW}
     #Click element                       //span[@class='glyphicon glyphicon-eye-open']
     Sleep    4
-    Wait Until Element Is Visible       //button[@id='login-submit']
-    Click Element                       //button[@id='login-submit']
+    SL.Wait Until Element Is Visible       //button[@id='login-submit']
+    SL.Click Element                       //button[@id='login-submit']
     Sleep                               4
     Page Should Contain                 Welcome to the ONE MESH system
 
 Access Device detail OM
 	[Arguments]                         ${Serial}
-	Click Element                       //span[contains(text(),'Configuration')]
+	SL.Click Element                       //span[contains(text(),'Configuration')]
 	#Wait Until Element Is Visible       //body[contains(@class,'pace-done')]/div[@class='page-container']/div[@class='page-content']/div[@class='content-wrapper']/div[@class='panel panel-flat']/div[@class='panel-body padding-panel-search']/form[@class='form-horizontal form-search row ng-pristine ng-valid ng-valid-maxlength']/div[@class='col-md-10']/div[2]/div[1]/div[1]/input[1]
-	Wait Until Element Is Visible       //input[@name= 'serialNumber']
-	Input Text                          //input[@name= 'serialNumber']    ${Serial}
-	Click Element                       //button[contains(@type,'submit')]//i[contains(@class,'icon-search4')]
+	SL.Wait Until Element Is Visible       //input[@name= 'serialNumber']
+	SL.Input Text                          //input[@name= 'serialNumber']    ${Serial}
+	SL.Click Element                       //button[contains(@type,'submit')]//i[contains(@class,'icon-search4')]
 	Sleep                               5
-	Click Element                       //span[contains(text(),'Online')]
+	SL.Click Element                       //span[contains(text(),'Online')]
 	Sleep                               3
 	Page Should Contain                 Device Information
 	Page Should Contain                 ${Serial}
 
 ###### LAN ###########
 Go to lan config OM
-	Wait Until Element Is Visible       //a[@href='#device-lan-tab']
-	Click Element                       //a[@href='#device-lan-tab']
+	SL.Wait Until Element Is Visible       //a[@href='#device-lan-tab']
+	SL.Click Element                       //a[@href='#device-lan-tab']
 	Sleep   5
 	Page Should Contain                 LAN Configuration
 Config Lan OM
 	[Arguments]                         ${IP_ad}    ${SubNet}       ${StartIP}      ${NumIP}    ${Leasetime}
 	Input Text                          //input[@name="ipAddress"]          ${IP_ad}
-	Select From List by Value           //select[@name="subnetMask"]        ${SubNet}
-	Input Text                          //input[@name="dhcpStartIp"]        ${StartIP}
-	Input Text                          //input[@name="dhcpNumberIp"]       ${NumIP}
-	Input Text                          //input[@name="dhcpLeasetime"]       ${Leasetime}
-	Click Element                       //button[contains(@class,'btn btn-icon btn-primary btnSaveLan')]
+	SL.Select From List by Value           //select[@name="subnetMask"]        ${SubNet}
+	SL.Input Text                          //input[@name="dhcpStartIp"]        ${StartIP}
+	SL.Input Text                          //input[@name="dhcpNumberIp"]       ${NumIP}
+	SL.Input Text                          //input[@name="dhcpLeasetime"]       ${Leasetime}
+	SL.Click Element                       //button[contains(@class,'btn btn-icon btn-primary btnSaveLan')]
 
 
 ######################## Config Wifi###########################
 Go to Config Wifi OM
-	Wait Until Element Is Visible       //a[@href='#device-wifi-tab']
-	Click Element                       //a[@href='#device-wifi-tab']
+	SL.Wait Until Element Is Visible       //a[@href='#device-wifi-tab']
+	SL.Click Element                       //a[@href='#device-wifi-tab']
 	Sleep    5
-	Page Should Contain                 Wifi Configuration
+	SL.Page Should Contain                 Wifi Configuration
 
 Config Wifi Radio 2.4Ghz OM
 	[Documentation]                     Config  Standard: g/ng/ax
@@ -76,17 +76,17 @@ Config Wifi Radio 2.4Ghz OM
 	...                                 CHANEL:
 	[Arguments]                         ${Standard}             ${Bandwidth}        ${Channel}
 	Log To Console                      \n Config Wifi Radio 2.4Ghz OM
-	Select From List By Value           //Select[@ng-change="radio24GhzUpdateBandwidth(1)"]     ${Standard}
-	Select From List By Label           //select[@ng-model="wifiRadio24Ghz.bandwidth"]          ${Bandwidth}
-	Select From List By Value           //select[@ng-model="wifiRadio24Ghz.channel"]            ${Channel}
-	Click Element                       //button[@class="btn btn-icon btn-primary btnSaveWifi"]
+	SL.Select From List By Value           //Select[@ng-change="radio24GhzUpdateBandwidth(1)"]     ${Standard}
+	SL.Select From List By Label           //select[@ng-model="wifiRadio24Ghz.bandwidth"]          ${Bandwidth}
+	SL.Select From List By Value           //select[@ng-model="wifiRadio24Ghz.channel"]            ${Channel}
+	SL.Click Element                       //button[@class="btn btn-icon btn-primary btnSaveWifi"]
 
 Verify config Radio 2.4Ghz OM
 	[Arguments]                         ${Standard}             ${Bandwidth}        ${Channel}
 	Log To Console                      \n Verify config Radio 2.4Ghz OM
-	${Standard_value}                   Get Selected List Value     //Select[@ng-change="radio24GhzUpdateBandwidth(1)"]
-	${BW_value}                         Get Selected List Label      //select[@ng-model="wifiRadio24Ghz.bandwidth"]
-	${Channel_value}                    Get Selected List Value      //select[@ng-model="wifiRadio24Ghz.channel"]
+	${Standard_value}                   SL.Get Selected List Value     //Select[@ng-change="radio24GhzUpdateBandwidth(1)"]
+	${BW_value}                         SL.Get Selected List Label      //select[@ng-model="wifiRadio24Ghz.bandwidth"]
+	${Channel_value}                    SL.Get Selected List Value      //select[@ng-model="wifiRadio24Ghz.channel"]
 	Should Match                        ${Standard}         ${Standard_value}
 	Should Match                        ${Bandwidth}        ${BW_value}
 	Should Match                        ${Channel}          ${Channel_value}
@@ -98,17 +98,17 @@ Config Wifi Radio 5Ghz OM
 	...                                 bw: 20/40/80/160 MHz
 	...                                 CHANEL:
 	[Arguments]                         ${Standard}             ${Bandwidth}        ${Channel}
-	Select From List By Value           //select[@ng-model="wifiRadio5Ghz.wlanStandard"]     ${Standard}
-	Select From List By Label           //select[@ng-model="wifiRadio5Ghz.bandwidth"]        ${Bandwidth}
-	Select From List By Value           //select[@ng-model="wifiRadio5Ghz.channel"]          ${Channel}
-	Click Element                       //button[@class="btn btn-icon btn-primary btnSaveWifi"]
+	SL.Select From List By Value           //select[@ng-model="wifiRadio5Ghz.wlanStandard"]     ${Standard}
+	SL.Select From List By Label           //select[@ng-model="wifiRadio5Ghz.bandwidth"]        ${Bandwidth}
+	SL.Select From List By Value           //select[@ng-model="wifiRadio5Ghz.channel"]          ${Channel}
+	SL.Click Element                       //button[@class="btn btn-icon btn-primary btnSaveWifi"]
 
 Verify config Radio 5Ghz OM
 	[Arguments]                         ${Standard}             ${Bandwidth}        ${Channel}
 	Log To Console                      \n Verify config Radio 5Ghz OM
-	${Standard_value}                   Get Selected List Value     //select[@ng-model="wifiRadio5Ghz.wlanStandard"]
-	${BW_value}                         Get Selected List Label      //select[@ng-model="wifiRadio5Ghz.bandwidth"]
-	${Channel_value}                    Get Selected List Value      //select[@ng-model="wifiRadio5Ghz.channel"]
+	${Standard_value}                   SL.Get Selected List Value     //select[@ng-model="wifiRadio5Ghz.wlanStandard"]
+	${BW_value}                         SL.Get Selected List Label      //select[@ng-model="wifiRadio5Ghz.bandwidth"]
+	${Channel_value}                    SL.Get Selected List Value      //select[@ng-model="wifiRadio5Ghz.channel"]
 	Should Match                        ${Standard}         ${Standard_value}
 	Should Match                        ${Bandwidth}        ${BW_value}
 	Should Match                        ${Channel}          ${Channel_value}
@@ -234,10 +234,10 @@ Delete Vlan OM
 	Click Element           //div[@class='modal fade modalDeleteVlan in']//div[@class='modal-dialog modal-sm']//div[@class='modal-content text-center']//div[@class='modal-footer text-center']//button[@class='btn btn-icon btn-warning btnSubmit']
 ########################## Config Wan ############################
 Go to Config WAN OM
-	Wait Until Element Is Visible       //a[contains(text(),'WAN')]
-	Click Element                       //a[contains(text(),'WAN')]
+	SL.Wait Until Element Is Visible       //a[contains(text(),'WAN')]
+	SL.Click Element                       //a[contains(text(),'WAN')]
 	Sleep    5
-	Page Should Contain                 WAN configuration
+	SL.Page Should Contain                 WAN configuration
 
 Edit WWan0 DHCP OM
 	[Documentation]                     Edit WWAN0
@@ -312,8 +312,8 @@ Edit WAN Static IPV4 OM
 	#Click Element                       //button[@ng-click="updateWan()"]
 
 Click Button Update Wan
-	Wait Until Element Is Visible       //button[@ng-click="updateWan()"]
-	Click Element                       //button[@ng-click="updateWan()"]
+	SL.Wait Until Element Is Visible       //button[@ng-click="updateWan()"]
+	SL.Click Element                       //button[@ng-click="updateWan()"]
 
 Edit WAN Static IPV6 OM
 	[Arguments]                 ${Service}          ${ipv6_addr}    ${ipv6_Gateway}
