@@ -12,9 +12,14 @@ Resource                     venv/lib/Variable.robot
 
 
 *** Variables ***
-${Standard}         11ax
+${Standard}         11ng
 ${Channel}          6
 ${BW}               20/40 MHz
+
+&{dir}              name = Nguyen Van A    age = 23
+
+
+
 
 *** Keywords ***
 Config Standard/channel/Bw on Radio 2.4g
@@ -39,6 +44,10 @@ Verify config Radio 2.4g
 	Should Match            ${c}       ${Channel}
 	Should Match            ${band}     ${BW}
 	Log To Console         \Config Radio 2.4G Successfully
+
+Get MAC Addr of Radio 2.4g
+	${Mac_24G}                  Get Text                	//label[@id='id_mac']
+	RETURN                      ${Mac_24G}
 *** Test Cases ***
 1. Login to WebGUI
     Open Browser            https://192.168.88.1            ${Browser}
@@ -60,6 +69,8 @@ Verify config Radio 2.4g
     Login To WebGUI on local machine         root       ${PassWord}
     Access Setting Page
 	Go to Wireless
+	${Mac_24G}          Get MAC Addr of Radio 2.4g
+	Set Global Variable     ${Mac_24G}
 	Verify config Radio 2.4g                  ${Standard}      ${Channel}         ${BW}
 
 4. Check topo Have enouht Node
@@ -73,6 +84,10 @@ Verify config Radio 2.4g
     SSH_Connect_wifi.Enable Wifi
     SSH_Connect_wifi.Delete All Wireless
     Wait Until Keyword Succeeds    180    5    SSH_Connect_wifi.Wifi Rescan Contain   ${Mesh_SSID}
+    ##### Verify Channel in Client
+    ${wf_list}              SSHL.Execute Command             nmcli d wifi list          timeout= 50
+    Should Match Regexp     ${wf_list}                .(${Mac_24G}).*(${Channel})
+
     # Connect control PC to wifi
     ${wlan_interface}=                             	SSHL.Execute Command    nmcli --fields Device,Type device status | grep 'wifi' | awk '{print $1}'
     SSH_Connect_wifi.Connect To Wifi                                	${wlan_interface}    ${Mesh_SSID}    ${Mesh_PW}

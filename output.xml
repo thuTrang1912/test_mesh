@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.10.12 on linux)" generated="20231222 11:22:28.231" rpa="false" schemaversion="4">
-<suite id="s1" name="TC ResetWebGUI" source="/home/ubuntu/PycharmProjects/MeshAP/TC_ResetWebGUI.robot">
-<test id="s1-t1" name="0.Get MRE's IP address" line="18">
+<robot generator="Robot 6.1.1 (Python 3.10.12 on linux)" generated="20231225 16:36:35.315" rpa="false" schemaversion="4">
+<suite id="s1" name="TC Wifi Radio5g" source="/home/ubuntu/PycharmProjects/MeshAP/TC_Wifi_Radio5g.robot">
+<test id="s1-t1" name="1. Login to WebGUI" line="47">
 <kw name="Open Browser" library="SL">
 <arg>https://192.168.88.1</arg>
-<arg>chrome</arg>
+<arg>${Browser}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20231222 11:22:28.399" level="INFO">Opening browser 'chrome' to base url 'https://192.168.88.1'.</msg>
-<status status="PASS" starttime="20231222 11:22:28.399" endtime="20231222 11:22:33.563"/>
+<msg timestamp="20231225 16:36:35.542" level="INFO">Opening browser 'chrome' to base url 'https://192.168.88.1'.</msg>
+<status status="PASS" starttime="20231225 16:36:35.542" endtime="20231225 16:36:39.469"/>
 </kw>
 <kw name="Chrome Pass Certificate google if present" library="Lib_Selenium_Login">
 <kw name="Run Keyword And Return Status" library="BuiltIn">
@@ -20,10 +20,10 @@
 <arg>//button[@id="details-button"]</arg>
 <arg>5</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231222 11:22:33.564" endtime="20231222 11:22:33.598"/>
+<status status="PASS" starttime="20231225 16:36:39.470" endtime="20231225 16:36:39.516"/>
 </kw>
-<msg timestamp="20231222 11:22:33.598" level="INFO">${Status1} = True</msg>
-<status status="PASS" starttime="20231222 11:22:33.564" endtime="20231222 11:22:33.598"/>
+<msg timestamp="20231225 16:36:39.517" level="INFO">${Status1} = True</msg>
+<status status="PASS" starttime="20231225 16:36:39.470" endtime="20231225 16:36:39.517"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>${Status1}</arg>
@@ -33,16 +33,16 @@
 <kw name="Click Element" library="SL">
 <arg>//button[@id="details-button"]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231222 11:22:33.598" level="INFO">Clicking element '//button[@id="details-button"]'.</msg>
-<status status="PASS" starttime="20231222 11:22:33.598" endtime="20231222 11:22:33.638"/>
+<msg timestamp="20231225 16:36:39.518" level="INFO">Clicking element '//button[@id="details-button"]'.</msg>
+<status status="PASS" starttime="20231225 16:36:39.517" endtime="20231225 16:36:39.559"/>
 </kw>
-<status status="PASS" starttime="20231222 11:22:33.598" endtime="20231222 11:22:33.638"/>
+<status status="PASS" starttime="20231225 16:36:39.517" endtime="20231225 16:36:39.559"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>2s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231222 11:22:35.639" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20231222 11:22:33.638" endtime="20231222 11:22:35.639"/>
+<msg timestamp="20231225 16:36:41.559" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231225 16:36:39.559" endtime="20231225 16:36:41.559"/>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
 <var>${Status2}</var>
@@ -54,10 +54,10 @@
 <arg>//a[@id="proceed-link"]</arg>
 <arg>5</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231222 11:22:35.641" endtime="20231222 11:22:35.684"/>
+<status status="PASS" starttime="20231225 16:36:41.560" endtime="20231225 16:36:41.581"/>
 </kw>
-<msg timestamp="20231222 11:22:35.684" level="INFO">${Status2} = True</msg>
-<status status="PASS" starttime="20231222 11:22:35.640" endtime="20231222 11:22:35.684"/>
+<msg timestamp="20231225 16:36:41.581" level="INFO">${Status2} = True</msg>
+<status status="PASS" starttime="20231225 16:36:41.560" endtime="20231225 16:36:41.581"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>${Status2}</arg>
@@ -67,12 +67,12 @@
 <kw name="Click Element" library="SL">
 <arg>//a[@id="proceed-link"]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231222 11:22:35.685" level="INFO">Clicking element '//a[@id="proceed-link"]'.</msg>
-<status status="PASS" starttime="20231222 11:22:35.685" endtime="20231222 11:22:38.861"/>
+<msg timestamp="20231225 16:36:41.582" level="INFO">Clicking element '//a[@id="proceed-link"]'.</msg>
+<status status="PASS" starttime="20231225 16:36:41.581" endtime="20231225 16:36:43.234"/>
 </kw>
-<status status="PASS" starttime="20231222 11:22:35.684" endtime="20231222 11:22:38.861"/>
+<status status="PASS" starttime="20231225 16:36:41.581" endtime="20231225 16:36:43.234"/>
 </kw>
-<status status="PASS" starttime="20231222 11:22:33.563" endtime="20231222 11:22:38.861"/>
+<status status="PASS" starttime="20231225 16:36:39.470" endtime="20231225 16:36:43.234"/>
 </kw>
 <kw name="Login To WebGUI on local machine" library="Lib_Selenium_Login">
 <arg>root</arg>
@@ -82,342 +82,1856 @@
 <kw name="Wait Until Element Is Visible" library="SL">
 <arg>xpath=//input[@id='LOGIN_USER']</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231222 11:22:38.863" endtime="20231222 11:22:39.130"/>
+<status status="PASS" starttime="20231225 16:36:43.236" endtime="20231225 16:36:43.494"/>
 </kw>
 <kw name="Input Text" library="SL">
 <arg>xpath=//input[@id='LOGIN_USER']</arg>
 <arg>${username}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231222 11:22:39.130" level="INFO">Typing text 'root' into text field 'xpath=//input[@id='LOGIN_USER']'.</msg>
-<status status="PASS" starttime="20231222 11:22:39.130" endtime="20231222 11:22:39.224"/>
+<msg timestamp="20231225 16:36:43.495" level="INFO">Typing text 'root' into text field 'xpath=//input[@id='LOGIN_USER']'.</msg>
+<status status="PASS" starttime="20231225 16:36:43.494" endtime="20231225 16:36:43.611"/>
 </kw>
-<status status="PASS" starttime="20231222 11:22:38.862" endtime="20231222 11:22:39.224"/>
+<status status="PASS" starttime="20231225 16:36:43.235" endtime="20231225 16:36:43.611"/>
 </kw>
 <kw name="Input password" library="Lib_Selenium_Login">
 <arg>password=${password}</arg>
 <kw name="Wait Until Element Is Visible" library="SL">
 <arg>xpath=//input[@id='LOGIN_PWD']</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231222 11:22:39.225" endtime="20231222 11:22:39.247"/>
+<status status="PASS" starttime="20231225 16:36:43.612" endtime="20231225 16:36:43.633"/>
 </kw>
 <kw name="Input Password" library="SL">
 <arg>xpath=//input[@id='LOGIN_PWD']</arg>
 <arg>${password}</arg>
 <doc>Types the given password into the text field identified by ``locator``.</doc>
-<msg timestamp="20231222 11:22:39.248" level="INFO">Typing password into text field 'xpath=//input[@id='LOGIN_PWD']'.</msg>
-<msg timestamp="20231222 11:22:39.272" level="INFO">Temporally setting log level to: NONE</msg>
-<msg timestamp="20231222 11:22:39.308" level="INFO">Log level changed from NONE to INFO.</msg>
-<status status="PASS" starttime="20231222 11:22:39.247" endtime="20231222 11:22:39.308"/>
+<msg timestamp="20231225 16:36:43.633" level="INFO">Typing password into text field 'xpath=//input[@id='LOGIN_PWD']'.</msg>
+<msg timestamp="20231225 16:36:43.651" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20231225 16:36:43.705" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20231225 16:36:43.633" endtime="20231225 16:36:43.706"/>
 </kw>
-<status status="PASS" starttime="20231222 11:22:39.225" endtime="20231222 11:22:39.309"/>
+<status status="PASS" starttime="20231225 16:36:43.612" endtime="20231225 16:36:43.706"/>
 </kw>
 <kw name="SubMit Credentials" library="Lib_Selenium_Login">
 <kw name="Wait Until Element Is Visible" library="SL">
 <arg>xpath=//input[@id='BTN_Login']</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231222 11:22:39.309" endtime="20231222 11:22:39.325"/>
+<status status="PASS" starttime="20231225 16:36:43.707" endtime="20231225 16:36:43.729"/>
 </kw>
 <kw name="Click Button" library="SL">
 <arg>xpath=//input[@id='BTN_Login']</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20231222 11:22:39.326" level="INFO">Clicking button 'xpath=//input[@id='BTN_Login']'.</msg>
-<status status="PASS" starttime="20231222 11:22:39.325" endtime="20231222 11:22:39.366"/>
+<msg timestamp="20231225 16:36:43.729" level="INFO">Clicking button 'xpath=//input[@id='BTN_Login']'.</msg>
+<status status="PASS" starttime="20231225 16:36:43.729" endtime="20231225 16:36:43.769"/>
 </kw>
-<status status="PASS" starttime="20231222 11:22:39.309" endtime="20231222 11:22:39.366"/>
+<status status="PASS" starttime="20231225 16:36:43.706" endtime="20231225 16:36:43.769"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>3s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231222 11:22:42.367" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20231222 11:22:39.367" endtime="20231222 11:22:42.367"/>
+<msg timestamp="20231225 16:36:46.770" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20231225 16:36:43.769" endtime="20231225 16:36:46.770"/>
 </kw>
-<status status="PASS" starttime="20231222 11:22:38.861" endtime="20231222 11:22:42.368"/>
+<status status="PASS" starttime="20231225 16:36:43.235" endtime="20231225 16:36:46.771"/>
 </kw>
-<kw name="Verify login WebGUI Successfully" library="Lib_Selenium_Login">
+<status status="PASS" starttime="20231225 16:36:35.541" endtime="20231225 16:36:46.771"/>
+</test>
+<test id="s1-t2" name="2. Edit Radio Channel 5G" line="51">
+<kw name="Set Selenium Speed" library="SL">
+<arg>0.5</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20231225 16:36:46.775" endtime="20231225 16:36:46.775"/>
+</kw>
+<kw name="Access Setting Page" library="Lib_Selenium_WireLess">
+<kw name="Click Element" library="SL">
+<arg>xpath= //a[@id='titleSettingCap']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231225 16:36:46.777" level="INFO">Clicking element 'xpath= //a[@id='titleSettingCap']'.</msg>
+<status status="PASS" starttime="20231225 16:36:46.776" endtime="20231225 16:36:47.865"/>
+</kw>
+<status status="PASS" starttime="20231225 16:36:46.776" endtime="20231225 16:36:47.865"/>
+</kw>
+<kw name="Go to Wireless" library="Lib_Selenium_WireLess">
+<kw name="Wait Until Element Is Visible" library="SL">
+<arg>xpath= //a[@id='titlewlancap']</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231225 16:36:47.866" endtime="20231225 16:36:48.898"/>
+</kw>
+<kw name="Click Element" library="SL">
+<arg>xpath= //a[@id='titlewlancap']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231225 16:36:48.899" level="INFO">Clicking element 'xpath= //a[@id='titlewlancap']'.</msg>
+<status status="PASS" starttime="20231225 16:36:48.898" endtime="20231225 16:36:49.956"/>
+</kw>
+<kw name="Page Should Contain" library="SL">
+<arg>SSID</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231225 16:36:50.993" level="INFO">Current page contains text 'SSID'.</msg>
+<status status="PASS" starttime="20231225 16:36:49.957" endtime="20231225 16:36:50.993"/>
+</kw>
+<status status="PASS" starttime="20231225 16:36:47.865" endtime="20231225 16:36:50.994"/>
+</kw>
+<kw name="Access Wireless Radio 5G" library="Lib_Selenium_WireLess">
+<kw name="Go to Wireless" library="Lib_Selenium_WireLess">
+<kw name="Wait Until Element Is Visible" library="SL">
+<arg>xpath= //a[@id='titlewlancap']</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231225 16:36:50.996" endtime="20231225 16:36:52.086"/>
+</kw>
+<kw name="Click Element" library="SL">
+<arg>xpath= //a[@id='titlewlancap']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231225 16:36:52.087" level="INFO">Clicking element 'xpath= //a[@id='titlewlancap']'.</msg>
+<status status="PASS" starttime="20231225 16:36:52.086" endtime="20231225 16:36:53.161"/>
+</kw>
+<kw name="Page Should Contain" library="SL">
+<arg>SSID</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231225 16:36:54.198" level="INFO">Current page contains text 'SSID'.</msg>
+<status status="PASS" starttime="20231225 16:36:53.161" endtime="20231225 16:36:54.198"/>
+</kw>
+<status status="PASS" starttime="20231225 16:36:50.995" endtime="20231225 16:36:54.198"/>
+</kw>
+<kw name="Click Element" library="SL">
+<arg>//a[contains(text(),'Radio 5 GHz')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231225 16:36:54.198" level="INFO">Clicking element '//a[contains(text(),'Radio 5 GHz')]'.</msg>
+<status status="PASS" starttime="20231225 16:36:54.198" endtime="20231225 16:36:55.273"/>
+</kw>
+<status status="PASS" starttime="20231225 16:36:50.994" endtime="20231225 16:36:55.273"/>
+</kw>
+<kw name="Get MAC Addr of Radio 5g">
+<var>${Mac_5G}</var>
+<kw name="Get Text" library="SL">
+<var>${Mac_5G}</var>
+<arg>//label[@id='id_mac']</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231225 16:36:56.318" level="INFO">${Mac_5G} = CC:71:90:4A:24:CC</msg>
+<status status="PASS" starttime="20231225 16:36:55.274" endtime="20231225 16:36:56.318"/>
+</kw>
+<kw name="Remove String" library="STR">
+<arg>${Mac_5G}</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<status status="PASS" starttime="20231225 16:36:56.319" endtime="20231225 16:36:56.320"/>
+</kw>
+<msg timestamp="20231225 16:36:56.320" level="INFO">${Mac_5G} = None</msg>
+<status status="PASS" starttime="20231225 16:36:55.274" endtime="20231225 16:36:56.320"/>
+</kw>
+<kw name="Config Standard/channel/Bw on Radio 5g">
+<arg>${Standard}</arg>
+<arg>${Channel}</arg>
+<arg>${BW}</arg>
+<kw name="Click Button Edit Radio 5G" library="Lib_Selenium_WireLess">
+<kw name="Wait Until Element Is Visible" library="SL">
+<arg>//input[@id='EditRadio5']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231225 16:36:56.323" endtime="20231225 16:36:57.358"/>
+</kw>
+<kw name="Click Element" library="SL">
+<arg>//input[@id='EditRadio5']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231225 16:36:57.359" level="INFO">Clicking element '//input[@id='EditRadio5']'.</msg>
+<status status="PASS" starttime="20231225 16:36:57.358" endtime="20231225 16:36:58.421"/>
+</kw>
+<status status="PASS" starttime="20231225 16:36:56.322" endtime="20231225 16:36:58.421"/>
+</kw>
+<kw name="Config Wifi Standard 5G" library="Lib_Selenium_WireLess">
+<arg>${Standard}</arg>
+<kw name="Wait Until Element Is Visible" library="SL">
+<arg>//select[@id='5G_Select_WLAN_Mode']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231225 16:36:58.422" endtime="20231225 16:36:59.449"/>
+</kw>
+<kw name="Select From List By Label" library="SL">
+<arg>//select[@id='5G_Select_WLAN_Mode']</arg>
+<arg>${SD_5}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20231225 16:36:59.450" level="INFO">Selecting options from selection list '//select[@id='5G_Select_WLAN_Mode']' by label 11ac.</msg>
+<status status="PASS" starttime="20231225 16:36:59.449" endtime="20231225 16:37:02.571"/>
+</kw>
+<status status="PASS" starttime="20231225 16:36:58.421" endtime="20231225 16:37:02.572"/>
+</kw>
+<kw name="Config Chanel 5G" library="Lib_Selenium_WireLess">
+<arg>${Channel}</arg>
+<kw name="Wait Until Element Is Visible" library="SL">
+<arg>//select[@id='5G_Select_Channel']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231225 16:37:02.573" endtime="20231225 16:37:03.608"/>
+</kw>
+<kw name="Get Value" library="SL">
+<var>${Chanel5_value}</var>
+<arg>xpath= //option[@value= "${chanel}"]</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<msg timestamp="20231225 16:37:04.646" level="INFO">${Chanel5_value} = 120</msg>
+<status status="PASS" starttime="20231225 16:37:03.608" endtime="20231225 16:37:04.646"/>
+</kw>
+<kw name="Select From List By Value" library="SL">
+<arg>//select[@id='5G_Select_Channel']</arg>
+<arg>${Chanel5_value}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20231225 16:37:04.647" level="INFO">Selecting options from selection list '//select[@id='5G_Select_Channel']' by value 120.</msg>
+<status status="PASS" starttime="20231225 16:37:04.647" endtime="20231225 16:37:07.719"/>
+</kw>
+<status status="PASS" starttime="20231225 16:37:02.572" endtime="20231225 16:37:07.719"/>
+</kw>
+<kw name="Config BW Radio 5G" library="Lib_Selenium_WireLess">
+<arg>${BW}</arg>
+<kw name="Wait Until Element Is Visible" library="SL">
+<arg>xpath= //select[@id='5G_Select_Bandwidth']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231225 16:37:07.720" endtime="20231225 16:37:08.750"/>
+</kw>
+<kw name="Get Value" library="SL">
+<var>${BW5_value}</var>
+<arg>xpath= //option[contains(text(),"${BW_5}")]</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<msg timestamp="20231225 16:37:09.789" level="INFO">${BW5_value} = 80</msg>
+<status status="PASS" starttime="20231225 16:37:08.751" endtime="20231225 16:37:09.789"/>
+</kw>
+<kw name="Select From List By Value" library="SL">
+<arg>xpath= //select[@id='5G_Select_Bandwidth']</arg>
+<arg>${BW5_value}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20231225 16:37:09.790" level="INFO">Selecting options from selection list 'xpath= //select[@id='5G_Select_Bandwidth']' by value 80.</msg>
+<status status="PASS" starttime="20231225 16:37:09.789" endtime="20231225 16:37:12.858"/>
+</kw>
+<status status="PASS" starttime="20231225 16:37:07.719" endtime="20231225 16:37:12.858"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SL">
+<arg>//input[@id='buttonApply5G']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231225 16:37:12.858" endtime="20231225 16:37:13.897"/>
+</kw>
+<kw name="Click Element" library="SL">
+<arg>//input[@id='buttonApply5G']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231225 16:37:13.898" level="INFO">Clicking element '//input[@id='buttonApply5G']'.</msg>
+<status status="PASS" starttime="20231225 16:37:13.897" endtime="20231225 16:37:14.952"/>
+</kw>
+<status status="PASS" starttime="20231225 16:36:56.321" endtime="20231225 16:37:14.952"/>
+</kw>
 <kw name="Sleep" library="BuiltIn">
-<arg>10</arg>
+<arg>120s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231222 11:22:52.369" level="INFO">Slept 10 seconds</msg>
-<status status="PASS" starttime="20231222 11:22:42.369" endtime="20231222 11:22:52.370"/>
+<msg timestamp="20231225 16:39:14.957" level="INFO">Slept 2 minutes</msg>
+<status status="PASS" starttime="20231225 16:37:14.953" endtime="20231225 16:39:14.958"/>
 </kw>
-<kw name="Page Should Contain Element" library="SL">
-<arg>xpath= //a[@id='titleHome']</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20231222 11:22:52.378" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=120.0.6099.71)
-Stacktrace:
-#0 0x5645619a0ea3 &lt;unknown&gt;
-#1 0x56456166c297 &lt;unknown&gt;
-#2 0x5645616402d8 &lt;unknown&gt;
-#3 0x5645616eb72f &lt;unknown&gt;
-#4 0x564561702366 &lt;unknown&gt;
-#5 0x5645616e3fe3 &lt;unknown&gt;
-#6 0x5645616ac5a3 &lt;unknown&gt;
-#7 0x5645616ad96e &lt;unknown&gt;
-#8 0x56456196884d &lt;unknown&gt;
-#9 0x56456196c774 &lt;unknown&gt;
-#10 0x564561957cc2 &lt;unknown&gt;
-#11 0x56456196d235 &lt;unknown&gt;
-#12 0x56456193e4de &lt;unknown&gt;
-#13 0x56456198f0d8 &lt;unknown&gt;
-#14 0x56456198f2e1 &lt;unknown&gt;
-#15 0x56456199ffe5 &lt;unknown&gt;
-#16 0x7f82d8452ac3 &lt;unknown&gt;
-</msg>
-<msg timestamp="20231222 11:22:52.379" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=120.0.6099.71)
-Stacktrace:
-#0 0x5645619a0ea3 &lt;unknown&gt;
-#1 0x56456166c297 &lt;unknown&gt;
-#2 0x5645616402d8 &lt;unknown&gt;
-#3 0x5645616eb72f &lt;unknown&gt;
-#4 0x564561702366 &lt;unknown&gt;
-#5 0x5645616e3fe3 &lt;unknown&gt;
-#6 0x5645616ac5a3 &lt;unknown&gt;
-#7 0x5645616ad96e &lt;unknown&gt;
-#8 0x56456196884d &lt;unknown&gt;
-#9 0x56456196c774 &lt;unknown&gt;
-#10 0x564561957cc2 &lt;unknown&gt;
-#11 0x56456196d235 &lt;unknown&gt;
-#12 0x56456193e4de &lt;unknown&gt;
-#13 0x56456198f0d8 &lt;unknown&gt;
-#14 0x56456198f2e1 &lt;unknown&gt;
-#15 0x56456199ffe5 &lt;unknown&gt;
-#16 0x7f82d8452ac3 &lt;unknown&gt;
-</msg>
-<status status="FAIL" starttime="20231222 11:22:52.370" endtime="20231222 11:22:52.382"/>
+<kw name="Close Browser" library="SL">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231225 16:39:14.959" endtime="20231225 16:39:15.547"/>
 </kw>
-<status status="FAIL" starttime="20231222 11:22:42.368" endtime="20231222 11:22:52.382"/>
+<status status="PASS" starttime="20231225 16:36:46.773" endtime="20231225 16:39:15.547"/>
+</test>
+<test id="s1-t3" name="3. Reconect wifi and verify config in WebGUI" line="61">
+<kw name="Set Selenium Speed" library="SL">
+<arg>0.5</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20231225 16:39:15.548" endtime="20231225 16:39:15.548"/>
 </kw>
-<kw name="Get MRE IP Address">
-<var>${MRE_IP}</var>
-<arg>${MRE_Name_defautl}</arg>
-<status status="NOT RUN" starttime="20231222 11:22:52.387" endtime="20231222 11:22:52.387"/>
+<kw name="Open Browser" library="SL">
+<arg>https://192.168.88.1</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231225 16:39:15.549" level="INFO">Opening browser 'chrome' to base url 'https://192.168.88.1'.</msg>
+<status status="PASS" starttime="20231225 16:39:15.548" endtime="20231225 16:39:20.607"/>
+</kw>
+<kw name="Chrome Pass Certificate google if present" library="Lib_Selenium_Login">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Status1}</var>
+<arg>SL.Wait Until Element Is Visible</arg>
+<arg>//button[@id="details-button"]</arg>
+<arg>5</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="SL">
+<arg>//button[@id="details-button"]</arg>
+<arg>5</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231225 16:39:20.611" endtime="20231225 16:39:21.683"/>
+</kw>
+<msg timestamp="20231225 16:39:21.683" level="INFO">${Status1} = True</msg>
+<status status="PASS" starttime="20231225 16:39:20.609" endtime="20231225 16:39:21.683"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Status1}</arg>
+<arg>SL.Click Element</arg>
+<arg>//button[@id="details-button"]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Click Element" library="SL">
+<arg>//button[@id="details-button"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231225 16:39:21.684" level="INFO">Clicking element '//button[@id="details-button"]'.</msg>
+<status status="PASS" starttime="20231225 16:39:21.683" endtime="20231225 16:39:22.766"/>
+</kw>
+<status status="PASS" starttime="20231225 16:39:21.683" endtime="20231225 16:39:22.766"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231225 16:39:24.767" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231225 16:39:22.766" endtime="20231225 16:39:24.767"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Status2}</var>
+<arg>SL.Wait Until Element Is Visible</arg>
+<arg>//a[@id="proceed-link"]</arg>
+<arg>5</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="SL">
+<arg>//a[@id="proceed-link"]</arg>
+<arg>5</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231225 16:39:24.767" endtime="20231225 16:39:25.805"/>
+</kw>
+<msg timestamp="20231225 16:39:25.805" level="INFO">${Status2} = True</msg>
+<status status="PASS" starttime="20231225 16:39:24.767" endtime="20231225 16:39:25.805"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Status2}</arg>
+<arg>SL.Click Element</arg>
+<arg>//a[@id="proceed-link"]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Click Element" library="SL">
+<arg>//a[@id="proceed-link"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231225 16:39:25.808" level="INFO">Clicking element '//a[@id="proceed-link"]'.</msg>
+<status status="PASS" starttime="20231225 16:39:25.807" endtime="20231225 16:39:28.793"/>
+</kw>
+<status status="PASS" starttime="20231225 16:39:25.806" endtime="20231225 16:39:28.793"/>
+</kw>
+<status status="PASS" starttime="20231225 16:39:20.608" endtime="20231225 16:39:28.794"/>
+</kw>
+<kw name="Login To WebGUI on local machine" library="Lib_Selenium_Login">
+<arg>root</arg>
+<arg>${PassWord}</arg>
+<kw name="Input User Name" library="Lib_Selenium_Login">
+<arg>username=${username}</arg>
+<kw name="Wait Until Element Is Visible" library="SL">
+<arg>xpath=//input[@id='LOGIN_USER']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231225 16:39:28.797" endtime="20231225 16:39:29.831"/>
+</kw>
+<kw name="Input Text" library="SL">
+<arg>xpath=//input[@id='LOGIN_USER']</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231225 16:39:29.832" level="INFO">Typing text 'root' into text field 'xpath=//input[@id='LOGIN_USER']'.</msg>
+<status status="PASS" starttime="20231225 16:39:29.831" endtime="20231225 16:39:31.469"/>
+</kw>
+<status status="PASS" starttime="20231225 16:39:28.795" endtime="20231225 16:39:31.469"/>
+</kw>
+<kw name="Input password" library="Lib_Selenium_Login">
+<arg>password=${password}</arg>
+<kw name="Wait Until Element Is Visible" library="SL">
+<arg>xpath=//input[@id='LOGIN_PWD']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231225 16:39:31.470" endtime="20231225 16:39:32.511"/>
+</kw>
+<kw name="Input Password" library="SL">
+<arg>xpath=//input[@id='LOGIN_PWD']</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20231225 16:39:32.513" level="INFO">Typing password into text field 'xpath=//input[@id='LOGIN_PWD']'.</msg>
+<msg timestamp="20231225 16:39:33.563" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20231225 16:39:34.122" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20231225 16:39:32.511" endtime="20231225 16:39:34.123"/>
+</kw>
+<status status="PASS" starttime="20231225 16:39:31.470" endtime="20231225 16:39:34.123"/>
+</kw>
+<kw name="SubMit Credentials" library="Lib_Selenium_Login">
+<kw name="Wait Until Element Is Visible" library="SL">
+<arg>xpath=//input[@id='BTN_Login']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231225 16:39:34.124" endtime="20231225 16:39:35.166"/>
+</kw>
+<kw name="Click Button" library="SL">
+<arg>xpath=//input[@id='BTN_Login']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231225 16:39:35.167" level="INFO">Clicking button 'xpath=//input[@id='BTN_Login']'.</msg>
+<status status="PASS" starttime="20231225 16:39:35.166" endtime="20231225 16:39:36.755"/>
+</kw>
+<status status="PASS" starttime="20231225 16:39:34.123" endtime="20231225 16:39:36.755"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231225 16:39:39.757" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20231225 16:39:36.756" endtime="20231225 16:39:39.757"/>
+</kw>
+<status status="PASS" starttime="20231225 16:39:28.794" endtime="20231225 16:39:39.757"/>
+</kw>
+<kw name="Access Setting Page" library="Lib_Selenium_WireLess">
+<kw name="Click Element" library="SL">
+<arg>xpath= //a[@id='titleSettingCap']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231225 16:39:39.760" level="INFO">Clicking element 'xpath= //a[@id='titleSettingCap']'.</msg>
+<status status="PASS" starttime="20231225 16:39:39.758" endtime="20231225 16:39:40.819"/>
+</kw>
+<status status="PASS" starttime="20231225 16:39:39.758" endtime="20231225 16:39:40.819"/>
+</kw>
+<kw name="Go to Wireless" library="Lib_Selenium_WireLess">
+<kw name="Wait Until Element Is Visible" library="SL">
+<arg>xpath= //a[@id='titlewlancap']</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231225 16:39:40.820" endtime="20231225 16:39:41.855"/>
+</kw>
+<kw name="Click Element" library="SL">
+<arg>xpath= //a[@id='titlewlancap']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231225 16:39:41.857" level="INFO">Clicking element 'xpath= //a[@id='titlewlancap']'.</msg>
+<status status="PASS" starttime="20231225 16:39:41.856" endtime="20231225 16:39:42.936"/>
+</kw>
+<kw name="Page Should Contain" library="SL">
+<arg>SSID</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231225 16:39:43.964" level="INFO">Current page contains text 'SSID'.</msg>
+<status status="PASS" starttime="20231225 16:39:42.937" endtime="20231225 16:39:43.964"/>
+</kw>
+<status status="PASS" starttime="20231225 16:39:40.820" endtime="20231225 16:39:43.964"/>
+</kw>
+<kw name="Access Wireless Radio 5G" library="Lib_Selenium_WireLess">
+<kw name="Go to Wireless" library="Lib_Selenium_WireLess">
+<kw name="Wait Until Element Is Visible" library="SL">
+<arg>xpath= //a[@id='titlewlancap']</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231225 16:39:43.966" endtime="20231225 16:39:45.001"/>
+</kw>
+<kw name="Click Element" library="SL">
+<arg>xpath= //a[@id='titlewlancap']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231225 16:39:45.002" level="INFO">Clicking element 'xpath= //a[@id='titlewlancap']'.</msg>
+<status status="PASS" starttime="20231225 16:39:45.001" endtime="20231225 16:39:46.062"/>
+</kw>
+<kw name="Page Should Contain" library="SL">
+<arg>SSID</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231225 16:39:47.085" level="INFO">Current page contains text 'SSID'.</msg>
+<status status="PASS" starttime="20231225 16:39:46.062" endtime="20231225 16:39:47.085"/>
+</kw>
+<status status="PASS" starttime="20231225 16:39:43.965" endtime="20231225 16:39:47.085"/>
+</kw>
+<kw name="Click Element" library="SL">
+<arg>//a[contains(text(),'Radio 5 GHz')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231225 16:39:47.086" level="INFO">Clicking element '//a[contains(text(),'Radio 5 GHz')]'.</msg>
+<status status="PASS" starttime="20231225 16:39:47.085" endtime="20231225 16:39:48.142"/>
+</kw>
+<status status="PASS" starttime="20231225 16:39:43.965" endtime="20231225 16:39:48.142"/>
+</kw>
+<kw name="Get MAC Addr of Radio 5g">
+<var>${Mac_5G}</var>
+<kw name="Get Text" library="SL">
+<var>${Mac_5G}</var>
+<arg>//label[@id='id_mac']</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231225 16:39:49.193" level="INFO">${Mac_5G} = CC:71:90:4A:24:CC</msg>
+<status status="PASS" starttime="20231225 16:39:48.144" endtime="20231225 16:39:49.194"/>
+</kw>
+<kw name="Remove String" library="STR">
+<arg>${Mac_5G}</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<status status="PASS" starttime="20231225 16:39:49.194" endtime="20231225 16:39:49.194"/>
+</kw>
+<msg timestamp="20231225 16:39:49.195" level="INFO">${Mac_5G} = None</msg>
+<status status="PASS" starttime="20231225 16:39:48.143" endtime="20231225 16:39:49.195"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
-<arg>${MRE_IP}</arg>
+<arg>${Mac_5G}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="NOT RUN" starttime="20231222 11:22:52.387" endtime="20231222 11:22:52.387"/>
+<msg timestamp="20231225 16:39:49.196" level="INFO">${Mac_5G} = None</msg>
+<status status="PASS" starttime="20231225 16:39:49.195" endtime="20231225 16:39:49.196"/>
 </kw>
-<status status="FAIL" starttime="20231222 11:22:28.398" endtime="20231222 11:22:52.388">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=120.0.6099.71)
-Stacktrace:
-#0 0x5645619a0ea3 &lt;unknown&gt;
-#1 0x56456166c297 &lt;unknown&gt;
-#2 0x5645616402d8 &lt;unknown&gt;
-#3 0x5645616eb72f &lt;unknown&gt;
-#4 0x564561702366 &lt;unknown&gt;
-#5 0x5645616e3fe3 &lt;unknown&gt;
-#6 0x5645616ac5a3 &lt;unknown&gt;
-#7 0x5645616ad96e &lt;unknown&gt;
-#8 0x56456196884d &lt;unknown&gt;
-#9 0x56456196c774 &lt;unknown&gt;
-#10 0x564561957cc2 &lt;unknown&gt;
-#11 0x56456196d235 &lt;unknown&gt;
-#12 0x56456193e4de &lt;unknown&gt;
-#13 0x56456198f0d8 &lt;unknown&gt;
-#14 0x56456198f2e1 &lt;unknown&gt;
-#15 0x56456199ffe5 &lt;unknown&gt;
-#16 0x7f82d8452ac3 &lt;unknown&gt;
-</status>
-</test>
-<test id="s1-t2" name="1. Reset CAP" line="25">
-<kw name="Open Browser" library="SL">
-<arg>https://192.168.88.1</arg>
-<arg>chrome</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20231222 11:22:52.388" level="INFO">Opening browser 'chrome' to base url 'https://192.168.88.1'.</msg>
-<status status="PASS" starttime="20231222 11:22:52.388" endtime="20231222 11:22:53.955"/>
-</kw>
-<kw name="Chrome Pass Certificate google if present" library="Lib_Selenium_Login">
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${Status1}</var>
-<arg>SL.Wait Until Element Is Visible</arg>
-<arg>//button[@id="details-button"]</arg>
-<arg>5</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Verify config Radio 5g">
+<arg>${Standard}</arg>
+<arg>${Channel}</arg>
+<arg>${BW}</arg>
+<kw name="Click Button Edit Radio 5G" library="Lib_Selenium_WireLess">
 <kw name="Wait Until Element Is Visible" library="SL">
-<arg>//button[@id="details-button"]</arg>
-<arg>5</arg>
+<arg>//input[@id='EditRadio5']</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231222 11:22:53.956" endtime="20231222 11:22:53.984"/>
+<status status="PASS" starttime="20231225 16:39:49.197" endtime="20231225 16:39:50.240"/>
 </kw>
-<msg timestamp="20231222 11:22:53.985" level="INFO">${Status1} = True</msg>
-<status status="PASS" starttime="20231222 11:22:53.956" endtime="20231222 11:22:53.985"/>
+<kw name="Click Element" library="SL">
+<arg>//input[@id='EditRadio5']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231225 16:39:50.241" level="INFO">Clicking element '//input[@id='EditRadio5']'.</msg>
+<status status="PASS" starttime="20231225 16:39:50.241" endtime="20231225 16:39:51.316"/>
+</kw>
+<status status="PASS" starttime="20231225 16:39:49.197" endtime="20231225 16:39:51.317"/>
+</kw>
+<kw name="Get BW Radio 5G" library="Lib_Selenium_WireLess">
+<var>${band}</var>
+<kw name="Get Value" library="SL">
+<var>${BW5_value}</var>
+<arg>//select[@id='5G_Select_Bandwidth']</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<msg timestamp="20231225 16:39:52.360" level="INFO">${BW5_value} = 80</msg>
+<status status="PASS" starttime="20231225 16:39:51.317" endtime="20231225 16:39:52.360"/>
+</kw>
+<kw name="Get Text" library="SL">
+<var>${BW5_text}</var>
+<arg>//option[@value="${BW5_value}"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231225 16:39:53.402" level="INFO">${BW5_text} = 80 MHz</msg>
+<status status="PASS" starttime="20231225 16:39:52.361" endtime="20231225 16:39:53.402"/>
+</kw>
+<kw name="Return From Keyword" library="BuiltIn">
+<arg>${BW5_text}</arg>
+<doc>Returns from the enclosing user keyword.</doc>
+<msg timestamp="20231225 16:39:53.403" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" starttime="20231225 16:39:53.402" endtime="20231225 16:39:53.404"/>
+</kw>
+<msg timestamp="20231225 16:39:53.404" level="INFO">${band} = 80 MHz</msg>
+<status status="PASS" starttime="20231225 16:39:51.317" endtime="20231225 16:39:53.404"/>
+</kw>
+<kw name="Get Chanel 5G" library="Lib_Selenium_WireLess">
+<var>${c}</var>
+<kw name="Get Value" library="SL">
+<var>${chanel_value}</var>
+<arg>//select[@id='5G_Select_Channel']</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<msg timestamp="20231225 16:39:54.450" level="INFO">${chanel_value} = 120</msg>
+<status status="PASS" starttime="20231225 16:39:53.404" endtime="20231225 16:39:54.450"/>
+</kw>
+<kw name="Get Text" library="SL">
+<var>${chanel_text}</var>
+<arg>//option[@value="${chanel_value}"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231225 16:39:55.477" level="INFO">${chanel_text} = 120</msg>
+<status status="PASS" starttime="20231225 16:39:54.450" endtime="20231225 16:39:55.477"/>
+</kw>
+<kw name="Return From Keyword" library="BuiltIn">
+<arg>${chanel_text}</arg>
+<doc>Returns from the enclosing user keyword.</doc>
+<msg timestamp="20231225 16:39:55.478" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" starttime="20231225 16:39:55.478" endtime="20231225 16:39:55.478"/>
+</kw>
+<msg timestamp="20231225 16:39:55.479" level="INFO">${c} = 120</msg>
+<status status="PASS" starttime="20231225 16:39:53.404" endtime="20231225 16:39:55.479"/>
+</kw>
+<kw name="Get wifi standard 5G" library="Lib_Selenium_WireLess">
+<var>${MoDE}</var>
+<kw name="Get Value" library="SL">
+<var>${WL5_Mode}</var>
+<arg>//select[@id='5G_Select_WLAN_Mode']</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<msg timestamp="20231225 16:39:56.505" level="INFO">${WL5_Mode} = ac</msg>
+<status status="PASS" starttime="20231225 16:39:55.479" endtime="20231225 16:39:56.505"/>
+</kw>
+<kw name="Get Text" library="SL">
+<var>${WL5_text}</var>
+<arg>//option[@value="${WL5_Mode}"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231225 16:39:57.534" level="INFO">${WL5_text} = 11ac</msg>
+<status status="PASS" starttime="20231225 16:39:56.505" endtime="20231225 16:39:57.534"/>
+</kw>
+<kw name="Return From Keyword" library="BuiltIn">
+<arg>${WL5_text}</arg>
+<doc>Returns from the enclosing user keyword.</doc>
+<msg timestamp="20231225 16:39:57.535" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" starttime="20231225 16:39:57.534" endtime="20231225 16:39:57.535"/>
+</kw>
+<msg timestamp="20231225 16:39:57.535" level="INFO">${MoDE} = 11ac</msg>
+<status status="PASS" starttime="20231225 16:39:55.479" endtime="20231225 16:39:57.535"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\n Wireless Standart: ${MoDE}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231225 16:39:57.535" endtime="20231225 16:39:57.535"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\n Chanel: ${c}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231225 16:39:57.535" endtime="20231225 16:39:57.535"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\n Bandwith: ${bw}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231225 16:39:57.536" endtime="20231225 16:39:57.536"/>
+</kw>
+<kw name="Should Match" library="BuiltIn">
+<arg>${MoDE}</arg>
+<arg>${Standard}</arg>
+<doc>Fails if the given ``string`` does not match the given ``pattern``.</doc>
+<status status="PASS" starttime="20231225 16:39:57.536" endtime="20231225 16:39:57.536"/>
+</kw>
+<kw name="Should Match" library="BuiltIn">
+<arg>${c}</arg>
+<arg>${Channel}</arg>
+<doc>Fails if the given ``string`` does not match the given ``pattern``.</doc>
+<status status="PASS" starttime="20231225 16:39:57.536" endtime="20231225 16:39:57.536"/>
+</kw>
+<kw name="Should Match" library="BuiltIn">
+<arg>${band}</arg>
+<arg>${BW}</arg>
+<doc>Fails if the given ``string`` does not match the given ``pattern``.</doc>
+<status status="PASS" starttime="20231225 16:39:57.536" endtime="20231225 16:39:57.537"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\Config Radio 5G Successfully</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231225 16:39:57.537" endtime="20231225 16:39:57.537"/>
+</kw>
+<status status="PASS" starttime="20231225 16:39:49.196" endtime="20231225 16:39:57.537"/>
+</kw>
+<status status="PASS" starttime="20231225 16:39:15.548" endtime="20231225 16:39:57.537"/>
+</test>
+<test id="s1-t4" name="5. Verify in client" line="76">
+<kw name="Open SSH Session Login To Local Machine" library="Variable">
+<kw name="Open Connection" library="SSHL">
+<arg>${ssh_server_IP}</arg>
+<doc>Opens a new SSH connection to the given ``host`` and ``port``.</doc>
+<status status="PASS" starttime="20231225 16:39:57.540" endtime="20231225 16:39:57.540"/>
+</kw>
+<kw name="Login" library="SSHL">
+<var>${login_output}</var>
+<arg>${ssh_server_username}</arg>
+<arg>${ssh_server_PW}</arg>
+<doc>Logs into the SSH server with the given ``username`` and ``password``.</doc>
+<msg timestamp="20231225 16:39:57.540" level="INFO">Logging into '192.168.88.200:22' as 'ubuntu'.</msg>
+<msg timestamp="20231225 16:39:58.814" level="INFO">Read output: Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 6.2.0-39-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+Expanded Security Maintenance for Applications is not enabled.
+
+31 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+Last login: Mon Dec 25 16:27:49 2023 from 192.168.88.200
+[?2004hubuntu@ubuntu-Vostro-3420:~$</msg>
+<msg timestamp="20231225 16:39:58.814" level="INFO">${login_output} = Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 6.2.0-39-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.c...</msg>
+<status status="PASS" starttime="20231225 16:39:57.540" endtime="20231225 16:39:58.814"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${login_output}</arg>
+<arg>${ssh_server_username}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20231225 16:39:58.815" endtime="20231225 16:39:58.816"/>
+</kw>
+<kw name="Execute Command" library="SSHL">
+<arg>sudo su</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:39:58.816" level="INFO">Executing command 'sudo su'.</msg>
+<msg timestamp="20231225 16:39:58.841" level="INFO">Command exited with return code 1.</msg>
+<status status="PASS" starttime="20231225 16:39:58.816" endtime="20231225 16:39:58.841"/>
+</kw>
+<kw name="Write" library="SSHL">
+<arg>1</arg>
+<doc>Writes the given ``text`` on the remote machine and appends a newline.</doc>
+<msg timestamp="20231225 16:39:58.882" level="INFO">1</msg>
+<status status="PASS" starttime="20231225 16:39:58.841" endtime="20231225 16:39:58.882"/>
+</kw>
+<status status="PASS" starttime="20231225 16:39:57.540" endtime="20231225 16:39:58.883"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231225 16:40:03.884" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20231225 16:39:58.883" endtime="20231225 16:40:03.884"/>
+</kw>
+<kw name="Enable Wifi" library="SSH_Connect_wifi">
+<kw name="Log To Console" library="BuiltIn">
+<arg>Enable Wifi</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231225 16:40:03.885" endtime="20231225 16:40:03.885"/>
+</kw>
+<kw name="Execute Command" library="SSHL">
+<arg>sudo nmcli radio wifi on</arg>
+<arg>sudo=true</arg>
+<arg>sudo_password=1</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:40:03.886" level="INFO">Executing command 'sudo sudo nmcli radio wifi on'.</msg>
+<msg timestamp="20231225 16:40:08.088" level="INFO">Command exited with return code 0.</msg>
+<status status="PASS" starttime="20231225 16:40:03.886" endtime="20231225 16:40:08.088"/>
+</kw>
+<status status="PASS" starttime="20231225 16:40:03.884" endtime="20231225 16:40:08.088"/>
+</kw>
+<kw name="Delete All Wireless" library="SSH_Connect_wifi">
+<kw name="Log To Console" library="BuiltIn">
+<arg>Delete all wireless</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231225 16:40:08.089" endtime="20231225 16:40:08.089"/>
+</kw>
+<kw name="Execute Command" library="SSHL">
+<var>${all_wireless}</var>
+<arg>nmcli --fields UUID,Type connection show | grep 'wifi' | awk '{print $1}'</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:40:08.089" level="INFO">Executing command 'nmcli --fields UUID,Type connection show | grep 'wifi' | awk '{print $1}''.</msg>
+<msg timestamp="20231225 16:40:08.112" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:40:08.112" level="INFO">${all_wireless} = ea761c6e-526e-47ea-bfc3-ea3bb6124c7c
+a408e219-ddb2-4c59-a0b1-bc4e98a82319
+4dcfdb2c-817f-43c5-8a80-a8c4a7ebd885
+6e1c915a-f14b-4d2b-bb40-fce63b69a530
+5575a42c-beb1-4bb4-8270-783364d50c62
+eb144885-76b1-4...</msg>
+<status status="PASS" starttime="20231225 16:40:08.089" endtime="20231225 16:40:08.112"/>
+</kw>
+<kw name="Replace String" library="STR">
+<var>${all_wireless}</var>
+<arg>${all_wireless}</arg>
+<arg>\n</arg>
+<arg>${SPACE}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20231225 16:40:08.113" level="INFO">${all_wireless} = ea761c6e-526e-47ea-bfc3-ea3bb6124c7c a408e219-ddb2-4c59-a0b1-bc4e98a82319 4dcfdb2c-817f-43c5-8a80-a8c4a7ebd885 6e1c915a-f14b-4d2b-bb40-fce63b69a530 5575a42c-beb1-4bb4-8270-783364d50c62 eb144885-76b1-4...</msg>
+<status status="PASS" starttime="20231225 16:40:08.112" endtime="20231225 16:40:08.113"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
-<arg>${Status1}</arg>
-<arg>SL.Click Element</arg>
-<arg>//button[@id="details-button"]</arg>
+<arg>'${all_wireless}' != ''</arg>
+<arg>SSHL.Execute Command</arg>
+<arg>sudo nmcli connection delete uuid ${all_wireless}</arg>
+<arg>ELSE</arg>
+<arg>Log To Console</arg>
+<arg>Already deleted Wireless</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<kw name="Click Element" library="SL">
-<arg>//button[@id="details-button"]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231222 11:22:53.985" level="INFO">Clicking element '//button[@id="details-button"]'.</msg>
-<status status="PASS" starttime="20231222 11:22:53.985" endtime="20231222 11:22:54.018"/>
+<kw name="Execute Command" library="SSHL">
+<arg>sudo nmcli connection delete uuid ${all_wireless}</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:40:08.114" level="INFO">Executing command 'sudo nmcli connection delete uuid ea761c6e-526e-47ea-bfc3-ea3bb6124c7c a408e219-ddb2-4c59-a0b1-bc4e98a82319 4dcfdb2c-817f-43c5-8a80-a8c4a7ebd885 6e1c915a-f14b-4d2b-bb40-fce63b69a530 5575a42c-beb1-4bb4-8270-783364d50c62 eb144885-76b1-4f41-ae44-32a56841d27a de68dcfa-0697-474b-99e0-ee135cd98f3c 4c85e073-6bab-4dda-97c0-a9c0b6f08993 927d4d8e-2e03-4629-a1bb-b6d6837e6063 0fbc38b4-8fcc-4aa4-865e-057be2d635aa dff482d6-da38-49b4-891e-f7701ff40d2e 1ab4999e-3b5f-4d0f-91aa-9b59fd7419cc 155e4844-77ac-45a8-9354-e8a6d34d0acc 110755b4-2b9a-419b-ad36-321c9a1405ac 037053ff-0671-45df-a18e-41408c87b01a 189c0832-cfde-43ba-bf95-3914f7f336f5 d7831bb5-96fd-4ae3-871e-b541ca544360 4b189b3f-c06d-4809-bc8e-d91f50e21569 b46ec5f7-efd2-430f-a51d-c631e1d46efa ea97fc94-df2c-418f-a4d8-1ca149a422f7 6ea53e33-7bf3-4a43-932e-37524854ed2f bf29da7d-d859-4dba-b4bd-ef89209d5579 51c81f89-dc2f-49e0-981f-21ba89e0b10c 17f5763a-2bbe-4a17-b762-20b1a0653fe1 612fc92e-0e48-4346-9c62-a370898b6039 8e99f408-d9c0-452a-8050-68c38ec3845a 05a43f4b-89f3-46df-9060-7543cbfce55e 325d7395-de68-40dc-8ad5-00fafa963e08 c2875dfc-69ff-45ff-bda8-b71023f81c3e bea0247d-afbb-4b7e-aecb-b2280470fa33'.</msg>
+<msg timestamp="20231225 16:40:08.170" level="INFO">Command exited with return code 1.</msg>
+<status status="PASS" starttime="20231225 16:40:08.114" endtime="20231225 16:40:08.170"/>
 </kw>
-<status status="PASS" starttime="20231222 11:22:53.985" endtime="20231222 11:22:54.018"/>
+<status status="PASS" starttime="20231225 16:40:08.113" endtime="20231225 16:40:08.170"/>
 </kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231222 11:22:56.019" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20231222 11:22:54.018" endtime="20231222 11:22:56.019"/>
+<status status="PASS" starttime="20231225 16:40:08.088" endtime="20231225 16:40:08.170"/>
 </kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${Status2}</var>
-<arg>SL.Wait Until Element Is Visible</arg>
-<arg>//a[@id="proceed-link"]</arg>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>180</arg>
 <arg>5</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Wait Until Element Is Visible" library="SL">
-<arg>//a[@id="proceed-link"]</arg>
-<arg>5</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231222 11:22:56.021" endtime="20231222 11:22:56.060"/>
+<arg>SSH_Connect_wifi.Wifi Rescan Contain</arg>
+<arg>${Mesh_SSID}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:40:08.171" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:40:08.247" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:40:08.248" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  72      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:40:08.171" endtime="20231225 16:40:08.248"/>
 </kw>
-<msg timestamp="20231222 11:22:56.060" level="INFO">${Status2} = True</msg>
-<status status="PASS" starttime="20231222 11:22:56.020" endtime="20231222 11:22:56.060"/>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:40:08.248" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  72      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:40:08.248" endtime="20231225 16:40:08.248"/>
 </kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<arg>${Status2}</arg>
-<arg>SL.Click Element</arg>
-<arg>//a[@id="proceed-link"]</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<kw name="Click Element" library="SL">
-<arg>//a[@id="proceed-link"]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231222 11:22:56.061" level="INFO">Clicking element '//a[@id="proceed-link"]'.</msg>
-<status status="PASS" starttime="20231222 11:22:56.061" endtime="20231222 11:22:58.140"/>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:40:08.248" endtime="20231225 16:40:08.248"/>
 </kw>
-<status status="PASS" starttime="20231222 11:22:56.060" endtime="20231222 11:22:58.140"/>
+<status status="FAIL" starttime="20231225 16:40:08.171" endtime="20231225 16:40:08.249"/>
 </kw>
-<status status="PASS" starttime="20231222 11:22:53.955" endtime="20231222 11:22:58.141"/>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:40:13.250" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:40:13.285" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:40:13.285" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  72      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:40:13.250" endtime="20231225 16:40:13.285"/>
 </kw>
-<kw name="Login To WebGUI on local machine" library="Lib_Selenium_Login">
-<arg>root</arg>
-<arg>${PassWord}</arg>
-<kw name="Input User Name" library="Lib_Selenium_Login">
-<arg>username=${username}</arg>
-<kw name="Wait Until Element Is Visible" library="SL">
-<arg>xpath=//input[@id='LOGIN_USER']</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231222 11:22:58.142" endtime="20231222 11:22:58.184"/>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:40:13.285" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  72      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:40:13.285" endtime="20231225 16:40:13.286"/>
 </kw>
-<kw name="Input Text" library="SL">
-<arg>xpath=//input[@id='LOGIN_USER']</arg>
-<arg>${username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231222 11:22:58.184" level="INFO">Typing text 'root' into text field 'xpath=//input[@id='LOGIN_USER']'.</msg>
-<status status="PASS" starttime="20231222 11:22:58.184" endtime="20231222 11:22:58.259"/>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:40:13.286" endtime="20231225 16:40:13.286"/>
 </kw>
-<status status="PASS" starttime="20231222 11:22:58.141" endtime="20231222 11:22:58.259"/>
+<status status="FAIL" starttime="20231225 16:40:13.249" endtime="20231225 16:40:13.286"/>
 </kw>
-<kw name="Input password" library="Lib_Selenium_Login">
-<arg>password=${password}</arg>
-<kw name="Wait Until Element Is Visible" library="SL">
-<arg>xpath=//input[@id='LOGIN_PWD']</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231222 11:22:58.260" endtime="20231222 11:22:58.279"/>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:40:18.288" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:40:18.321" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:40:18.321" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  72      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:40:18.287" endtime="20231225 16:40:18.321"/>
 </kw>
-<kw name="Input Password" library="SL">
-<arg>xpath=//input[@id='LOGIN_PWD']</arg>
-<arg>${password}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<msg timestamp="20231222 11:22:58.280" level="INFO">Typing password into text field 'xpath=//input[@id='LOGIN_PWD']'.</msg>
-<msg timestamp="20231222 11:22:58.304" level="INFO">Temporally setting log level to: NONE</msg>
-<msg timestamp="20231222 11:22:58.342" level="INFO">Log level changed from NONE to INFO.</msg>
-<status status="PASS" starttime="20231222 11:22:58.280" endtime="20231222 11:22:58.342"/>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:40:18.322" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  72      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:40:18.321" endtime="20231225 16:40:18.322"/>
 </kw>
-<status status="PASS" starttime="20231222 11:22:58.259" endtime="20231222 11:22:58.342"/>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:40:18.322" endtime="20231225 16:40:18.322"/>
 </kw>
-<kw name="SubMit Credentials" library="Lib_Selenium_Login">
-<kw name="Wait Until Element Is Visible" library="SL">
-<arg>xpath=//input[@id='BTN_Login']</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231222 11:22:58.342" endtime="20231222 11:22:58.359"/>
+<status status="FAIL" starttime="20231225 16:40:18.286" endtime="20231225 16:40:18.322"/>
 </kw>
-<kw name="Click Button" library="SL">
-<arg>xpath=//input[@id='BTN_Login']</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20231222 11:22:58.359" level="INFO">Clicking button 'xpath=//input[@id='BTN_Login']'.</msg>
-<status status="PASS" starttime="20231222 11:22:58.359" endtime="20231222 11:22:58.404"/>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:40:23.324" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:40:23.356" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:40:23.356" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  73      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:40:23.323" endtime="20231225 16:40:23.356"/>
 </kw>
-<status status="PASS" starttime="20231222 11:22:58.342" endtime="20231222 11:22:58.404"/>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:40:23.357" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  73      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:40:23.357" endtime="20231225 16:40:23.357"/>
 </kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>3s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231222 11:23:01.405" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20231222 11:22:58.404" endtime="20231222 11:23:01.405"/>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:40:23.357" endtime="20231225 16:40:23.357"/>
 </kw>
-<status status="PASS" starttime="20231222 11:22:58.141" endtime="20231222 11:23:01.405"/>
+<status status="FAIL" starttime="20231225 16:40:23.323" endtime="20231225 16:40:23.358"/>
 </kw>
-<kw name="Verify login WebGUI Successfully" library="Lib_Selenium_Login">
-<kw name="Sleep" library="BuiltIn">
-<arg>10</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="FAIL" starttime="20231222 11:23:01.405" endtime="20231222 11:23:06.434"/>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:40:28.359" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:40:28.392" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:40:28.392" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  72      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:40:28.359" endtime="20231225 16:40:28.392"/>
 </kw>
-<kw name="Page Should Contain Element" library="SL">
-<arg>xpath= //a[@id='titleHome']</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="NOT RUN" starttime="20231222 11:23:06.434" endtime="20231222 11:23:06.434"/>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:40:28.393" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  72      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:40:28.392" endtime="20231225 16:40:28.393"/>
 </kw>
-<status status="FAIL" starttime="20231222 11:23:01.405" endtime="20231222 11:23:06.434"/>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:40:28.393" endtime="20231225 16:40:28.393"/>
 </kw>
-<kw name="Access Management">
-<status status="NOT RUN" starttime="20231222 11:23:06.441" endtime="20231222 11:23:06.441"/>
+<status status="FAIL" starttime="20231225 16:40:28.358" endtime="20231225 16:40:28.393"/>
 </kw>
-<kw name="Factory Reset">
-<status status="NOT RUN" starttime="20231222 11:23:06.445" endtime="20231222 11:23:06.445"/>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:40:33.394" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:40:33.426" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:40:33.427" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  73      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:40:33.394" endtime="20231225 16:40:33.427"/>
 </kw>
-<status status="FAIL" starttime="20231222 11:22:52.388" endtime="20231222 11:23:06.445">Execution terminated by signal</status>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:40:33.427" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  73      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:40:33.427" endtime="20231225 16:40:33.427"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:40:33.427" endtime="20231225 16:40:33.427"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:40:33.394" endtime="20231225 16:40:33.428"/>
+</kw>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:40:38.428" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:40:38.461" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:40:38.461" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  73      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:40:38.428" endtime="20231225 16:40:38.461"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:40:38.461" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  73      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:40:38.461" endtime="20231225 16:40:38.461"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:40:38.461" endtime="20231225 16:40:38.461"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:40:38.428" endtime="20231225 16:40:38.461"/>
+</kw>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:40:43.463" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:40:43.496" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:40:43.496" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  74      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:40:43.463" endtime="20231225 16:40:43.496"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:40:43.497" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  74      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:40:43.496" endtime="20231225 16:40:43.497"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:40:43.497" endtime="20231225 16:40:43.497"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:40:43.462" endtime="20231225 16:40:43.497"/>
+</kw>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:40:48.498" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:40:48.530" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:40:48.530" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  74      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:40:48.498" endtime="20231225 16:40:48.531"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:40:48.531" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  74      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:40:48.531" endtime="20231225 16:40:48.531"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:40:48.531" endtime="20231225 16:40:48.531"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:40:48.497" endtime="20231225 16:40:48.531"/>
+</kw>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:40:53.534" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:40:53.568" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:40:53.568" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  74      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:40:53.533" endtime="20231225 16:40:53.568"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:40:53.569" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  74      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:40:53.568" endtime="20231225 16:40:53.569"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:40:53.569" endtime="20231225 16:40:53.569"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:40:53.532" endtime="20231225 16:40:53.569"/>
+</kw>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:40:58.572" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:40:58.606" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:40:58.607" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  73      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:40:58.572" endtime="20231225 16:40:58.607"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:40:58.607" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  73      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:40:58.607" endtime="20231225 16:40:58.607"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:40:58.607" endtime="20231225 16:40:58.607"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:40:58.570" endtime="20231225 16:40:58.607"/>
+</kw>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:41:03.610" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:41:03.644" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:41:03.644" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  72      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:41:03.609" endtime="20231225 16:41:03.644"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:41:03.644" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  72      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:41:03.644" endtime="20231225 16:41:03.645"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:41:03.645" endtime="20231225 16:41:03.645"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:41:03.608" endtime="20231225 16:41:03.645"/>
+</kw>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:41:08.648" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:41:08.682" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:41:08.682" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  72      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:41:08.647" endtime="20231225 16:41:08.682"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:41:08.683" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  72      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:41:08.682" endtime="20231225 16:41:08.683"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:41:08.683" endtime="20231225 16:41:08.683"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:41:08.646" endtime="20231225 16:41:08.683"/>
+</kw>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:41:13.685" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:41:13.720" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:41:13.720" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  69      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:41:13.685" endtime="20231225 16:41:13.720"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:41:13.721" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  69      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:41:13.720" endtime="20231225 16:41:13.721"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:41:13.721" endtime="20231225 16:41:13.721"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:41:13.684" endtime="20231225 16:41:13.721"/>
+</kw>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:41:18.724" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:41:18.758" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:41:18.758" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  70      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:41:18.723" endtime="20231225 16:41:18.759"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:41:18.759" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  70      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:41:18.759" endtime="20231225 16:41:18.759"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:41:18.759" endtime="20231225 16:41:18.759"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:41:18.722" endtime="20231225 16:41:18.760"/>
+</kw>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:41:23.761" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:41:23.794" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:41:23.794" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  70      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:41:23.761" endtime="20231225 16:41:23.794"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:41:23.794" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  70      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:41:23.794" endtime="20231225 16:41:23.795"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:41:23.795" endtime="20231225 16:41:23.795"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:41:23.760" endtime="20231225 16:41:23.795"/>
+</kw>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:41:28.797" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:41:28.831" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:41:28.832" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  71      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:41:28.797" endtime="20231225 16:41:28.832"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:41:28.832" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  71      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:41:28.832" endtime="20231225 16:41:28.832"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:41:28.832" endtime="20231225 16:41:28.832"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:41:28.796" endtime="20231225 16:41:28.833"/>
+</kw>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:41:33.834" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:41:33.867" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:41:33.868" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  70      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:41:33.834" endtime="20231225 16:41:33.868"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:41:33.868" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  70      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:41:33.868" endtime="20231225 16:41:33.868"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:41:33.868" endtime="20231225 16:41:33.868"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:41:33.833" endtime="20231225 16:41:33.869"/>
+</kw>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:41:38.870" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:41:38.904" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:41:38.904" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  70      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:41:38.870" endtime="20231225 16:41:38.904"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:41:38.905" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  70      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:41:38.905" endtime="20231225 16:41:38.905"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:41:38.905" endtime="20231225 16:41:38.905"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:41:38.869" endtime="20231225 16:41:38.905"/>
+</kw>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:41:43.907" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:41:43.940" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:41:43.940" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  72      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:41:43.907" endtime="20231225 16:41:43.940"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:41:43.941" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  72      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:41:43.941" endtime="20231225 16:41:43.941"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:41:43.941" endtime="20231225 16:41:43.941"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:41:43.906" endtime="20231225 16:41:43.941"/>
+</kw>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:41:48.943" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:41:48.977" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:41:48.977" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  68      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:41:48.943" endtime="20231225 16:41:48.977"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:41:48.978" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  68      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:41:48.977" endtime="20231225 16:41:48.978"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:41:48.978" endtime="20231225 16:41:48.978"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:41:48.942" endtime="20231225 16:41:48.978"/>
+</kw>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:41:53.981" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:41:54.025" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:41:54.025" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  68      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:41:53.980" endtime="20231225 16:41:54.025"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:41:54.026" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  68      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:41:54.026" endtime="20231225 16:41:54.026"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:41:54.026" endtime="20231225 16:41:54.026"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:41:53.979" endtime="20231225 16:41:54.026"/>
+</kw>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:41:59.029" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:41:59.064" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:41:59.064" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  68      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:41:59.028" endtime="20231225 16:41:59.064"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:41:59.064" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  68      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:41:59.064" endtime="20231225 16:41:59.064"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:41:59.064" endtime="20231225 16:41:59.064"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:41:59.027" endtime="20231225 16:41:59.065"/>
+</kw>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:42:04.066" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:42:04.108" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:42:04.108" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  71      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:42:04.066" endtime="20231225 16:42:04.108"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:42:04.109" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  71      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:42:04.109" endtime="20231225 16:42:04.109"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:42:04.109" endtime="20231225 16:42:04.109"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:42:04.065" endtime="20231225 16:42:04.110"/>
+</kw>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:42:09.111" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:42:09.145" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:42:09.145" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  70      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:42:09.111" endtime="20231225 16:42:09.145"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:42:09.145" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  70      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:42:09.145" endtime="20231225 16:42:09.145"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:42:09.145" endtime="20231225 16:42:09.146"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:42:09.110" endtime="20231225 16:42:09.146"/>
+</kw>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:42:14.147" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:42:14.181" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:42:14.181" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  69      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:42:14.147" endtime="20231225 16:42:14.181"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:42:14.181" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  69      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:42:14.181" endtime="20231225 16:42:14.181"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:42:14.181" endtime="20231225 16:42:14.181"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:42:14.146" endtime="20231225 16:42:14.181"/>
+</kw>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:42:19.183" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:42:19.215" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:42:19.216" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  68      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:42:19.183" endtime="20231225 16:42:19.216"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:42:19.216" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  68      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:42:19.216" endtime="20231225 16:42:19.217"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:42:19.217" endtime="20231225 16:42:19.217"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:42:19.182" endtime="20231225 16:42:19.217"/>
+</kw>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:42:24.219" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:42:24.264" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:42:24.264" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  68      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:42:24.219" endtime="20231225 16:42:24.264"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:42:24.264" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  68      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:42:24.264" endtime="20231225 16:42:24.264"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:42:24.265" endtime="20231225 16:42:24.265"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:42:24.218" endtime="20231225 16:42:24.265"/>
+</kw>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:42:29.267" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:42:29.300" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:42:29.300" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  68      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:42:29.266" endtime="20231225 16:42:29.300"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:42:29.301" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  68      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:42:29.301" endtime="20231225 16:42:29.301"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:42:29.301" endtime="20231225 16:42:29.301"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:42:29.265" endtime="20231225 16:42:29.301"/>
+</kw>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:42:34.304" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:42:34.339" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:42:34.339" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  69      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:42:34.303" endtime="20231225 16:42:34.339"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:42:34.339" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  69      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:42:34.339" endtime="20231225 16:42:34.339"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:42:34.340" endtime="20231225 16:42:34.340"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:42:34.302" endtime="20231225 16:42:34.340"/>
+</kw>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:42:39.343" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:42:39.388" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:42:39.388" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  68      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:42:39.343" endtime="20231225 16:42:39.388"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:42:39.389" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  68      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:42:39.389" endtime="20231225 16:42:39.389"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:42:39.389" endtime="20231225 16:42:39.389"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:42:39.341" endtime="20231225 16:42:39.389"/>
+</kw>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:42:44.390" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:42:44.423" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:42:44.423" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  70      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:42:44.390" endtime="20231225 16:42:44.423"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:42:44.423" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  70      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:42:44.423" endtime="20231225 16:42:44.423"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:42:44.424" endtime="20231225 16:42:44.424"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:42:44.390" endtime="20231225 16:42:44.424"/>
+</kw>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:42:49.428" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:42:49.472" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:42:49.472" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  71      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:42:49.428" endtime="20231225 16:42:49.472"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:42:49.473" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  71      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:42:49.472" endtime="20231225 16:42:49.473"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:42:49.473" endtime="20231225 16:42:49.473"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:42:49.424" endtime="20231225 16:42:49.473"/>
+</kw>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:42:54.476" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:42:54.521" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:42:54.521" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  71      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:42:54.476" endtime="20231225 16:42:54.521"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:42:54.522" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  71      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:42:54.522" endtime="20231225 16:42:54.523"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:42:54.523" endtime="20231225 16:42:54.523"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:42:54.474" endtime="20231225 16:42:54.523"/>
+</kw>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:42:59.526" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:42:59.560" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:42:59.560" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  71      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:42:59.525" endtime="20231225 16:42:59.560"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:42:59.560" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  71      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:42:59.560" endtime="20231225 16:42:59.560"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:42:59.560" endtime="20231225 16:42:59.560"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:42:59.524" endtime="20231225 16:42:59.561"/>
+</kw>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:43:04.563" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:43:04.608" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:43:04.608" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  74      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:43:04.563" endtime="20231225 16:43:04.608"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:43:04.609" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  74      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:43:04.609" endtime="20231225 16:43:04.609"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:43:04.609" endtime="20231225 16:43:04.610"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:43:04.561" endtime="20231225 16:43:04.610"/>
+</kw>
+<kw name="Wifi Rescan Contain" library="SSH_Connect_wifi">
+<arg>${Mesh_SSID}</arg>
+<kw name="Execute Command" library="SSHL">
+<var>${wirelessList}</var>
+<arg>nmcli device wifi list</arg>
+<arg>time_out=30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<msg timestamp="20231225 16:43:09.613" level="INFO">Executing command 'nmcli device wifi list'.</msg>
+<msg timestamp="20231225 16:43:09.648" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20231225 16:43:09.648" level="INFO">${wirelessList} = IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  71      ▂▄▆_  WPA2     </msg>
+<status status="PASS" starttime="20231225 16:43:09.612" endtime="20231225 16:43:09.648"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${wirelessList}</arg>
+<arg>${wifi_ssid}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20231225 16:43:09.649" level="FAIL">'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  71      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:43:09.649" endtime="20231225 16:43:09.649"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSSID is Visiable</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:43:09.649" endtime="20231225 16:43:09.649"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:43:09.611" endtime="20231225 16:43:09.649"/>
+</kw>
+<msg timestamp="20231225 16:43:09.650" level="FAIL">Keyword 'SSH_Connect_wifi.Wifi Rescan Contain' failed after retrying for 3 minutes. The last error was: 'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  71      ▂▄▆_  WPA2     ' does not contain 'R1'</msg>
+<status status="FAIL" starttime="20231225 16:40:08.171" endtime="20231225 16:43:09.650"/>
+</kw>
+<kw name="Execute Command" library="SSHL">
+<var>${wf_list}</var>
+<arg>nmcli d wifi list</arg>
+<arg>timeout= 50</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="NOT RUN" starttime="20231225 16:43:09.650" endtime="20231225 16:43:09.650"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Verify Channel in Client</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:43:09.650" endtime="20231225 16:43:09.650"/>
+</kw>
+<kw name="Should Match Regexp" library="BuiltIn">
+<arg>${wf_list}</arg>
+<arg>.(${Mac_5G}).*(${Channel})</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="NOT RUN" starttime="20231225 16:43:09.650" endtime="20231225 16:43:09.650"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Connect control PC to wifi</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231225 16:43:09.651" endtime="20231225 16:43:09.651"/>
+</kw>
+<kw name="Execute Command" library="SSHL">
+<var>${wlan_interface}</var>
+<arg>nmcli --fields Device,Type device status | grep 'wifi' | awk '{print $1}'</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="NOT RUN" starttime="20231225 16:43:09.651" endtime="20231225 16:43:09.651"/>
+</kw>
+<kw name="Connect To Wifi" library="SSH_Connect_wifi">
+<arg>${wlan_interface}</arg>
+<arg>${Mesh_SSID}</arg>
+<arg>${Mesh_PW}</arg>
+<doc>Connect to wifi with SSID
+Input:
+1. wireless_network_interface: Default if wlan0
+2. ssid
+3. password</doc>
+<status status="NOT RUN" starttime="20231225 16:43:09.651" endtime="20231225 16:43:09.651"/>
+</kw>
+<kw name="Ping Should Succeed" library="SSH_ping">
+<arg>8.8.8.8</arg>
+<arg>${wlan_interface}</arg>
+<doc>Execute ping should be succeed
+Input:
+1. ping_address
+2. network_interface
+Return:
+  Pass or Failed</doc>
+<status status="NOT RUN" starttime="20231225 16:43:09.651" endtime="20231225 16:43:09.651"/>
+</kw>
+<kw name="Execute Command" library="SSHL">
+<arg>nmcli d wifi list</arg>
+<arg>30</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="NOT RUN" starttime="20231225 16:43:09.652" endtime="20231225 16:43:09.652"/>
+</kw>
+<kw name="Read" library="SSHL">
+<var>${Output}</var>
+<doc>Consumes and returns everything available on the server output.</doc>
+<status status="NOT RUN" starttime="20231225 16:43:09.652" endtime="20231225 16:43:09.652"/>
+</kw>
+<status status="FAIL" starttime="20231225 16:39:57.539" endtime="20231225 16:43:09.652">Keyword 'SSH_Connect_wifi.Wifi Rescan Contain' failed after retrying for 3 minutes. The last error was: 'IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:F4:C2:0B:51:B2  ROOT  Infra  44    270 Mbit/s  71      ▂▄▆_  WPA2     ' does not contain 'R1'</status>
 </test>
-<test id="s1-t3" name="2. Verify reset should successfully on WebGUI" line="32">
-<tag>robot:exit</tag>
-<status status="FAIL" starttime="20231222 11:23:06.445" endtime="20231222 11:23:06.445">Test execution stopped due to a fatal error.</status>
-</test>
-<status status="FAIL" starttime="20231222 11:22:28.231" endtime="20231222 11:23:06.446"/>
+<status status="FAIL" starttime="20231225 16:36:35.315" endtime="20231225 16:43:09.653"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="3" skip="0">All Tests</stat>
+<stat pass="3" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="0" fail="2" skip="0" info="combined" combined="NOT robot:exit">NOT robot:exit</stat>
 </tag>
 <suite>
-<stat pass="0" fail="3" skip="0" id="s1" name="TC ResetWebGUI">TC ResetWebGUI</stat>
+<stat pass="3" fail="1" skip="0" id="s1" name="TC Wifi Radio5g">TC Wifi Radio5g</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20231222 11:22:28.396" level="ERROR">Error in file '/home/ubuntu/PycharmProjects/MeshAP/TC_ResetWebGUI.robot' on line 10: Error in file '/home/ubuntu/PycharmProjects/MeshAP/venv/lib/Selenium_lib/Lib_Selenium_SystemPage.robot' on line 73: Resource file with 'Test Case' section is invalid.</msg>
-<msg timestamp="20231222 11:22:28.398" level="ERROR">Error in file '/home/ubuntu/PycharmProjects/MeshAP/TC_ResetWebGUI.robot' on line 11: Error in file '/home/ubuntu/PycharmProjects/MeshAP/venv/lib/Selenium_lib/SystemPage.robot' on line 73: Resource file with 'Test Case' section is invalid.</msg>
-<msg timestamp="20231222 11:22:52.378" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=120.0.6099.71)
-Stacktrace:
-#0 0x5645619a0ea3 &lt;unknown&gt;
-#1 0x56456166c297 &lt;unknown&gt;
-#2 0x5645616402d8 &lt;unknown&gt;
-#3 0x5645616eb72f &lt;unknown&gt;
-#4 0x564561702366 &lt;unknown&gt;
-#5 0x5645616e3fe3 &lt;unknown&gt;
-#6 0x5645616ac5a3 &lt;unknown&gt;
-#7 0x5645616ad96e &lt;unknown&gt;
-#8 0x56456196884d &lt;unknown&gt;
-#9 0x56456196c774 &lt;unknown&gt;
-#10 0x564561957cc2 &lt;unknown&gt;
-#11 0x56456196d235 &lt;unknown&gt;
-#12 0x56456193e4de &lt;unknown&gt;
-#13 0x56456198f0d8 &lt;unknown&gt;
-#14 0x56456198f2e1 &lt;unknown&gt;
-#15 0x56456199ffe5 &lt;unknown&gt;
-#16 0x7f82d8452ac3 &lt;unknown&gt;
-</msg>
+<msg timestamp="20231225 16:36:35.507" level="ERROR">Error in file '/home/ubuntu/PycharmProjects/MeshAP/venv/lib/Selenium_lib/Lib_Selenium_WireLess.robot' on line 4: Resource file 'venv/lib/Selenium_lib/Lib_Selenium_Login.robot' does not exist.</msg>
+<msg timestamp="20231225 16:36:35.523" level="ERROR">Error in file '/home/ubuntu/PycharmProjects/MeshAP/venv/lib/SSH_Lib/SSH_Connect_wifi.robot' on line 4: Resource file '../venv/lib/SSH_Lib/SSH_ping.robot' does not exist.</msg>
+<msg timestamp="20231225 16:36:35.524" level="ERROR">Error in file '/home/ubuntu/PycharmProjects/MeshAP/venv/lib/SSH_Lib/SSH_Connect_wifi.robot' on line 5: Resource file '../venv/lib/SSH_Lib/SSH_ping.robot' does not exist.</msg>
 </errors>
 </robot>

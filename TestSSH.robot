@@ -71,9 +71,16 @@ Connect to Wifi Hidden
     ${status_log2}=          SSHL.Execute Command    nmcli con delete wifi-hidden       delay=10s   sudo=su     sudo_password=1
     Should Contain          ${status_log2}      successfully deleted
 *** Test Case ***
+Get Mac Addr for Wireless
+    Open Browser            https://192.168.88.1            ${Browser}
+    Chrome Pass Certificate google if present
+    Login To WebGUI on local machine         root            ${PassWord}
+
+
 4. Reconnect to Wifi With Correct Password and Check ping to Internet
-#    Open SSH Session Login To Local Machine
-#    Sleep    5
+
+    Open SSH Session Login To Local Machine
+    Sleep    5
 #    Connect to Wifi Hidden  Wifi1   12345678
 #    SSHL.Write    nmcli d wifi list | grep EW_86af28 | awk '{print $1, $4}'
 #    Sleep       30

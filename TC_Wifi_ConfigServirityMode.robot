@@ -12,7 +12,9 @@ Resource                     venv/lib/Variable.robot
 *** Variables ***
 
 @{List_mode}        WPA-PSK     WPA2-PSK    WPA-PSK/WPA2-PSK Mixed Mode    WPA3-SAE     WPA2-PSK/WPA3-SAE Mixed Mode
-#${Mode_Athen}       WPA-PSK
+&{Sercurity}        WPA-PSK = WPA1          WPA2-PSK = WPA2     WPA-PSK/WPA2-PSK Mixed Mode= WPA1 WPA2      WPA3-SAE= WPA3      WPA2-PSK/WPA3-SAE Mixed Mode= WPA2 WPA3
+
+${Mode_Athen}       WPA-PSK
 
 
 *** Keywords ***
@@ -175,15 +177,24 @@ Config Servirity Mode
 #    #Verify config success
 #    Should Match                    ${Value}        WPA-PSK/WPA2-PSK Mixed Mode
 #
-#1.3 Reconnect to Wifi With Correct Password
-#    Open SSH Session Login To Local Machine
-#    Sleep    5
-#    SSH_Connect_wifi.Enable Wifi
-#    SSH_Connect_wifi.Delete All Wireless
-#    Wait Until Keyword Succeeds    180    5    SSH_Connect_wifi.Wifi Rescan Contain   ${New_SSID}
+1.3 Reconnect to Wifi With Correct Password
+    Open SSH Session Login To Local Machine
+    Sleep    5
+    SSH_Connect_wifi.Enable Wifi
+    SSH_Connect_wifi.Delete All Wireless
+    Wait Until Keyword Succeeds    180    5    SSH_Connect_wifi.Wifi Rescan Contain   ${New_SSID}
+
+	Log To Console    Verify Security Mode in client
+	${wf_list}              SSHL.Execute Command             nmcli d wifi list          timeout= 50
+    FOR     ${key}      ${value}     IN    &{Sercurity}
+            IF      $Mode_Athen= ${key}
+                Log To Console         Sercurity Mode is: ${key} / (${value})
+                Should Match Regexp    ${wf_list}    .*(${Mesh_SSID}).*($value)
+            END
+    END
 #    # Connect control PC to wifi
-#    ${wlan_interface}=                             	SSHL.Execute Command    nmcli --fields Device,Type device status | grep 'wifi' | awk '{print $1}'
-#    SSH_Connect_wifi.Connect To Wifi                                	${wlan_interface}    ${New_SSID}    ${New_PW}
-#    #check internet by Ping comment
-##    Ping From PC To         ${wlan_interface}               8.8.8.8
-#    SSH_ping.Ping Should Succeed    8.8.8.8   ${wlan_interface}
+    ${wlan_interface}=                             	SSHL.Execute Command    nmcli --fields Device,Type device status | grep 'wifi' | awk '{print $1}'
+    SSH_Connect_wifi.Connect To Wifi                                	${wlan_interface}    ${New_SSID}    ${New_PW}
+    #check internet by Ping comment
+#    Ping From PC To         ${wlan_interface}               8.8.8.8
+    SSH_ping.Ping Should Succeed    8.8.8.8   ${wlan_interface}
